@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <main className="min-h-[1000px] max-w-7xl mx-auto mb-20">
         <NavBar />
         {/* content */}
-        {children}
+        <main> {children} </main>
       </main>
       <Footer />
     </div>

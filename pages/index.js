@@ -105,6 +105,7 @@ const Welcome = () => {
             src={LogoPt}
             alt="avatar"
             priority
+            style={{ width: "auto", height: "auto" }}
           ></Image>
           <div className="w-full flex flex-col md:flex-row md:space-x-1 ">
             <div className="h-96 md:w-2/3 bg-gray-100">

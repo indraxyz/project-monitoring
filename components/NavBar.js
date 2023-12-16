@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState } from "react";
 import {
   Dialog,
@@ -6,7 +5,6 @@ import {
   DialogActions,
   DialogContent,
   Button,
-  Box,
 } from "@mui/material";
 import { useRouter } from "next/router";
 
@@ -40,7 +38,7 @@ const Navbar = () => {
       {/* Projects */}
       <div>
         <span className="mr-4">
-          <ActiveLink href={"/projects/registers"}>Registers</ActiveLink>
+          <ActiveLink href={"/projects"}>Registers</ActiveLink>
         </span>
         <span className="mr-4">
           <ActiveLink href={"/projects/approvals"}>Approvals</ActiveLink>
@@ -75,7 +73,7 @@ const Navbar = () => {
 
       {/* profile */}
       <div>
-        <ActiveLink href={"/my-profile"}>Profile</ActiveLink>
+        <ActiveLink href={"/profile"}>Profile</ActiveLink>
       </div>
 
       {/* Logout */}

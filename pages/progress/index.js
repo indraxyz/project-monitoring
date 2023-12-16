@@ -69,7 +69,7 @@ const steps = [
   },
 ];
 
-const ProgressPage = () => {
+const Progress = () => {
   // state
   const [searchKey, setSearchKey] = useState("");
 
@@ -309,4 +309,4 @@ const ProgressPage = () => {
   );
 };
 
-export default ProgressPage;
+export default Progress;
