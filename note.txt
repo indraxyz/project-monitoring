@@ -1,0 +1,166 @@
+INSTALLING 
+back: 
+    express: express generator, dotenv, middleware, nodemon
+    postgre: sequelize, sequelize-cli, pg, pg-hstore, .sequelizerc  
+    perlu extexd/ perpanjang jwt token sbelum expired, buat api untuk perpanjang token
+
+front: create-next-app, mui emotion, nprogress, tailwind
+
+NEXTjs:
+    app directory
+    configuring
+        next.config.js
+        eslint
+        typeScript
+        Absolute Imports and Module Path Aliases
+        turbopack
+    routing :
+        opsi : nested, dynamic, injecting,allow
+        layout and pages
+        link and navigation
+        skeleton
+        error handling
+        error page
+        api routes : basic, dynamic, middleware (cookies, query, body) , res (status, json, send, redirect, revalidate)
+            [param].js //dynamic
+            [...slug].js // /api/post/a/b/c
+    rendering :
+        server and client component
+        static and dynamic
+        edge and node.js runtime
+    data fetching :
+        fetching
+        caching
+        revalidating
+        mutating
+        Streaming and suspense
+        generating static params
+    styling :
+        css support, modules
+        global styles
+        External Stylesheets
+        css in js
+        sass
+    middleware 
+    optimizing :
+        image, font 
+        static file (public root directory)
+        script (third-party .js)
+        dynamic import
+        fast refresh
+    deploying
+        env variables
+        guide
+        LIVE EDITING (pakai vercel server)
+        next.js build
+        Self-hosted/ nodejs server : which can then be deployed on its own without installing node_modules.
+        docker image
+    auth (on page, auth provider)
+    advanced feature (debugging, performance, multi zones, source maps, security header)
+    testing ( testing tools)
+    production (cache, db-backend, minimize js bundle, logging, error handling, 404-500 page, measuring-improve performance & loading, lighthouse)
+        
+    VERSION 13
+    app directory
+        Layout
+        React server component
+        Streaming
+        Data Fetching
+    next/ image
+    next/ font
+    next/ link
+    middleware api update
+
+
+REF:
+handle jwt expired
+    https://gist.github.com/soulmachine/b368ce7292ddd7f91c15accccc02b8df 
+    https://gist.github.com/soulmachine/b368ce7292ddd7f91c15accccc02b8df 
+    https://stackoverflow.com/questions/26739167/jwt-json-web-token-automatic-prolongation-of-expiration 
+awesome tailwind
+    https://github.com/aniftyco/awesome-tailwindcss#ui-libraries-components--templates
+NextJs with Material ui
+    https://github.com/mui/material-ui/tree/master/examples/nextjs 
+Mui - Tailwind
+    https://github.com/mui/material-ui/tree/master/examples/tailwind-css 
+customize theme
+    https://www.headway.io/blog/global-styling-with-material-ui-theme-overrides-and-props 
+ADMIN ui
+    https://demo.saleor.io/dashboard/ 
+    https://demos.creative-tim.com/argon-dashboard-material-ui/?_ga=2.20939964.502045187.1649993585-1598063165.1648895124#/admin/index
+    https://node-js-react-purity-dashboard.appseed-srv1.com/#/admin/billing
+    https://react-node-js-berry-dashboard.appseed-srv1.com/dashboard/default
+Layouting
+    https://nextjs.org/docs/basic-features/layouts 
+REF Mix Project
+    https://github.com/mui/material-ui/tree/master/examples 
+    https://github.com/vercel/next.js/tree/canary/examples
+error parsing next/babel
+    https://stackoverflow.com/questions/56988147/eslint-doesnt-work-in-vscode-but-work-from-terminal 
+    https://code.visualstudio.com/docs/getstarted/settings 
+
+NEW REF
+next.js + material ui + emotion 
+https://github.com/mui/material-ui/tree/master/examples/nextjs 
+https://reacthustle.com/blog/how-to-setup-mui-with-nextjs-emotion-and-typescript 
+next.js + tailwind
+https://tailwindcss.com/docs/guides/nextjs
+https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss 
+https://stackoverflow.com/questions/73810671/tailwind-style-doesnt-seems-to-be-apply-inside-material-ui-drawer-component-in
+material ui + tailwind
+https://mui.com/material-ui/guides/interoperability/#tailwind-css 
+custom server
+https://medium.com/@geevadon/how-to-deploy-a-next-js-app-on-cpanel-efficiently-c00c5eb860de 
+https://nextjs.org/docs/advanced-features/custom-server
+https://github.com/vercel/next.js/tree/deprecated-main/examples/custom-server-express
+slider
+https://swiperjs.com/
+https://react-hook-form.com/ 
+https://github.com/jquense/yup 
+https://notistack.com/ 
+https://reactpatterns.js.org/docs 
+mui file upload
+https://viclafouch.github.io/mui-file-input/
+
+MENU, PAGES, MODUL :
+Onboarding 
+    login  /ui✅ header footer
+    signup /ui✅
+    //approvel oleh superuser
+    lupa sandi /ui✅
+    // kirim ke email
+Dashboard /ui📌
+    highlight information
+    //jumlah progres dalam 1 bulan terakhir : on going, finished, paid
+    project monitoring
+    //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
+    //kolom: Job Number, Client, on going - finished - invoicing - paid, status
+projects /0 super-lead
+    Register
+    //list(ui table), detail, crud, cari + filter
+    Approval 📌
+    //persetujuan setiap progres oleh lead
+    //list(ui card)
+    schedules
+    //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
+    timesheets 
+    //crud, cari + filter, list(ui table) + detail
+progress ui✅
+    // form cari > history status project (ui vertical step) > form progress 
+References  / super-lead 
+    personnels / ui✅
+    //crud, cari + filter, list + detail /ui
+    clients /ui✅
+    //crud, cari + filter, list + detail /ui
+    users /ui✅
+    //crud, cari + filter, list + detail   
+My Profile /ui✅
+    //view, detail, photo, edit, password    
+Logout /ui✅
+bersihkan library/code yg tidak terpakai✅
+
+###
+register project > job schedule (personnels work sheet (dari kertas manual)) > time sheet
+1 job number bisa beberapa worksheet, perusahaan bisa berbeda, lokasi bisa berbeda
+// local storage TIPE ADMIN > bedakan top nav, bedakan menu "Users"
+// middleware nextJs > batasi akses menu
