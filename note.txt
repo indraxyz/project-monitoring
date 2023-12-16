@@ -1,76 +1,18 @@
-INSTALLING 
-back: 
-    express: express generator, dotenv, middleware, nodemon
-    postgre: sequelize, sequelize-cli, pg, pg-hstore, .sequelizerc  
-    perlu extexd/ perpanjang jwt token sbelum expired, buat api untuk perpanjang token
 
-front: create-next-app, mui emotion, nprogress, tailwind
-
-NEXTjs:
-    app directory
-    configuring
-        next.config.js
-        eslint
-        typeScript
-        Absolute Imports and Module Path Aliases
-        turbopack
-    routing :
-        opsi : nested, dynamic, injecting,allow
-        layout and pages
-        link and navigation
-        skeleton
-        error handling
-        error page
-        api routes : basic, dynamic, middleware (cookies, query, body) , res (status, json, send, redirect, revalidate)
-            [param].js //dynamic
-            [...slug].js // /api/post/a/b/c
-    rendering :
-        server and client component
-        static and dynamic
-        edge and node.js runtime
-    data fetching :
-        fetching
-        caching
-        revalidating
-        mutating
-        Streaming and suspense
-        generating static params
-    styling :
-        css support, modules
-        global styles
-        External Stylesheets
-        css in js
-        sass
-    middleware 
     optimizing :
         image, font 
         static file (public root directory)
-        script (third-party .js)
         dynamic import
         fast refresh
     deploying
         env variables
-        guide
-        LIVE EDITING (pakai vercel server)
         next.js build
         Self-hosted/ nodejs server : which can then be deployed on its own without installing node_modules.
-        docker image
     auth (on page, auth provider)
     advanced feature (debugging, performance, multi zones, source maps, security header)
     testing ( testing tools)
     production (cache, db-backend, minimize js bundle, logging, error handling, 404-500 page, measuring-improve performance & loading, lighthouse)
         
-    VERSION 13
-    app directory
-        Layout
-        React server component
-        Streaming
-        Data Fetching
-    next/ image
-    next/ font
-    next/ link
-    middleware api update
-
 
 REF:
 handle jwt expired
@@ -92,12 +34,10 @@ ADMIN ui
     https://react-node-js-berry-dashboard.appseed-srv1.com/dashboard/default
 Layouting
     https://nextjs.org/docs/basic-features/layouts 
-REF Mix Project
+ Mix Project
     https://github.com/mui/material-ui/tree/master/examples 
     https://github.com/vercel/next.js/tree/canary/examples
-error parsing next/babel
-    https://stackoverflow.com/questions/56988147/eslint-doesnt-work-in-vscode-but-work-from-terminal 
-    https://code.visualstudio.com/docs/getstarted/settings 
+
 
 NEW REF
 next.js + material ui + emotion 
@@ -123,6 +63,9 @@ mui file upload
 https://viclafouch.github.io/mui-file-input/
 
 MENU, PAGES, MODUL :
+menu 📌
+    TopNav
+    Footer 
 Onboarding 
     login  /ui✅ header footer
     signup /ui✅
@@ -130,8 +73,8 @@ Onboarding
     lupa sandi /ui✅
     // kirim ke email
 Dashboard /ui📌
-    highlight information
-    //jumlah progres dalam 1 bulan terakhir : on going, finished, paid
+    highlight progress
+    //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
     //kolom: Job Number, Client, on going - finished - invoicing - paid, status

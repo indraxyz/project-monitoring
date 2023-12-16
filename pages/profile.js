@@ -1,6 +1,6 @@
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 import Image from "next/image";
-import xImage from "../../public/image.jpg";
+import xImage from "../public/image.jpg";
 import { useState } from "react";
 import {
   Button,
@@ -31,7 +31,7 @@ import {
   FaceRounded,
 } from "@mui/icons-material";
 import { MuiFileInput } from "mui-file-input";
-import { qualifications, certifications } from "../../config/optionals";
+import { qualifications, certifications } from "../config/optionals";
 
 const Profile = () => {
   const [dialogEdit, setDialogEdit] = useState(false);

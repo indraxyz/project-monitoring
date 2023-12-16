@@ -1,4 +1,4 @@
-import Layout from "../../../components/Layout";
+import Layout from "../../components/Layout";
 import { Component } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {

@@ -1,4 +1,4 @@
-import Layout from "../../../components/Layout";
+import Layout from "../../components/Layout";
 import { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -29,7 +29,7 @@ import {
   SearchRounded,
 } from "@mui/icons-material";
 let searchTimer;
-import { qualifications, certifications } from "../../../config/optionals";
+import { qualifications, certifications } from "../../config/optionals";
 
 const Personnels = () => {
   // state
