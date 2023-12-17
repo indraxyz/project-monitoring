@@ -97,9 +97,11 @@ const Welcome = () => {
   };
 
   return (
-    <div>
-      <div className="min-h-[1000px]">
-        <div className="max-w-5xl mx-auto my-4 md:shadow-lg md:my-6 ">
+    <div className="bg-gray-100">
+      {/* container card */}
+      <div className="md:py-10 mb-10">
+        {/* card */}
+        <div className="max-w-5xl mx-auto pt-6 pb-8 md:p-6 md:shadow-lg bg-white">
           <Image
             className="h-18 m-4 md:h-20 "
             src={LogoPt}
@@ -125,8 +127,10 @@ const Welcome = () => {
               </Swiper>
             </div>
 
-            <div className="md:w-1/3 p-8 md:p-4">
-              <span className="text-4xl font-bold my-2 block">Spektra</span>
+            <div className="md:w-1/3 md:pl-4 md:m-0 m-4">
+              <span className="text-4xl font-bold py-2 mt-6 md:m-0 block">
+                Spektra
+              </span>
               <span>Project Management System</span>
               {/* login form */}
               <div>
@@ -137,12 +141,17 @@ const Welcome = () => {
                   margin="dense"
                   label="Username"
                   variant="standard"
-                  fullWidth
                   autoComplete="on"
+                  className="w-full sm:w-1/2 md:w-full"
                 />
-                <FormControl variant="standard" margin="dense" fullWidth>
+                <FormControl
+                  variant="standard"
+                  margin="dense"
+                  className="block"
+                >
                   <InputLabel htmlFor="login-password">Password</InputLabel>
                   <Input
+                    className="w-full sm:w-1/2 md:w-full"
                     id="login-password"
                     name="password"
                     value={login.password}
@@ -160,7 +169,7 @@ const Welcome = () => {
                 <Button
                   href="#"
                   variant="contained"
-                  className=" mt-6 w-full sm:w-1/2 md:w-full"
+                  className=" mt-6 w-full sm:w-1/2 md:w-full "
                   onClick={_login}
                 >
                   Login

@@ -17,9 +17,9 @@ import {
   SearchRounded,
   TodayRounded,
   SyncRounded,
-  CheckCircleRounded,
+  ReceiptLongRounded,
+  VerifiedRounded,
   DescriptionRounded,
-  HowToRegRounded,
   SendRounded,
 } from "@mui/icons-material";
 import { useState } from "react";
@@ -53,7 +53,7 @@ const steps = [
     label: "Job Finished",
     description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads .`,
-    icon: <HowToRegRounded />,
+    icon: <VerifiedRounded />,
   },
   {
     label: "Invoicing",
@@ -65,7 +65,7 @@ const steps = [
     label: "Paid",
     description:
       "An ad group contains one or more ads which target a shared set of keywords.",
-    icon: <CheckCircleRounded />,
+    icon: <ReceiptLongRounded />,
   },
 ];
 

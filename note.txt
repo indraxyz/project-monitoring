@@ -62,10 +62,8 @@ https://reactpatterns.js.org/docs
 mui file upload
 https://viclafouch.github.io/mui-file-input/
 
-MENU, PAGES, MODUL :
-menu 📌
-    TopNav
-    Footer 
+MENU, PAGES, MODUL : 
+    TopNav 📌
 Onboarding 
     login  /ui✅ header footer
     signup /ui✅

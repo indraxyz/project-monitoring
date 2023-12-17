@@ -32,7 +32,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="py-4 ">
+    <div className="p-4 ">
       <ActiveLink href={"/dashboard"}>Dashboard</ActiveLink>
 
       {/* Projects */}

@@ -3,11 +3,10 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className=" px-4 md:px-8">
-      <main className="min-h-[1000px] max-w-7xl mx-auto mb-20">
-        <NavBar />
-        {/* content */}
-        <main> {children} </main>
+    <div className="bg-gray-100">
+      <NavBar />
+      <main className="min-h-[900px] max-w-7xl mx-auto px-4 md:px-6 mb-20">
+        {children}
       </main>
       <Footer />
     </div>
