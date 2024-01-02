@@ -63,7 +63,7 @@ mui file upload
 https://viclafouch.github.io/mui-file-input/
 
 MENU, PAGES, MODUL : 
-    TopNav 📌 
+    TopNav 📌 1
 Onboarding 
     login  /ui✅ header footer
     signup /ui✅
@@ -77,9 +77,9 @@ Dashboard /ui ✅
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
     //kolom: Job Number, Client, on going - finished - invoicing - paid, status
 projects /0 super-lead
-    Register
+    Register 📌3
     //list(ui table), detail, crud, cari + filter
-    Approval 📌
+    Approval 📌2
     //persetujuan setiap progres oleh lead
     //icon top nav > list data progres (popup view) > detail (modal)
     schedules
