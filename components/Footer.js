@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div className="text-base text-center text-gray-400 py-10">
-      <span>🚀 {new Date().getFullYear()} kodehack </span>
+    <div className="block text-base text-center text-gray-400 mt-auto py-5 sm:py-10 ">
+      <span>©️ {new Date().getFullYear()} 🚀 kodehack </span>
     </div>
   );
 };

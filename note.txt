@@ -66,10 +66,8 @@ MENU, PAGES, MODUL :
     TopNav 📌 1
 Onboarding 
     login  /ui✅ header footer
-    signup /ui✅
-    //approvel oleh superuser
-    lupa sandi /ui✅
-    // kirim ke email
+    signup /ui✅ //approvel oleh superuser
+    lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
     highlight progress
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
