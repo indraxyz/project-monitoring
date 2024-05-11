@@ -84,7 +84,7 @@ projects /0 super-lead
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
     timesheets 
     //crud, cari + filter, list(ui table) + detail
-progress ui✅
+progress ui✅ 📌0 minimize project data
     // form cari > history status project (ui vertical step) > form progress 
 References  / super-lead 
     personnels / ui✅

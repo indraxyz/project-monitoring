@@ -12,7 +12,7 @@ import {
   EventRepeatRounded,
   VerifiedRounded,
   ReceiptLongRounded,
-  DateRangeRounded,
+  EditCalendarRounded,
   CheckCircleRounded,
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -136,7 +136,7 @@ const Dashboard = () => {
         >
           <CardActionArea onClick={() => console.log("edit range")}>
             <CardContent className="flex flex-row items-center ">
-              <DateRangeRounded className=" text-6xl" />
+              <EditCalendarRounded className=" text-6xl" />
               <div className="ml-4">
                 <span className="text-xl font-bold block">06-12 2022</span>
                 <span className="text-base">Months</span>
