@@ -34,7 +34,7 @@ const Welcome = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [login, setLogin] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [dialogForgot, setDialogForgot] = useState(false);
@@ -44,7 +44,6 @@ const Welcome = () => {
     fullname: "",
     nik: "",
     email: "",
-    username: "",
     password: "",
     passwordConfirm: "",
   });
@@ -97,7 +96,7 @@ const Welcome = () => {
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 flex flex-col min-h-screen">
       {/* container card */}
       <div className="md:py-10 mb-10">
         {/* card */}
@@ -135,11 +134,11 @@ const Welcome = () => {
               {/* login form */}
               <div>
                 <TextField
-                  name="username"
-                  value={login.username}
+                  name="email"
+                  value={login.email}
                   onChange={_loginFormChange}
                   margin="dense"
-                  label="Username"
+                  label="Email"
                   variant="standard"
                   autoComplete="on"
                   className="w-full sm:w-1/2 md:w-full"
@@ -214,7 +213,7 @@ const Welcome = () => {
       >
         <DialogTitle>Signup Account</DialogTitle>
         <DialogContent>
-          <span>Please complete form below to have login account</span>
+          <span>Please complete form below to make account</span>
           <TextField
             name="fullname"
             value={signup.fullname}
@@ -246,7 +245,7 @@ const Welcome = () => {
             variant="standard"
             autoComplete="on"
           />
-          <TextField
+          {/* <TextField
             name="username"
             value={signup.username}
             onChange={() => {}}
@@ -256,7 +255,7 @@ const Welcome = () => {
             fullWidth
             variant="standard"
             autoComplete="on"
-          />
+          /> */}
           <TextField
             name="password"
             value={signup.password}
@@ -295,8 +294,7 @@ const Welcome = () => {
         <DialogTitle>Forgot Account</DialogTitle>
         <DialogContent>
           <span>
-            Please type your email below, you will get steps to get back on your
-            account
+            Please type your email below, check your inbox to reset password
           </span>
           <TextField
             name="forgotAccount"

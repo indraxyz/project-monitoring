@@ -1,10 +1,18 @@
 import Layout from "../components/Layout";
-import { Card, CardContent, IconButton } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardActionArea,
+  IconButton,
+  Paper,
+  Link,
+  Button,
+} from "@mui/material";
 import {
   EventRepeatRounded,
   VerifiedRounded,
   ReceiptLongRounded,
-  SettingsRounded,
+  DateRangeRounded,
   CheckCircleRounded,
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -41,11 +49,11 @@ const columns = [
     renderCell: ({ row }) =>
       row.progress == 3 && <CheckCircleRounded className="text-green-700" />,
   },
-  {
-    field: "projectStatus",
-    headerName: "Status",
-    width: 100,
-  },
+  // {
+  //   field: "projectStatus",
+  //   headerName: "Status",
+  //   width: 100,
+  // },
 ];
 
 const rows = [
@@ -103,49 +111,60 @@ const rows = [
 const Dashboard = () => {
   return (
     <Layout>
-      <span className="block text-2xl font-bold mt-8">Project Monitoring</span>
-      <span className="text-base text-gray-500 block mb-6">
-        hi Username, have a nice day at {new Date().toDateString()} 📝😊
+      <span className="block text-3xl font-bold my-8">Project Monitoring</span>
+      <span className="text-base text-gray-500 block mb-6 underline">
+        hi Username 😊, have a nice day 🌈
       </span>
 
-      <div className="flex justify-end mb-2">
+      {/* <div className="flex justify-end mb-2">
         <IconButton className="mr-1" title="data setting">
           <SettingsRounded className="text-gray-500" />
         </IconButton>
-      </div>
+      </div> */}
 
       {/* hightlight information */}
       <div className=" flex flex-col space-y-6 sm:space-y-0 sm:flex-row sm:space-x-6">
         <Card
           variant="outlined"
-          className="w-full sm:w-1/3 md:w-1/4 p-4 rounded-xl"
+          className="w-full sm:w-1/4 rounded-xl"
+          sx={{
+            ":hover": {
+              boxShadow: 3,
+              borderColor: "black",
+            },
+          }}
         >
-          <CardContent className="flex flex-row items-center ">
-            <EventRepeatRounded className="text-6xl text-gray-700" />
+          <CardActionArea onClick={() => console.log("edit range")}>
+            <CardContent className="flex flex-row items-center ">
+              <DateRangeRounded className=" text-6xl" />
+              <div className="ml-4">
+                <span className="text-xl font-bold block">06-12 2022</span>
+                <span className="text-base">Months</span>
+              </div>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
+          <CardContent className="flex flex-row items-center p-4">
+            <EventRepeatRounded className="text-6xl " />
             <div className="ml-4">
               <span className="text-3xl font-bold block">99</span>
               <span className="text-base">Ongoing</span>
             </div>
           </CardContent>
         </Card>
-        <Card
-          variant="outlined"
-          className="w-full sm:w-1/3 md:w-1/4 p-4 rounded-xl"
-        >
-          <CardContent className="flex flex-row items-center ">
-            <VerifiedRounded className="text-6xl text-gray-700" />
+        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
+          <CardContent className="flex flex-row items-center p-4">
+            <VerifiedRounded className="text-6xl " />
             <div className="ml-4">
               <span className="text-3xl font-bold block">99</span>
               <span className="text-base">Finished</span>
             </div>
           </CardContent>
         </Card>
-        <Card
-          variant="outlined"
-          className="w-full sm:w-1/3 md:w-1/4 p-4 rounded-xl"
-        >
-          <CardContent className="flex flex-row items-center ">
-            <ReceiptLongRounded className="text-6xl text-gray-700" />
+        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
+          <CardContent className="flex flex-row items-center p-4">
+            <ReceiptLongRounded className="text-6xl " />
             <div className="ml-4">
               <span className="text-3xl font-bold block">99</span>
               <span className="text-base">Paid</span>
@@ -154,21 +173,20 @@ const Dashboard = () => {
         </Card>
       </div>
 
-      {/* progress, 10 newest data */}
-      <span className="block text-xl font-medium text-gray-500 mt-8">
+      {/* projects, /10 data */}
+      {/* <span className="block text-xl font-medium text-gray-500 mt-8">
         Progress
-      </span>
-      <div className="my-4 h-[631px]">
-        <DataGrid
-          getRowId={(row) => row.jobNumber}
-          rows={rows}
-          columns={columns}
-          autoPageSize
-          pageSizeOptions={[5, 10]}
-          disableRowSelectionOnClick
-          onRowDoubleClick={(p, e, d) => console.log(p)}
-        />
-      </div>
+      </span> */}
+      <DataGrid
+        className="rounded-xl bg-white my-6 h-[633px]"
+        getRowId={(row) => row.jobNumber}
+        rows={rows}
+        columns={columns}
+        autoPageSize
+        pageSizeOptions={[5, 10]}
+        disableRowSelectionOnClick
+        onRowDoubleClick={(p, e, d) => console.log(p)}
+      />
     </Layout>
   );
 };

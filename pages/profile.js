@@ -158,9 +158,9 @@ const Profile = () => {
           <div className="md:px-8">
             <div className="mt-4">
               <span className="text-lg font-medium text-gray-900 block mb-2">
-                Username
+                Email
               </span>
-              <span className=" text-md text-gray-500">{profile.username}</span>
+              <span className=" text-md text-gray-500">{profile.email}</span>
             </div>
 
             <div className="mt-4">
@@ -228,7 +228,7 @@ const Profile = () => {
       >
         <DialogTitle>Detail Profile</DialogTitle>
         <DialogContent>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <span className="text-lg font-medium text-gray block mb-2">
               User Information
             </span>
@@ -241,6 +241,14 @@ const Profile = () => {
                   {profile.username}
                 </span>
               </div>
+             
+            </div>
+          </div> */}
+          <div>
+            <span className="text-lg font-medium text-gray-900 block mb-2">
+              Personnel Information
+            </span>
+            <div className="flex flex-col gap-2">
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
                   Email
@@ -249,13 +257,6 @@ const Profile = () => {
                   {profile.email}
                 </span>
               </div>
-            </div>
-          </div>
-          <div>
-            <span className="text-lg font-medium text-gray-900 block mb-2">
-              Personnel Information
-            </span>
-            <div className="flex flex-col gap-2">
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
                   NIK
@@ -458,7 +459,7 @@ const Profile = () => {
         <DialogContent>
           <div className="space-y-4">
             {/* user information */}
-            <div>
+            {/* <div>
               <span className="text-lg font-medium">User Information</span>
               <TextField
                 name="username"
@@ -472,6 +473,11 @@ const Profile = () => {
                 variant="standard"
                 autoComplete="on"
               />
+              
+            </div> */}
+            {/* personnel information */}
+            <div className="py-4">
+              <span className="text-lg font-medium">Personnel Information</span>
               <TextField
                 name="email"
                 value={profileValue.email}
@@ -483,11 +489,6 @@ const Profile = () => {
                 variant="standard"
                 autoComplete="on"
               />
-            </div>
-            {/* personnel information */}
-            <div className="py-6">
-              <span className="text-lg font-medium">Personnel Information</span>
-
               <TextField
                 name="nik"
                 value={profileValue.nik}

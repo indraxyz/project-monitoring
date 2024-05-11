@@ -57,13 +57,13 @@ class Users extends Component {
 
   columns = () => [
     // { field: "id", headerName: "ID", width: 70 },
-    { field: "username", headerName: "Username", width: 150 },
-    { field: "email", headerName: "Email", width: 200 },
+    // { field: "username", headerName: "Username", width: 150 },
     {
       field: "fullname",
       headerName: "Full Name",
       width: 200,
     },
+    { field: "email", headerName: "Email", width: 200 },
     {
       field: "type",
       headerName: "Type",
@@ -233,7 +233,7 @@ class Users extends Component {
     // cari
     this.setState({
       liveDatas: copyDatas.filter(
-        (row) => row.username.toLowerCase().indexOf(key.toLowerCase()) > -1
+        (row) => row.fullname.toLowerCase().indexOf(key.toLowerCase()) > -1
       ),
     });
   };
@@ -355,7 +355,7 @@ class Users extends Component {
                   {...params}
                   variant="standard"
                   size="small"
-                  placeholder="search username"
+                  placeholder="search name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -368,7 +368,7 @@ class Users extends Component {
                 />
               )}
               onKeyUp={this.suggestSearch}
-              options={copyDatas.map((option) => option.username)}
+              options={copyDatas.map((option) => option.fullname)}
               onKeyDown={this.enterSearch}
               onInputChange={(e, v) => {
                 this.setState({ searchKey: v });
@@ -409,7 +409,7 @@ class Users extends Component {
             <Typography component="span" sx={{ fontWeight: "bold" }}>
               {liveDatas
                 .map((row, i) =>
-                  selectedDatas.includes(row.id) ? row.username : null
+                  selectedDatas.includes(row.id) ? row.fullname : null
                 )
                 .filter((el) => el != null)
                 .join(", ")}
@@ -430,12 +430,6 @@ class Users extends Component {
         >
           <DialogTitle>Detail Data</DialogTitle>
           <DialogContent>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Username
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.username}
-            </Typography>
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Email
             </Typography>
@@ -477,7 +471,7 @@ class Users extends Component {
           <DialogContent>
             Data from{" "}
             <Typography component="span" sx={{ fontWeight: "bold" }}>
-              {selectedData.username}
+              {selectedData.fullname}
             </Typography>
           </DialogContent>
           <DialogActions>
@@ -498,7 +492,7 @@ class Users extends Component {
           <DialogTitle>{submit == 0 ? "Create User" : "Edit User"}</DialogTitle>
           <DialogContent>
             {/* form new/ edit */}
-            <TextField
+            {/* <TextField
               name="username"
               value={profileValue.username}
               onChange={this._changeProfileValue}
@@ -508,7 +502,7 @@ class Users extends Component {
               type="text"
               fullWidth
               variant="standard"
-            />
+            /> */}
             <TextField
               name="email"
               value={profileValue.email}
