@@ -23,6 +23,13 @@ const columns = [
   { field: "worksheet", headerName: "Worksheet", width: 170 },
   { field: "client", headerName: "Client", width: 250 },
   {
+    field: "registered",
+    headerName: "Registered",
+    width: 100,
+    renderCell: ({ row }) =>
+      row.progress == -1 && <CheckCircleRounded className="text-orange-500" />,
+  },
+  {
     field: "ongoing",
     headerName: "Ongoing",
     width: 70,
@@ -33,21 +40,21 @@ const columns = [
     headerName: "Finished",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 1 && <CheckCircleRounded className="text-blue-700" />,
+      row.progress == 1 && <CheckCircleRounded className="text-blue-500" />,
   },
   {
     field: "invoicing",
     headerName: "Invoicing",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 2 && <CheckCircleRounded className="text-red-700" />,
+      row.progress == 2 && <CheckCircleRounded className="text-red-600" />,
   },
   {
     field: "paid",
     headerName: "Paid",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 3 && <CheckCircleRounded className="text-green-700" />,
+      row.progress == 3 && <CheckCircleRounded className="text-green-500" />,
   },
   // {
   //   field: "projectStatus",
@@ -89,7 +96,7 @@ const rows = [
     jobNumber: "x5",
     worksheet: "w5",
     client: "PT kita bisa",
-    progress: 1,
+    progress: -1,
     projectStatus: "-",
   },
   {
@@ -128,10 +135,12 @@ const Dashboard = () => {
           variant="outlined"
           className="w-full sm:w-1/4 rounded-xl"
           sx={{
-            ":hover": {
-              boxShadow: 3,
-              borderColor: "black",
-            },
+            color: "primary.main",
+            // boxShadow: 1,
+            // ":hover": {
+            //   boxShadow: 2,
+            //   // borderWidth: "2px",
+            // },
           }}
         >
           <CardActionArea onClick={() => console.log("edit range")}>

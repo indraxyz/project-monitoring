@@ -12,6 +12,9 @@ import {
   Typography,
   Tooltip,
   FormControl,
+  Card,
+  CardContent,
+  CardActions,
 } from "@mui/material";
 import {
   SearchRounded,
@@ -21,6 +24,10 @@ import {
   VerifiedRounded,
   DescriptionRounded,
   SendRounded,
+  WatchLaterRounded,
+  MoreRounded,
+  Description,
+  Inventory2Rounded,
 } from "@mui/icons-material";
 import { useState } from "react";
 // import { MuiFileInput } from "mui-file-input";
@@ -38,7 +45,7 @@ const dummyJobNumber = [
 // dummy progress
 const steps = [
   {
-    label: "Scheduled",
+    label: "Registered",
     description: `For each ad campaign that you create, you can control how much
               you're willing.`,
     icon: <TodayRounded />,
@@ -50,7 +57,7 @@ const steps = [
     icon: <SyncRounded />,
   },
   {
-    label: "Job Finished",
+    label: "Finished",
     description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads .`,
     icon: <VerifiedRounded />,
@@ -117,7 +124,7 @@ const Progress = () => {
         freeSolo
         renderInput={(params) => (
           <>
-            <span className="text-lg font-medium">Search Project</span>
+            <span className="text-lg font-medium">Search</span>
             <TextField
               {...params}
               variant="standard"
@@ -149,8 +156,35 @@ const Progress = () => {
       {/* Project Data */}
       <div className="mt-5 pt-5">
         <span className="text-lg font-medium">Project Data</span>
-        {/* project data: job_number, nama client, po, ... (tampilkan secukupnya, ada button detail data) */}
-        <div className="flex flex-col gap-2 mt-2">
+
+        {/* job Number, Client, Order, Description, status */}
+        <Card className="max-w-xl mt-4">
+          <CardContent>
+            <div className="flex flex-col gap-2">
+              <span className="block font-bold">Job Number. 389/19/031</span>
+              <span className="block text-xl">PT. SMELTING</span>
+              <div className="flex items-center">
+                <Inventory2Rounded></Inventory2Rounded>
+                <span className="ml-2">JAWA SATU, TAMBAK LOROK, MLI PS 10</span>
+              </div>
+              <div className="flex items-center">
+                <Description></Description>
+                <span className="ml-2">NDT, WI</span>
+              </div>
+            </div>
+          </CardContent>
+          <CardActions className="mx-2">
+            <div className="flex items-center">
+              <WatchLaterRounded></WatchLaterRounded>
+              <span className="ml-2">Open</span>
+            </div>
+            <IconButton className="ml-auto" color="primary">
+              <MoreRounded></MoreRounded>
+            </IconButton>
+          </CardActions>
+        </Card>
+        {/* DETAIL WITH MODAL */}
+        {/* <div className="flex flex-col gap-2 mt-2">
           <div>
             <span className="text-base font-medium text-gray-500 mb-1 block">
               Job Number
@@ -159,7 +193,7 @@ const Progress = () => {
           </div>
           <div>
             <span className="text-base font-medium text-gray-500 mb-1 block">
-              Client Name
+              Client
             </span>
             <span className="text-base font-normal text-gray-400">...</span>
           </div>
@@ -195,25 +229,13 @@ const Progress = () => {
           </div>
           <div>
             <span className="text-base font-medium text-gray-500 mb-1 block">
-              PO Date
-            </span>
-            <span className="text-base font-normal text-gray-400">...</span>
-          </div>
-          <div>
-            <span className="text-base font-medium text-gray-500 mb-1 block">
               Project Type
             </span>
             <span className="text-base font-normal text-gray-400">...</span>
           </div>
           <div>
             <span className="text-base font-medium text-gray-500 mb-1 block">
-              Project Status
-            </span>
-            <span className="text-base font-normal text-gray-400">...</span>
-          </div>
-          <div>
-            <span className="text-base font-medium text-gray-500 mb-1 block">
-              Remark
+              PO Date
             </span>
             <span className="text-base font-normal text-gray-400">...</span>
           </div>
@@ -229,7 +251,19 @@ const Progress = () => {
             </span>
             <span className="text-base font-normal text-gray-400">...</span>
           </div>
-        </div>
+          <div>
+            <span className="text-base font-medium text-gray-500 mb-1 block">
+              Remark
+            </span>
+            <span className="text-base font-normal text-gray-400">...</span>
+          </div>
+          <div>
+            <span className="text-base font-medium text-gray-500 mb-1 block">
+              Project Status
+            </span>
+            <span className="text-base font-normal text-gray-400">...</span>
+          </div>
+        </div> */}
       </div>
 
       {/* vertical step, progress data */}
@@ -243,7 +277,7 @@ const Progress = () => {
             <Step key={index} expanded={index <= 2 ? true : false}>
               <StepLabel
                 className={` ${
-                  index <= 2 ? "text-purple-700" : "text-gray-300"
+                  index <= 2 ? "text-indigo-500" : "text-gray-300"
                 }`}
                 icon={
                   <Tooltip title={step.description} placement="right">
