@@ -73,16 +73,15 @@ Dashboard /ui ✅
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
-    //kolom: Job Number, Client, on going - finished - invoicing - paid, status
-projects /0 super-lead
+projects
     Register 📌3
-    //list(ui table), detail, crud, cari + filter
+    //list(table), detail, crud, cari + filter
     Approval 📌2
     //persetujuan setiap progres oleh lead
-    //icon top nav > list data progres (popup view) > detail (modal)
-    schedules
+    //list data progres (table), detail (modal), approval
+    schedules📌
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
-    timesheets 
+    timesheets 📌
     //crud, cari + filter, list(ui table) + detail
 progress ui✅
     // form cari > history status project (ui vertical step) > form progress 
@@ -93,7 +92,7 @@ References  / super-lead
     //crud, cari + filter, list + detail /ui
     users /ui✅
     //crud, cari + filter, list + detail   
-My Profile /ui✅
+Profile /ui✅
     //view, detail, photo, edit, password    
 Logout /ui✅
 bersihkan library/code yg tidak terpakai✅
