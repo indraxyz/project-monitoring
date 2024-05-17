@@ -64,6 +64,7 @@ https://viclafouch.github.io/mui-file-input/
 
 MENU, PAGES, MODUL : 
     TopNav 📌 1
+    //AppBar, Popover
 Onboarding 
     login  /ui✅ header footer
     signup /ui✅ //approvel oleh superuser
@@ -78,7 +79,7 @@ projects
     //list(table), detail, crud, cari + filter
     Approval 📌2
     //persetujuan setiap progres oleh lead
-    //list data progres (table), detail (modal), approval
+    //list data progres (table), detail (modal), approval, filter (date, search by ...)
     schedules📌
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
     timesheets 📌
