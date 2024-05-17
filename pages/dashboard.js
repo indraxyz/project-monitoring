@@ -138,7 +138,6 @@ const Dashboard = () => {
             color: "primary.main",
             // boxShadow: 1,
             // ":hover": {
-            //   boxShadow: 2,
             //   // borderWidth: "2px",
             // },
           }}
@@ -183,9 +182,6 @@ const Dashboard = () => {
       </div>
 
       {/* projects, /10 data */}
-      {/* <span className="block text-xl font-medium text-gray-500 mt-8">
-        Progress
-      </span> */}
       <DataGrid
         className="rounded-xl bg-white my-6 h-[633px]"
         getRowId={(row) => row.jobNumber}
