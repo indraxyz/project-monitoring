@@ -144,9 +144,11 @@ const Dashboard = () => {
         >
           <CardActionArea onClick={() => console.log("edit range")}>
             <CardContent className="flex flex-row items-center ">
-              <EditCalendarRounded className=" text-6xl" />
+              <EditCalendarRounded className="text-4xl md:text-6xl" />
               <div className="ml-4">
-                <span className="text-xl font-bold block">06-12 2022</span>
+                <span className="text-base md:text-xl font-bold block">
+                  06-12 2022
+                </span>
                 <span className="text-base">Months</span>
               </div>
             </CardContent>
@@ -154,27 +156,27 @@ const Dashboard = () => {
         </Card>
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
-            <EventRepeatRounded className="text-6xl " />
+            <EventRepeatRounded className="text-4xl md:text-6xl" />
             <div className="ml-4">
-              <span className="text-3xl font-bold block">99</span>
+              <span className="text-2xl md:text-3xl font-bold block">99</span>
               <span className="text-base">Ongoing</span>
             </div>
           </CardContent>
         </Card>
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
-            <VerifiedRounded className="text-6xl " />
+            <VerifiedRounded className="text-4xl md:text-6xl" />
             <div className="ml-4">
-              <span className="text-3xl font-bold block">99</span>
+              <span className="text-2xl md:text-3xl font-bold block">99</span>
               <span className="text-base">Finished</span>
             </div>
           </CardContent>
         </Card>
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
-            <ReceiptLongRounded className="text-6xl " />
+            <ReceiptLongRounded className="text-4xl md:text-6xl" />
             <div className="ml-4">
-              <span className="text-3xl font-bold block">99</span>
+              <span className="text-2xl md:text-3xl font-bold block">99</span>
               <span className="text-base">Paid</span>
             </div>
           </CardContent>

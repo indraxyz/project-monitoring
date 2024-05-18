@@ -155,7 +155,7 @@ const Progress = () => {
 
       {/* Project Data */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium">Project Data</span>
+        <span className="text-lg font-medium">Project</span>
 
         {/* job Number, Client, Order, Description, status */}
         <Card className="max-w-xl mt-4">
@@ -306,7 +306,7 @@ const Progress = () => {
 
       {/* submit progress: new/ edit last rejected */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium">Submit New Progress</span>
+        <span className="text-lg font-medium">New Progress</span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}
         <div className="w-full md:w-1/2">
           <TextField

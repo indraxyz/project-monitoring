@@ -16,13 +16,22 @@ function container() {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#556cd6",
+      light: "#757ce8",
+      main: "#3f50b5",
+      dark: "#002884",
+      contrastText: "#fff",
     },
     secondary: {
       main: "#19857b",
     },
     error: {
       main: red.A400,
+    },
+    text: {
+      main: "#fff",
+    },
+    dimmed: {
+      main: "#002884",
     },
   },
   typography: {

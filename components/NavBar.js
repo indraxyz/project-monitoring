@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import {
   Dialog,
   DialogTitle,
   DialogActions,
   DialogContent,
   Button,
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
 } from "@mui/material";
+import {
+  LogoutRounded,
+  AccountCircleRounded,
+  StorageRounded,
+  TimelineRounded,
+  BusinessCenterRounded,
+} from "@mui/icons-material";
 import { useRouter } from "next/router";
 
-const ActiveLink = ({ children, href }) => {
+const ActiveLink = forwardRef((props, ref) => {
+  const { children, href } = props;
   const router = useRouter();
 
   const handleClick = (e) => {
@@ -18,6 +31,7 @@ const ActiveLink = ({ children, href }) => {
 
   return (
     <a
+      ref={ref}
       href={href}
       onClick={handleClick}
       className={router.asPath === href ? "font-bold" : ""}
@@ -25,61 +39,73 @@ const ActiveLink = ({ children, href }) => {
       {children}
     </a>
   );
-};
+});
+ActiveLink.displayName = "ActiveLink";
 
 const Navbar = () => {
   const [openLogout, setOpenLogout] = useState(false);
   const router = useRouter();
 
+  const handleNavigationLink = (e, href) => {
+    e.preventDefault();
+    router.push(href);
+  };
+
   return (
-    <div className="p-4 ">
-      <ActiveLink href={"/dashboard"}>Dashboard</ActiveLink>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            className="tracking-widest"
+          >
+            Spektra
+          </Typography>
 
-      {/* Projects */}
-      <div>
-        <span className="mr-4">
-          <ActiveLink href={"/projects"}>Registers</ActiveLink>
-        </span>
-        <span className="mr-4">
-          <ActiveLink href={"/projects/approvals"}>Approvals</ActiveLink>
-        </span>
-        <span className="mr-4">
-          <ActiveLink href={"/projects/schedules"}>Schedules</ActiveLink>
-        </span>
-        <span className="mr-4">
-          <ActiveLink href={"/projects/timesheets"}>Timesheets</ActiveLink>
-        </span>
-      </div>
-
-      {/* Progress */}
-      <div>
-        <span className="mr-4">
-          <ActiveLink href={"/progress"}>Progress</ActiveLink>
-        </span>
-      </div>
-
-      {/*references */}
-      <div>
-        <span className="mr-4">
-          <ActiveLink href={"/references/personnels"}>Personnels</ActiveLink>
-        </span>
-        <span className="mr-4">
-          <ActiveLink href={"/references/clients"}>Clients</ActiveLink>
-        </span>
-        <span className="mr-4">
-          <ActiveLink href={"/references/users"}>Users</ActiveLink>
-        </span>
-      </div>
-
-      {/* profile */}
-      <div>
-        <ActiveLink href={"/profile"}>Profile</ActiveLink>
-      </div>
-
-      {/* Logout */}
-      <a href="#" onClick={() => setOpenLogout(true)}>
-        Logout
-      </a>
+          {/* icon menu */}
+          <IconButton
+            aria-label="Projects"
+            onClick={(e) => handleNavigationLink(e, "/dashboard")}
+            className={`text-2xl p-2 sm:text-3xl sm:p-3`}
+          >
+            <BusinessCenterRounded
+              fontSize="inherit"
+              color={`${router.asPath === "/dashboard" ? "dimmed" : "text"}`}
+            />
+          </IconButton>
+          <IconButton
+            aria-label="Progress"
+            className="text-2xl p-2 sm:text-3xl sm:p-3"
+          >
+            <TimelineRounded fontSize="inherit" color="text" />
+          </IconButton>
+          <IconButton
+            aria-label="References"
+            className="text-2xl p-2 sm:text-3xl sm:p-3"
+          >
+            <StorageRounded fontSize="inherit" color="text" />
+          </IconButton>
+          <IconButton
+            aria-label="Profile"
+            onClick={(e) => handleNavigationLink(e, "/profile")}
+            className={`text-2xl p-2 sm:text-3xl sm:p-3`}
+          >
+            <AccountCircleRounded
+              fontSize="inherit"
+              color={`${router.asPath === "/profile" ? "dimmed" : "text"}`}
+            />
+          </IconButton>
+          <IconButton
+            aria-label="Logout"
+            className="text-2xl p-2 sm:text-3xl sm:p-3"
+            onClick={() => setOpenLogout(true)}
+          >
+            <LogoutRounded fontSize="inherit" color="text" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
 
       {/* dialog logout */}
       <Dialog
@@ -97,7 +123,7 @@ const Navbar = () => {
           <Button onClick={() => router.push("/")}>Logout</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </Box>
   );
 };
 export default Navbar;

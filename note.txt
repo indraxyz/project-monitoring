@@ -63,7 +63,7 @@ mui file upload
 https://viclafouch.github.io/mui-file-input/
 
 MENU, PAGES, MODUL : 
-    TopNav 📌 1
+    TopNav 📌 1 ♻️
     //AppBar, Popover
 Onboarding 
     login  /ui✅ header footer
@@ -103,3 +103,57 @@ register project > job schedule (personnels work sheet (dari kertas manual)) > t
 1 job number bisa beberapa worksheet, perusahaan bisa berbeda, lokasi bisa berbeda
 // local storage TIPE ADMIN > bedakan top nav, bedakan menu "Users"
 // middleware nextJs > batasi akses menu
+
+
+//NAV
+<div className="p-4 ">
+      <ActiveLink href={"/dashboard"}>Dashboard</ActiveLink>
+
+      {/* Projects */}
+      <div>
+        <span className="mr-4">
+          <ActiveLink href={"/projects"}>Registers</ActiveLink>
+        </span>
+        <span className="mr-4">
+          <ActiveLink href={"/projects/approvals"}>Approvals</ActiveLink>
+        </span>
+        <span className="mr-4">
+          <ActiveLink href={"/projects/schedules"}>Schedules</ActiveLink>
+        </span>
+        <span className="mr-4">
+          <ActiveLink href={"/projects/timesheets"}>Timesheets</ActiveLink>
+        </span>
+      </div>
+
+      {/* Progress */}
+      <div>
+        <span className="mr-4">
+          <ActiveLink href={"/progress"}>Progress</ActiveLink>
+        </span>
+      </div>
+
+      {/*references */}
+      <div>
+        <span className="mr-4">
+          <ActiveLink href={"/references/personnels"}>Personnels</ActiveLink>
+        </span>
+        <span className="mr-4">
+          <ActiveLink href={"/references/clients"}>Clients</ActiveLink>
+        </span>
+        <span className="mr-4">
+          <ActiveLink href={"/references/users"}>Users</ActiveLink>
+        </span>
+      </div>
+
+      {/* profile */}
+      <div>
+        <ActiveLink href={"/profile"}>Profile</ActiveLink>
+      </div>
+
+      {/* Logout */}
+      <a href="#" onClick={() => setOpenLogout(true)}>
+        Logout
+      </a>
+
+      
+    </div>
