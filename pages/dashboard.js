@@ -7,6 +7,7 @@ import {
   Paper,
   Link,
   Button,
+  Tooltip,
 } from "@mui/material";
 import {
   EventRepeatRounded,
@@ -27,34 +28,55 @@ const columns = [
     headerName: "Registered",
     width: 100,
     renderCell: ({ row }) =>
-      row.progress == -1 && <CheckCircleRounded className="text-orange-500" />,
+      row.progress == -1 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-orange-500" />
+        </Tooltip>
+      ),
   },
   {
     field: "ongoing",
     headerName: "Ongoing",
     width: 70,
-    renderCell: ({ row }) => row.progress == 0 && <CheckCircleRounded />,
+    renderCell: ({ row }) =>
+      row.progress == 0 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded />
+        </Tooltip>
+      ),
   },
   {
     field: "finished",
     headerName: "Finished",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 1 && <CheckCircleRounded className="text-blue-500" />,
+      row.progress == 1 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-blue-500" />
+        </Tooltip>
+      ),
   },
   {
     field: "invoicing",
     headerName: "Invoicing",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 2 && <CheckCircleRounded className="text-red-600" />,
+      row.progress == 2 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-red-600" />
+        </Tooltip>
+      ),
   },
   {
     field: "paid",
     headerName: "Paid",
     width: 70,
     renderCell: ({ row }) =>
-      row.progress == 3 && <CheckCircleRounded className="text-green-500" />,
+      row.progress == 3 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-green-500" />
+        </Tooltip>
+      ),
   },
   // {
   //   field: "projectStatus",
@@ -118,7 +140,7 @@ const rows = [
 const Dashboard = () => {
   return (
     <Layout>
-      <span className="block text-3xl font-bold my-8">Project Monitoring</span>
+      <span className="block text-2xl font-bold mb-8">Project Monitoring</span>
       <span className="text-base text-gray-500 block mb-6 underline">
         hi Username 😊, have a nice day 🌈
       </span>
@@ -145,11 +167,11 @@ const Dashboard = () => {
           <CardActionArea onClick={() => console.log("edit range")}>
             <CardContent className="flex flex-row items-center ">
               <EditCalendarRounded className="text-4xl md:text-6xl" />
-              <div className="ml-4">
+              <div className="ml-2 md:ml-4">
                 <span className="text-base md:text-xl font-bold block">
                   06-12 2022
                 </span>
-                <span className="text-base">Months</span>
+                <span className="text-sm md:text-base">Months</span>
               </div>
             </CardContent>
           </CardActionArea>
@@ -157,27 +179,27 @@ const Dashboard = () => {
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
             <EventRepeatRounded className="text-4xl md:text-6xl" />
-            <div className="ml-4">
+            <div className="ml-2 md:ml-4">
               <span className="text-2xl md:text-3xl font-bold block">99</span>
-              <span className="text-base">Ongoing</span>
+              <span className="text-sm md:text-base">Ongoing</span>
             </div>
           </CardContent>
         </Card>
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
             <VerifiedRounded className="text-4xl md:text-6xl" />
-            <div className="ml-4">
+            <div className="ml-2 md:ml-4">
               <span className="text-2xl md:text-3xl font-bold block">99</span>
-              <span className="text-base">Finished</span>
+              <span className="text-sm md:text-base">Finished</span>
             </div>
           </CardContent>
         </Card>
         <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
           <CardContent className="flex flex-row items-center p-4">
             <ReceiptLongRounded className="text-4xl md:text-6xl" />
-            <div className="ml-4">
+            <div className="ml-2 md:ml-4">
               <span className="text-2xl md:text-3xl font-bold block">99</span>
-              <span className="text-base">Paid</span>
+              <span className="text-sm md:text-base">Paid</span>
             </div>
           </CardContent>
         </Card>

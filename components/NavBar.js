@@ -10,50 +10,74 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import {
-  LogoutRounded,
+  ExitToAppRounded,
   AccountCircleRounded,
   StorageRounded,
   TimelineRounded,
   BusinessCenterRounded,
+  HomeRounded,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 
-const ActiveLink = forwardRef((props, ref) => {
-  const { children, href } = props;
-  const router = useRouter();
+// const ActiveLink = forwardRef((props, ref) => {
+//   const { children, href } = props;
+//   const router = useRouter();
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push(href);
-  };
+//   const handleClick = (e) => {
+//     e.preventDefault();
+//     router.push(href);
+//   };
 
-  return (
-    <a
-      ref={ref}
-      href={href}
-      onClick={handleClick}
-      className={router.asPath === href ? "font-bold" : ""}
-    >
-      {children}
-    </a>
-  );
-});
-ActiveLink.displayName = "ActiveLink";
+//   return (
+//     <a
+//       ref={ref}
+//       href={href}
+//       onClick={handleClick}
+//       className={router.asPath === href ? "font-bold" : ""}
+//     >
+//       {children}
+//     </a>
+//   );
+// });
+// ActiveLink.displayName = "ActiveLink";
 
 const Navbar = () => {
   const [openLogout, setOpenLogout] = useState(false);
-  const router = useRouter();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openMenuProjects, setOpenMenuProjects] = useState(false);
+  const [openMenuReferences, setOpenMenuReferences] = useState(false);
 
-  const handleNavigationLink = (e, href) => {
-    e.preventDefault();
+  const router = useRouter();
+  const handleNavigationLink = (href) => {
     router.push(href);
+  };
+
+  // TOP APP BAR > MENU
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpenMenuProjects(false);
+    setOpenMenuReferences(false);
+  };
+  const handleOpenMenu = (event, menu) => {
+    setAnchorEl(event.currentTarget);
+    switch (menu) {
+      case "projects":
+        setOpenMenuProjects(true);
+        break;
+      default:
+        // references
+        setOpenMenuReferences(true);
+        break;
+    }
   };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography
             variant="h6"
@@ -66,43 +90,156 @@ const Navbar = () => {
 
           {/* icon menu */}
           <IconButton
-            aria-label="Projects"
-            onClick={(e) => handleNavigationLink(e, "/dashboard")}
-            className={`text-2xl p-2 sm:text-3xl sm:p-3`}
+            aria-label="Dashboard"
+            onClick={() => handleNavigationLink("/dashboard")}
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            sx={{
+              color:
+                router.asPath === "/dashboard"
+                  ? "primary.contrastText"
+                  : "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
           >
-            <BusinessCenterRounded
-              fontSize="inherit"
-              color={`${router.asPath === "/dashboard" ? "dimmed" : "text"}`}
-            />
+            <HomeRounded fontSize="inherit" />
           </IconButton>
+          <IconButton
+            aria-label="Projects"
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            sx={{
+              color:
+                router.asPath.split("/")[1] === "projects" ||
+                openMenuProjects == true
+                  ? "primary.contrastText"
+                  : "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
+            id="button-menu-projects"
+            onClick={(e) => handleOpenMenu(e, "projects")}
+          >
+            <BusinessCenterRounded fontSize="inherit" />
+          </IconButton>
+          <Menu
+            id="menu-projects"
+            anchorEl={anchorEl}
+            open={openMenuProjects}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "button-menu-projects",
+            }}
+          >
+            <MenuItem
+              onClick={() => handleNavigationLink("/projects/register")}
+            >
+              Register
+            </MenuItem>
+            <MenuItem
+              onClick={() => handleNavigationLink("/projects/approvals")}
+            >
+              Approvals
+            </MenuItem>
+            <MenuItem
+              onClick={() => handleNavigationLink("/projects/schedules")}
+            >
+              Schedules
+            </MenuItem>
+            <MenuItem
+              onClick={() => handleNavigationLink("/projects/timesheets")}
+            >
+              TimeSheets
+            </MenuItem>
+          </Menu>
+
           <IconButton
             aria-label="Progress"
-            className="text-2xl p-2 sm:text-3xl sm:p-3"
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            onClick={() => handleNavigationLink("/progress")}
+            sx={{
+              color:
+                router.asPath === "/progress"
+                  ? "primary.contrastText"
+                  : "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
           >
-            <TimelineRounded fontSize="inherit" color="text" />
+            <TimelineRounded fontSize="inherit" />
           </IconButton>
+
           <IconButton
             aria-label="References"
-            className="text-2xl p-2 sm:text-3xl sm:p-3"
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            sx={{
+              color:
+                router.asPath.split("/")[1] === "references" ||
+                openMenuReferences == true
+                  ? "primary.contrastText"
+                  : "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
+            onClick={(e) => handleOpenMenu(e, "references")}
           >
-            <StorageRounded fontSize="inherit" color="text" />
+            <StorageRounded fontSize="inherit" />
           </IconButton>
+          <Menu
+            id="menu-references"
+            anchorEl={anchorEl}
+            open={openMenuReferences}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "button-menu-references",
+            }}
+          >
+            <MenuItem
+              onClick={() => handleNavigationLink("/references/clients")}
+            >
+              Clients
+            </MenuItem>
+            <MenuItem
+              onClick={() => handleNavigationLink("/references/personnels")}
+            >
+              Personnels
+            </MenuItem>
+            <MenuItem onClick={() => handleNavigationLink("/references/users")}>
+              Users
+            </MenuItem>
+          </Menu>
+
           <IconButton
             aria-label="Profile"
-            onClick={(e) => handleNavigationLink(e, "/profile")}
-            className={`text-2xl p-2 sm:text-3xl sm:p-3`}
+            onClick={() => handleNavigationLink("/profile")}
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            sx={{
+              color:
+                router.asPath === "/profile"
+                  ? "primary.contrastText"
+                  : "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
           >
-            <AccountCircleRounded
-              fontSize="inherit"
-              color={`${router.asPath === "/profile" ? "dimmed" : "text"}`}
-            />
+            <AccountCircleRounded fontSize="inherit" />
           </IconButton>
           <IconButton
             aria-label="Logout"
-            className="text-2xl p-2 sm:text-3xl sm:p-3"
+            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            sx={{
+              color: "primary.dark",
+              "&:hover": {
+                color: "primary.contrastText",
+              },
+            }}
             onClick={() => setOpenLogout(true)}
           >
-            <LogoutRounded fontSize="inherit" color="text" />
+            <ExitToAppRounded fontSize="inherit" />
           </IconButton>
         </Toolbar>
       </AppBar>

@@ -116,7 +116,9 @@ const Progress = () => {
 
   return (
     <Layout>
-      <h1 className="text-2xl font-bold mb-8">Update Project Progress</h1>
+      <span className="block text-2xl font-bold mb-8">
+        Update Project Progress
+      </span>
 
       {/*auto complete, search (table progress where job_number,no_worksheet group by job_number,no_worksheet) */}
       <Autocomplete
@@ -178,8 +180,8 @@ const Progress = () => {
               <WatchLaterRounded></WatchLaterRounded>
               <span className="ml-2">Open</span>
             </div>
-            <IconButton className="ml-auto" color="primary">
-              <MoreRounded></MoreRounded>
+            <IconButton className="ml-auto" color="primary" size="medium">
+              <MoreRounded fontSize="inherit"></MoreRounded>
             </IconButton>
           </CardActions>
         </Card>

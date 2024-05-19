@@ -420,7 +420,7 @@ const Clients = () => {
   return (
     <Layout>
       <div>
-        <h1 className="text-2xl font-bold mb-8">Clients</h1>
+        <span className="text-2xl font-bold mb-8">Clients</span>
         {/* top table properties */}
         <div className="w-full flex flex-col md:flex-row-reverse md:items-center">
           <div className="w-full md:w-1/3 md:flex md:justify-end md:m-0">

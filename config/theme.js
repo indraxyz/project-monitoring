@@ -22,16 +22,13 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     secondary: {
-      main: "#19857b",
+      main: "#4e5db5",
     },
     error: {
       main: red.A400,
     },
     text: {
       main: "#fff",
-    },
-    dimmed: {
-      main: "#002884",
     },
   },
   typography: {

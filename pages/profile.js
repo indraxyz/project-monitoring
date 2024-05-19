@@ -60,6 +60,23 @@ const Profile = () => {
     department: "",
     photo: null,
     nik: "1234",
+    department: "finance",
+    ktp: "999999999999999999",
+    npwp: "999999999999999999",
+    birth: "22-03-1994",
+    phone: "081335630909",
+    address: "jl. Joyoboyo ...",
+    bpjsks: "999999999999999999",
+    bpjstk: "999999999999999999",
+    experience: "3",
+    education: "S1",
+    position: "staff",
+    qualification: "x,y,x",
+    certification: "x,x,y",
+    join: "dd/mm/yyy",
+    issued: "dd/mm/yyy",
+    expired: "dd/mm/yyy",
+    service: "2.5",
   });
 
   const _changeProfileValue = (e) => {
@@ -143,81 +160,82 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div>
-        <span className="text-2xl font-bold">My Profile</span>
+      {/* <div> */}
+      <span className="text-2xl font-bold mb-8">My Profile</span>
+      {/* <h1 className="text-2xl font-bold mb-8">Update Project Progress</h1> */}
 
-        {/* preview */}
-        <div className="mt-8 w-full flex flex-col md:flex-row md:space-x-2 ">
-          <Image
-            className="object-cover h-48 w-48 my-8 rounded-full md:h-60 md:w-60"
-            src={xImage}
-            alt="avatar"
-            priority
-          ></Image>
+      {/* preview */}
+      <div className="mt-8 w-full flex flex-col md:flex-row md:space-x-2 ">
+        <Image
+          className="object-cover h-48 w-48 my-8 rounded-full md:h-60 md:w-60"
+          src={xImage}
+          alt="avatar"
+          priority
+        ></Image>
 
-          <div className="md:px-8">
-            <div className="mt-4">
-              <span className="text-lg font-medium text-gray-900 block mb-2">
-                Email
-              </span>
-              <span className=" text-md text-gray-500">{profile.email}</span>
-            </div>
+        <div className="md:px-8">
+          <div className="mt-4">
+            <span className="text-lg font-medium text-gray-900 block mb-2">
+              Email
+            </span>
+            <span className=" text-md text-gray-500">{profile.email}</span>
+          </div>
 
-            <div className="mt-4">
-              <span className="text-lg font-medium text-gray-900 block mb-2">
-                Full name
-              </span>
-              <span className="text-md text-gray-500">{profile.fullname}</span>
-            </div>
-            <div className="mt-4">
-              <span className="text-lg font-medium text-gray-900 block mb-2">
-                NIK
-              </span>
-              <span className="text-md text-gray-500">{profile.nik}</span>
-            </div>
-            {/* actions */}
-            <div className="mt-6">
-              <Stack direction="row" spacing={1}>
-                <IconButton
-                  title="Detail Profile"
-                  color="primary"
-                  onClick={() => {
-                    _openDialog("detail");
-                  }}
-                >
-                  <PersonRounded />
-                </IconButton>
-                <IconButton
-                  title="Edit Profile"
-                  color="primary"
-                  onClick={() => {
-                    setProfileValue(profile);
-                    _openDialog("editProfile");
-                  }}
-                >
-                  <EditRounded />
-                </IconButton>
-                <IconButton
-                  title="Edit Photo"
-                  color="primary"
-                  onClick={() => {
-                    _openDialog("editPhoto");
-                  }}
-                >
-                  <FaceRounded />
-                </IconButton>
-                <IconButton
-                  title="Edit Password"
-                  color="primary"
-                  onClick={() => _openDialog("changePassword")}
-                >
-                  <PasswordRounded />
-                </IconButton>
-              </Stack>
-            </div>
+          <div className="mt-4">
+            <span className="text-lg font-medium text-gray-900 block mb-2">
+              Full name
+            </span>
+            <span className="text-md text-gray-500">{profile.fullname}</span>
+          </div>
+          <div className="mt-4">
+            <span className="text-lg font-medium text-gray-900 block mb-2">
+              NIK
+            </span>
+            <span className="text-md text-gray-500">{profile.nik}</span>
+          </div>
+          {/* actions */}
+          <div className="mt-6">
+            <Stack direction="row" spacing={1}>
+              <IconButton
+                title="Detail Profile"
+                color="primary"
+                onClick={() => {
+                  _openDialog("detail");
+                }}
+              >
+                <PersonRounded />
+              </IconButton>
+              <IconButton
+                title="Edit Profile"
+                color="primary"
+                onClick={() => {
+                  setProfileValue(profile);
+                  _openDialog("editProfile");
+                }}
+              >
+                <EditRounded />
+              </IconButton>
+              <IconButton
+                title="Edit Photo"
+                color="primary"
+                onClick={() => {
+                  _openDialog("editPhoto");
+                }}
+              >
+                <FaceRounded />
+              </IconButton>
+              <IconButton
+                title="Edit Password"
+                color="primary"
+                onClick={() => _openDialog("changePassword")}
+              >
+                <PasswordRounded />
+              </IconButton>
+            </Stack>
           </div>
         </div>
       </div>
+      {/* </div> */}
 
       {/* Dialog Detail Profile */}
       <Dialog
