@@ -130,7 +130,7 @@ const Welcome = () => {
               <span className="text-4xl font-bold py-2 mt-6 md:m-0 block">
                 Spektra
               </span>
-              <span>Project Monitoring System</span>
+              <span>Project Monitoring</span>
               {/* login form */}
               <div>
                 <TextField
@@ -245,17 +245,7 @@ const Welcome = () => {
             variant="standard"
             autoComplete="on"
           />
-          {/* <TextField
-            name="username"
-            value={signup.username}
-            onChange={() => {}}
-            margin="dense"
-            label="Username"
-            type="text"
-            fullWidth
-            variant="standard"
-            autoComplete="on"
-          /> */}
+
           <TextField
             name="password"
             value={signup.password}
@@ -332,8 +322,6 @@ const Welcome = () => {
 };
 export default Welcome;
 
-// logo spektra
-// img slider
 // logic
 // backend
 // validasi form login REACT HOOK FORM + yup

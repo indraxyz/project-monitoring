@@ -70,15 +70,15 @@ Onboarding
     signup /ui✅ //approvel oleh superuser
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
-    📌♻️ form edit range, modal detail project
+    form edit range, modal detail project ✅
     highlight progress
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
 projects
-    Register 📌3
+    Register 📌3 ♻️
     //list(table), detail, crud, cari + filter
-    Approval 📌2
+    Approval 📌2 ♻️
     //persetujuan setiap progres oleh lead
     //list data progres (table), detail (modal), approval, filter (date, search by ...)
     schedules📌

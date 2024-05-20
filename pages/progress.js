@@ -155,7 +155,7 @@ const Progress = () => {
             <TextField
               {...params}
               variant="standard"
-              placeholder="job.number or no.worksheet"
+              placeholder="job.number"
               InputProps={{
                 ...params.InputProps,
                 startAdornment: (
@@ -169,9 +169,7 @@ const Progress = () => {
             />
           </>
         )}
-        options={dummyJobNumber.map(
-          (option) => `${option.number} - no.worksheet`
-        )}
+        options={dummyJobNumber.map((option) => `${option.number}`)}
         value={searchKey}
         onInputChange={(e, v) => setSearchKey(v)}
         onKeyUp={_suggestSearch}
@@ -315,7 +313,7 @@ const Progress = () => {
             </div>
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
-                Order
+                Project Order
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
             </div>
