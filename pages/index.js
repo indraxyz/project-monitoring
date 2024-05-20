@@ -96,9 +96,9 @@ const Welcome = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex flex-col min-h-screen">
+    <div className="bg-gray-100 flex flex-col">
       {/* container card */}
-      <div className="md:py-10 mb-10">
+      <div className="md:min-h-screen md:pt-20 md:mb-32">
         {/* card */}
         <div className="max-w-5xl mx-auto pt-6 pb-8 md:p-6 md:shadow-lg bg-white">
           <Image
@@ -126,11 +126,11 @@ const Welcome = () => {
               </Swiper>
             </div>
 
-            <div className="md:w-1/3 md:pl-4 md:m-0 m-4">
+            <div className="md:w-1/3 md:pl-4 md:m-0 m-4 pb-28">
               <span className="text-4xl font-bold py-2 mt-6 md:m-0 block">
                 Spektra
               </span>
-              <span>Project Management System</span>
+              <span>Project Monitoring System</span>
               {/* login form */}
               <div>
                 <TextField
@@ -324,7 +324,9 @@ const Welcome = () => {
       />
 
       {/* footer */}
-      <Footer />
+      <div className="-mt-20 md:-mt-60">
+        <Footer />
+      </div>
     </div>
   );
 };

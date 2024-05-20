@@ -152,53 +152,60 @@ const Dashboard = () => {
       </div> */}
 
       {/* hightlight information */}
-      <div className=" flex flex-col space-y-6 sm:space-y-0 sm:flex-row sm:space-x-6">
+      <div className=" flex flex-row space-x-2 sm:space-x-6">
         <Card
           variant="outlined"
-          className="w-full sm:w-1/4 rounded-xl"
+          className="w-1/4 rounded-xl content-center no-underline border-2 "
           sx={{
-            color: "primary.main",
-            // boxShadow: 1,
-            // ":hover": {
-            //   // borderWidth: "2px",
-            // },
+            borderColor: "primary.main",
+            boxShadow: "3",
+            ":hover": {
+              cursor: "pointer",
+            },
           }}
+          component={Link}
+          onClick={() => console.log("edit range")}
         >
-          <CardActionArea onClick={() => console.log("edit range")}>
-            <CardContent className="flex flex-row items-center ">
-              <EditCalendarRounded className="text-4xl md:text-6xl" />
-              <div className="ml-2 md:ml-4">
-                <span className="text-base md:text-xl font-bold block">
-                  06-12 2022
-                </span>
-                <span className="text-sm md:text-base">Months</span>
-              </div>
-            </CardContent>
-          </CardActionArea>
+          <CardContent className="flex flex-row items-center p-2 md:p-4">
+            <EditCalendarRounded className="hidden sm:block text-2xl sm:text-4xl md:text-6xl" />
+            <div className="ml-1 sm:ml-2 md:ml-4">
+              <span className="text-sm sm:text-base md:text-xl font-bold block">
+                06-12 2024
+              </span>
+              <span className="text-sm md:text-base">Range</span>
+            </div>
+          </CardContent>
         </Card>
-        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
-          <CardContent className="flex flex-row items-center p-4">
-            <EventRepeatRounded className="text-4xl md:text-6xl" />
-            <div className="ml-2 md:ml-4">
-              <span className="text-2xl md:text-3xl font-bold block">99</span>
+
+        <Card variant="outlined" className="w-1/4 rounded-xl content-center">
+          <CardContent className="flex flex-row items-center p-2 md:p-4">
+            <EventRepeatRounded className="hidden sm:block text-2xl sm:text-4xl md:text-6xl" />
+            <div className="ml-1 sm:ml-2 md:ml-4">
+              <span className="text-xl sm:text-2xl md:text-3xl font-bold block">
+                99
+              </span>
               <span className="text-sm md:text-base">Ongoing</span>
             </div>
           </CardContent>
         </Card>
-        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
-          <CardContent className="flex flex-row items-center p-4">
-            <VerifiedRounded className="text-4xl md:text-6xl" />
-            <div className="ml-2 md:ml-4">
-              <span className="text-2xl md:text-3xl font-bold block">99</span>
+        <Card variant="outlined" className="w-1/4 rounded-xl content-center">
+          <CardContent className="flex flex-row items-center p-2 md:p-4">
+            <VerifiedRounded className="hidden sm:block text-2xl sm:text-4xl md:text-6xl" />
+            <div className="ml-1 sm:ml-2 md:ml-4">
+              <span className="text-xl sm:text-2xl md:text-3xl font-bold block">
+                99
+              </span>
               <span className="text-sm md:text-base">Finished</span>
             </div>
           </CardContent>
         </Card>
-        <Card variant="outlined" className="w-full sm:w-1/4 rounded-xl">
-          <CardContent className="flex flex-row items-center p-4">
-            <ReceiptLongRounded className="text-4xl md:text-6xl" />
-            <div className="ml-2 md:ml-4">
-              <span className="text-2xl md:text-3xl font-bold block">99</span>
+        <Card variant="outlined" className="w-1/4 rounded-xl content-center">
+          <CardContent className="flex flex-row items-center p-2 md:p-4">
+            <ReceiptLongRounded className="hidden sm:block text-2xl sm:text-4xl md:text-6xl" />
+            <div className="ml-1 sm:ml-2 md:ml-4">
+              <span className="text-xl sm:text-2xl md:text-3xl font-bold block">
+                99
+              </span>
               <span className="text-sm md:text-base">Paid</span>
             </div>
           </CardContent>

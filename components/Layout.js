@@ -3,17 +3,14 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="bg-gray-100 flex flex-col  min-h-screen">
+    <div className="bg-gray-100 flex flex-col">
       <NavBar />
-      <main
-        className="max-w-7xl px-6 pt-8 mt-20 mb-10"
-        style={{
-          minHeight: "480px",
-        }}
-      >
+      <main className="max-w-7xl px-6 pt-24 mb-16 md:mb-6 pb-32 min-h-screen">
         {children}
       </main>
-      <Footer />
+      <div className="-mt-32">
+        <Footer />
+      </div>
     </div>
   );
 };

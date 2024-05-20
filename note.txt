@@ -70,7 +70,7 @@ Onboarding
     signup /ui✅ //approvel oleh superuser
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
-    📌♻️ widget satu row saat responsive, form edit range, modal detail project
+    widget satu row saat responsive, 📌♻️ form edit range, modal detail project
     highlight progress
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
@@ -86,8 +86,7 @@ projects
     timesheets 📌
     //crud, cari + filter, list(ui table) + detail
 progress ui✅
-    📌♻️ modal detail
-    // form cari > history status project (ui vertical step) > form progress 
+    // form cari > data project > history status project (ui vertical step) > form progress 
 References  / super-lead 
     personnels / ui✅
     //crud, cari + filter, list + detail /ui
