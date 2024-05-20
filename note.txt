@@ -70,7 +70,7 @@ Onboarding
     signup /ui✅ //approvel oleh superuser
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
-    widget satu row saat responsive, 📌♻️ form edit range, modal detail project
+    📌♻️ form edit range, modal detail project
     highlight progress
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
