@@ -80,7 +80,7 @@ projects
     //list(table), detail, crud, cari + filter
     Approval 📌2 ♻️
     //persetujuan setiap progres oleh lead
-    //list data progres (table), detail (modal), approval, filter (date, search by ...)
+    //list data progres (table), detail data project+progres(modal), approval, filter (months, search by ...)
     schedules📌
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
     timesheets 📌

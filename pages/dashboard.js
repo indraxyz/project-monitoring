@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 import {
   Card,
   CardContent,
-  IconButton,
   Link,
   Button,
   Tooltip,
@@ -12,6 +11,8 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
+  Slider,
+  Box,
 } from "@mui/material";
 import {
   EventRepeatRounded,
@@ -134,9 +135,62 @@ const rows = [
   },
 ];
 
+// MONTHS RANGE
+const marksSliderMonths = [
+  {
+    value: 1,
+    label: "1",
+  },
+  {
+    value: 2,
+    label: "2",
+  },
+  {
+    value: 3,
+    label: "3",
+  },
+  {
+    value: 4,
+    label: "4",
+  },
+  {
+    value: 5,
+    label: "5",
+  },
+  {
+    value: 6,
+    label: "6",
+  },
+  {
+    value: 7,
+    label: "7",
+  },
+  {
+    value: 8,
+    label: "8",
+  },
+  {
+    value: 9,
+    label: "9",
+  },
+  {
+    value: 10,
+    label: "10",
+  },
+  {
+    value: 11,
+    label: "11",
+  },
+  {
+    value: 12,
+    label: "12",
+  },
+];
+
 const Dashboard = () => {
   const [dialogFilterRange, setDialogFilterRange] = useState(false);
   const [dialogDetailProject, setDialogDetailProject] = useState(false);
+  const [rangeMonths, setRangeMonths] = useState([2, 5]);
 
   const _openDialog = (key) => {
     switch (key) {
@@ -158,6 +212,10 @@ const Dashboard = () => {
         setDialogDetailProject(false);
         break;
     }
+  };
+
+  const monthsSliderChange = (event, newValue) => {
+    setRangeMonths(newValue);
   };
 
   return (
@@ -341,32 +399,24 @@ const Dashboard = () => {
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Filter Range</DialogTitle>
+        <DialogTitle>Months Range</DialogTitle>
         <DialogContent>
-          <span>date range for data project filters, maximum 6 months</span>
-          <TextField
-            name="startDate"
-            onChange={() => {}}
-            margin="dense"
-            helperText="Start Date"
-            type="date"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            name="EndDate"
-            onChange={() => {}}
-            margin="dense"
-            helperText="End Date"
-            type="date"
-            fullWidth
-            variant="standard"
-          />
+          {/* <span>monts range</span> */}
+          <Box className=" pt-2 w-full">
+            <Slider
+              value={rangeMonths}
+              onChange={monthsSliderChange}
+              valueLabelDisplay="off"
+              min={1}
+              max={12}
+              marks={marksSliderMonths}
+            />
+          </Box>
         </DialogContent>
 
         <DialogActions>
           <Button onClick={() => _closeDialog("filterRange")}>Close</Button>
-          <Button onClick={() => _closeDialog("...")}>Submit</Button>
+          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
         </DialogActions>
       </Dialog>
     </Layout>

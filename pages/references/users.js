@@ -209,9 +209,6 @@ class Users extends Component {
 
   getSelectedDatas = (keys) => {
     console.log(keys);
-    // this.setState({
-    //   selectedDatas: selected,
-    // });
     this.setState({ selectedDatas: keys });
   };
 

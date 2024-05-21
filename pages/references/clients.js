@@ -143,6 +143,54 @@ const IconKelancaran = (props) => {
   }
 };
 
+const columns = [
+  // { field: "id", headerName: "ID", width: 100 },
+  { field: "cardID", headerName: "CardID", width: 100 },
+  { field: "name", headerName: "Name", width: 250 },
+  { field: "phone", headerName: "Phone", width: 200 },
+  { field: "address", headerName: "Address", width: 200 },
+  {
+    field: "pembayaran",
+    headerName: "Flow",
+    width: 70,
+    renderCell: (params) => <IconKelancaran value={params.row.pembayaran} />,
+  },
+  {
+    field: "actions",
+    headerName: "#",
+    sortable: false,
+    filterable: false,
+    disableExport: true,
+    width: 150,
+    renderCell: (params) => (
+      <>
+        <IconButton
+          color="primary"
+          title="Edit"
+          onClick={() => {
+            setClientForm(params.row);
+            setSubmit(1);
+            setDialogSubmit(true);
+          }}
+        >
+          <EditRounded />
+        </IconButton>
+        <IconButton
+          color="primary"
+          title="Delete"
+          onClick={() => {
+            console.log(params.row);
+            setSelectedData(params.row);
+            setDialogDelete(true);
+          }}
+        >
+          <DeleteRounded />
+        </IconButton>
+      </>
+    ),
+  },
+];
+
 const Clients = () => {
   const [suggestDatas, setSuggestDatas] = useState([]);
   const [liveDatas, setLiveDatas] = useState([]);
@@ -180,54 +228,6 @@ const Clients = () => {
   // useEffect(() => {
   //   //
   // }, []);
-
-  const columns = [
-    // { field: "id", headerName: "ID", width: 100 },
-    { field: "cardID", headerName: "CardID", width: 100 },
-    { field: "name", headerName: "Name", width: 250 },
-    { field: "phone", headerName: "Phone", width: 200 },
-    { field: "address", headerName: "Address", width: 200 },
-    {
-      field: "pembayaran",
-      headerName: "Flow",
-      width: 70,
-      renderCell: (params) => <IconKelancaran value={params.row.pembayaran} />,
-    },
-    {
-      field: "actions",
-      headerName: "#",
-      sortable: false,
-      filterable: false,
-      disableExport: true,
-      width: 150,
-      renderCell: (params) => (
-        <>
-          <IconButton
-            color="primary"
-            title="Edit"
-            onClick={() => {
-              setClientForm(params.row);
-              setSubmit(1);
-              setDialogSubmit(true);
-            }}
-          >
-            <EditRounded />
-          </IconButton>
-          <IconButton
-            color="primary"
-            title="Delete"
-            onClick={() => {
-              console.log(params.row);
-              setSelectedData(params.row);
-              setDialogDelete(true);
-            }}
-          >
-            <DeleteRounded />
-          </IconButton>
-        </>
-      ),
-    },
-  ];
 
   const resetDatas = () => {
     setLiveDatas([...copyDatas]);
