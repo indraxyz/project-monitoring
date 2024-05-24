@@ -21,19 +21,19 @@ const Approvals = () => {
     {
       field: "reporter",
       headerName: "Reporter",
-      width: 200,
+      width: 250,
       headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "time",
       headerName: "Time",
-      width: 200,
+      width: 170,
       headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "progress",
       headerName: "Progress",
-      width: 200,
+      width: 75,
       headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
@@ -41,7 +41,7 @@ const Approvals = () => {
       headerName: "#",
       headerClassName:
         "underline underline-offset-4 decoration-2 decoration-purple-700",
-      width: 70,
+      width: 100,
       sortable: false,
       filterable: false,
       // renderCell: ({ row }) =>
@@ -63,8 +63,8 @@ const Approvals = () => {
 
       {/* 
         data table /10
-        kolom: Job Number, Client, Reporter, Time, Progress, #
-        action: approval, detail project, detail progress 
+        kolom: Job Number, Calient, Reporter, Time, Progress, #
+        action: approval, detail-project, detail-progress 
       */}
       <DataGrid
         className="bg-white my-6 h-[631px]"

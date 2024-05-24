@@ -96,9 +96,9 @@ const Welcome = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex flex-col">
+    <div className="bg-gray-100 flex flex-col pb-2">
       {/* container card */}
-      <div className="md:min-h-screen md:pt-20 mb-10 md:mb-60">
+      <div className="md:min-h-screen md:pt-20">
         {/* card */}
         <div className="max-w-5xl mx-auto pt-6 pb-8 md:p-6 md:shadow-lg bg-white">
           <Image
@@ -314,7 +314,7 @@ const Welcome = () => {
       />
 
       {/* footer */}
-      <div className="-mt-20 md:-mt-60">
+      <div className="-mt-16 sm:-mt-28">
         <Footer />
       </div>
     </div>

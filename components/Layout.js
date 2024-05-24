@@ -3,7 +3,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="bg-gray-100 flex flex-col">
+    <div className="bg-gray-100 flex flex-col pb-10 sm:pb-0">
       <NavBar />
       <main className="w-full px-10 pt-24 mb-16 md:mb-6 pb-32 min-h-screen">
         {children}
