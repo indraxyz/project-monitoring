@@ -143,54 +143,6 @@ const IconKelancaran = (props) => {
   }
 };
 
-const columns = [
-  // { field: "id", headerName: "ID", width: 100 },
-  { field: "cardID", headerName: "CardID", width: 100 },
-  { field: "name", headerName: "Name", width: 250 },
-  { field: "phone", headerName: "Phone", width: 200 },
-  { field: "address", headerName: "Address", width: 200 },
-  {
-    field: "pembayaran",
-    headerName: "Flow",
-    width: 70,
-    renderCell: (params) => <IconKelancaran value={params.row.pembayaran} />,
-  },
-  {
-    field: "actions",
-    headerName: "#",
-    sortable: false,
-    filterable: false,
-    disableExport: true,
-    width: 150,
-    renderCell: (params) => (
-      <>
-        <IconButton
-          color="primary"
-          title="Edit"
-          onClick={() => {
-            setClientForm(params.row);
-            setSubmit(1);
-            setDialogSubmit(true);
-          }}
-        >
-          <EditRounded />
-        </IconButton>
-        <IconButton
-          color="primary"
-          title="Delete"
-          onClick={() => {
-            console.log(params.row);
-            setSelectedData(params.row);
-            setDialogDelete(true);
-          }}
-        >
-          <DeleteRounded />
-        </IconButton>
-      </>
-    ),
-  },
-];
-
 const Clients = () => {
   const [suggestDatas, setSuggestDatas] = useState([]);
   const [liveDatas, setLiveDatas] = useState([]);
@@ -228,6 +180,54 @@ const Clients = () => {
   // useEffect(() => {
   //   //
   // }, []);
+
+  const columns = [
+    // { field: "id", headerName: "ID", width: 100 },
+    { field: "cardID", headerName: "CardID", width: 100 },
+    { field: "name", headerName: "Name", width: 250 },
+    { field: "phone", headerName: "Phone", width: 200 },
+    { field: "address", headerName: "Address", width: 200 },
+    {
+      field: "pembayaran",
+      headerName: "Payment",
+      width: 70,
+      renderCell: (params) => <IconKelancaran value={params.row.pembayaran} />,
+    },
+    {
+      field: "actions",
+      headerName: "#",
+      sortable: false,
+      filterable: false,
+      disableExport: true,
+      width: 150,
+      renderCell: (params) => (
+        <>
+          <IconButton
+            color="primary"
+            title="Edit"
+            onClick={() => {
+              setClientForm(params.row);
+              setSubmit(1);
+              setDialogSubmit(true);
+            }}
+          >
+            <EditRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Delete"
+            onClick={() => {
+              console.log(params.row);
+              setSelectedData(params.row);
+              setDialogDelete(true);
+            }}
+          >
+            <DeleteRounded />
+          </IconButton>
+        </>
+      ),
+    },
+  ];
 
   const resetDatas = () => {
     setLiveDatas([...copyDatas]);
@@ -419,33 +419,41 @@ const Clients = () => {
 
   return (
     <Layout>
-      <div>
-        <span className="text-2xl font-bold mb-8">Clients</span>
-        {/* top table properties */}
-        <div className="w-full flex flex-col md:flex-row-reverse md:items-center">
-          <div className="w-full md:w-1/3 md:flex md:justify-end md:m-0">
-            <IconButton
-              color="primary"
-              title="Add New"
-              onClick={() => {
-                setSubmit(0);
-                setDialogSubmit(true);
-                resetSubmitForm();
-              }}
-            >
-              <AddRounded />
-            </IconButton>
-            <IconButton
-              color="primary"
-              title="Delete"
-              onClick={() => {
-                setKontenModal("deletes");
-                setOpenModal(true);
-              }}
-              disabled={selectedDatas.length == 0 ? true : false}
-            >
-              <DeleteRounded />
-            </IconButton>
+      <span className="text-2xl font-bold mb-8">Clients</span>
+      {/* top table properties */}
+      <div className="w-full flex flex-col md:flex-row-reverse md:items-center">
+        <div className="w-full md:w-1/3 md:flex md:justify-end md:m-0">
+          <IconButton
+            color="primary"
+            title="Add New"
+            onClick={() => {
+              setSubmit(0);
+              setDialogSubmit(true);
+              resetSubmitForm();
+            }}
+          >
+            <AddRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Delete"
+            onClick={() => {
+              setKontenModal("deletes");
+              setOpenModal(true);
+            }}
+            disabled={selectedDatas.length == 0 ? true : false}
+          >
+            <DeleteRounded />
+          </IconButton>
+          <IconButton color="primary" title="Information" onClick={openInfo}>
+            <InfoRounded />
+          </IconButton>
+          <IconButton color="primary" title="Refresh" onClick={resetDatas}>
+            <RefreshRounded />
+          </IconButton>
+        </div>
+        <div className="w-full md:w-2/3">
+          <div className="flex flex-row w-full sm:w-1/2">
             <IconButton
               color="primary"
               title="Filter"
@@ -453,16 +461,8 @@ const Clients = () => {
             >
               <FilterAltRounded />
             </IconButton>
-            <IconButton color="primary" title="Information" onClick={openInfo}>
-              <InfoRounded />
-            </IconButton>
-            <IconButton color="primary" title="Refresh" onClick={resetDatas}>
-              <RefreshRounded />
-            </IconButton>
-          </div>
-          <div className="w-full md:w-2/3">
             <Autocomplete
-              className="w-full sm:w-1/2"
+              className="w-full"
               freeSolo
               renderInput={(params) => (
                 <TextField
@@ -486,378 +486,375 @@ const Clients = () => {
               onInputChange={(e, v) => setSearchKey(v)}
               onChange={selectedSearch}
             />
-            {/* chip */}
-            {filterForm.pembayaran != "" && (
-              <Stack direction="row" spacing={1} className="mt-4">
-                {Object.keys(filterForm).map((key, i) => (
-                  <Chip
-                    key={i}
-                    variant="outlined"
-                    label={filterForm[key]}
-                    icon={renderIconFilter(key)}
-                  />
-                ))}
-              </Stack>
-            )}
           </div>
+
+          {/* chip */}
+          {filterForm.pembayaran != "" && (
+            <Stack direction="row" spacing={1} className="mt-4">
+              {Object.keys(filterForm).map((key, i) => (
+                <Chip
+                  key={i}
+                  variant="outlined"
+                  label={filterForm[key]}
+                  icon={renderIconFilter(key)}
+                />
+              ))}
+            </Stack>
+          )}
         </div>
-
-        {/* table */}
-        <div className="mt-8 w-full h-[690px]">
-          <DataGrid
-            rows={liveDatas}
-            columns={columns}
-            // pageSize={10}
-            autoPageSize
-            onRowDoubleClick={detailData}
-            rowSelectionModel={selectedDatas}
-            onRowSelectionModelChange={_selectedDatas}
-            checkboxSelection
-            disableRowSelectionOnClick
-            slots={{
-              toolbar: CustomToolbar,
-            }}
-          />
-        </div>
-
-        {/*notif*/}
-        <Snackbar
-          open={snackbar}
-          autoHideDuration={3000}
-          onClose={snackbarClose}
-          message={snackbarMessage}
-          // action={action}
-        />
-
-        {/* dialog deletes, info */}
-        <Dialog
-          open={openModal}
-          onClose={() => setOpenModal(false)}
-          fullWidth
-          maxWidth="sm"
-        >
-          {renderKontenModal(kontenModal)}
-        </Dialog>
-
-        {/* dialog filter */}
-        <Dialog
-          maxWidth="sm"
-          fullWidth
-          open={dialogFilter}
-          onClose={() => _closeDialog("filter")}
-        >
-          <DialogTitle>Filter Data</DialogTitle>
-          <DialogContent>
-            <FormControl>
-              <FormLabel id="demo-radio-buttons-group-label">
-                Payment Flow
-              </FormLabel>
-              <RadioGroup
-                aria-label="demo-radio-buttons-group-label"
-                name="pembayaran"
-                value={filterForm.pembayaran}
-                onChange={_changeFilterForm}
-              >
-                <FormControlLabel
-                  value="Lancar"
-                  control={<Radio />}
-                  label="Lancar"
-                />
-                <FormControlLabel
-                  value="Jatuh Tempo"
-                  control={<Radio />}
-                  label="Jatuh Tempo"
-                />
-                <FormControlLabel
-                  value="Penagihan"
-                  control={<Radio />}
-                  label="Penagihan"
-                />
-                <FormControlLabel
-                  value="Macet"
-                  control={<Radio />}
-                  label="Macet"
-                />
-                <FormControlLabel
-                  value="Blacklist"
-                  control={<Radio />}
-                  label="Blacklist"
-                />
-              </RadioGroup>
-            </FormControl>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => _closeDialog("filter")}>Close</Button>
-            <Button onClick={() => SearchFilter(searchKey)}>Filter</Button>
-          </DialogActions>
-        </Dialog>
-
-        {/* dialog Delete */}
-        <Dialog
-          maxWidth="sm"
-          fullWidth
-          open={dialogDelete}
-          onClose={() => _closeDialog("delete")}
-        >
-          <DialogTitle>Delete ?</DialogTitle>
-          <DialogContent>
-            Data from{" "}
-            <Typography component="span" sx={{ fontWeight: "bold" }}>
-              {selectedData.name}
-            </Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => _closeDialog("delete")}>Cancel</Button>
-            <Button onClick={() => deleteData(selectedData.id)}>Delete</Button>
-          </DialogActions>
-        </Dialog>
-
-        {/* dialog detail */}
-        <Dialog
-          maxWidth="sm"
-          fullWidth
-          open={dialogDetail}
-          onClose={() => _closeDialog("detail")}
-        >
-          <DialogTitle>Detail Data</DialogTitle>
-          <DialogContent>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              ID
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.id}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              CardID
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.cardID}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Name
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.name}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Phone
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.phone}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              City
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.city}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Address
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.address}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Contact Person Name
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.cp_name}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Contact Person Phone
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.cp_phone}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Payment Flow
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.pembayaran}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Tagihan Macet
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.tagihan_macet}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Tindakan Preventif
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.preventif}
-            </Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Note
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {selectedData.note}
-            </Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => _closeDialog("detail")}>Close</Button>
-          </DialogActions>
-        </Dialog>
-
-        {/* dialog submit new/ edit */}
-        <Dialog
-          maxWidth="sm"
-          fullWidth
-          open={dialogSubmit}
-          onClose={() => _closeDialog("submit")}
-        >
-          <DialogTitle>
-            {submit == 0 ? "New Client" : "Edit Client"}
-          </DialogTitle>
-          <DialogContent>
-            {/* form new/ edit */}
-            <TextField
-              name="cardID"
-              value={clientForm.cardID}
-              onChange={_changeClientForm}
-              autoFocus
-              margin="dense"
-              label="CardID"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="name"
-              value={clientForm.name}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Name"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="phone"
-              value={clientForm.phone}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Phone"
-              type="number"
-              fullWidth
-              variant="standard"
-            />
-            {/* auto complete */}
-            <TextField
-              name="city"
-              value={clientForm.city}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="City"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="address"
-              value={clientForm.address}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Address"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="cp_name"
-              value={clientForm.cp_name}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Contact Person Name"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="cp_phone"
-              value={clientForm.cp_phone}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Contact Person Phone"
-              type="number"
-              fullWidth
-              variant="standard"
-            />
-            <FormControl margin="dense">
-              <FormLabel>Payment Flow</FormLabel>
-              <RadioGroup
-                name="pembayaran"
-                value={clientForm.pembayaran}
-                onChange={_changeClientForm}
-              >
-                <FormControlLabel
-                  value="Lancar"
-                  control={<Radio />}
-                  label="Lancar"
-                />
-                <FormControlLabel
-                  value="Jatuh Tempo"
-                  control={<Radio />}
-                  label="Jatuh Tempo"
-                />
-                <FormControlLabel
-                  value="Penagihan"
-                  control={<Radio />}
-                  label="Penagihan"
-                />
-                <FormControlLabel
-                  value="Macet"
-                  control={<Radio />}
-                  label="Macet"
-                />
-                <FormControlLabel
-                  value="Blacklist"
-                  control={<Radio />}
-                  label="Blacklist"
-                />
-              </RadioGroup>
-            </FormControl>
-            <TextField
-              name="tagihan_macet"
-              value={clientForm.tagihan_macet}
-              onChange={_changeClientForm}
-              label="Tagihan Macet"
-              margin="dense"
-              type="number"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="preventif"
-              value={clientForm.preventif}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Tindakan Prefentif"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              name="note"
-              value={clientForm.note}
-              onChange={_changeClientForm}
-              margin="dense"
-              label="Note"
-              type="text"
-              fullWidth
-              variant="standard"
-              multiline
-              rows={2}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => _closeDialog("submit")}>Cancel</Button>
-            <Button onClick={_submit}>
-              {submit == 0 ? "Submit" : "Update"}
-            </Button>
-          </DialogActions>
-        </Dialog>
       </div>
+
+      {/* table */}
+      <div className="mt-8 bg-white h-[666px]">
+        <DataGrid
+          rows={liveDatas}
+          columns={columns}
+          // pageSize={10}
+          autoPageSize
+          onRowDoubleClick={detailData}
+          rowSelectionModel={selectedDatas}
+          onRowSelectionModelChange={_selectedDatas}
+          checkboxSelection
+          disableRowSelectionOnClick
+          slots={{
+            toolbar: CustomToolbar,
+          }}
+        />
+      </div>
+
+      {/*notif*/}
+      <Snackbar
+        open={snackbar}
+        autoHideDuration={3000}
+        onClose={snackbarClose}
+        message={snackbarMessage}
+        // action={action}
+      />
+
+      {/* dialog deletes, info */}
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        fullWidth
+        maxWidth="sm"
+      >
+        {renderKontenModal(kontenModal)}
+      </Dialog>
+
+      {/* dialog filter */}
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        open={dialogFilter}
+        onClose={() => _closeDialog("filter")}
+      >
+        <DialogTitle>Filter Data</DialogTitle>
+        <DialogContent>
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">
+              Payment Flow
+            </FormLabel>
+            <RadioGroup
+              aria-label="demo-radio-buttons-group-label"
+              name="pembayaran"
+              value={filterForm.pembayaran}
+              onChange={_changeFilterForm}
+            >
+              <FormControlLabel
+                value="Lancar"
+                control={<Radio />}
+                label="Lancar"
+              />
+              <FormControlLabel
+                value="Jatuh Tempo"
+                control={<Radio />}
+                label="Jatuh Tempo"
+              />
+              <FormControlLabel
+                value="Penagihan"
+                control={<Radio />}
+                label="Penagihan"
+              />
+              <FormControlLabel
+                value="Macet"
+                control={<Radio />}
+                label="Macet"
+              />
+              <FormControlLabel
+                value="Blacklist"
+                control={<Radio />}
+                label="Blacklist"
+              />
+            </RadioGroup>
+          </FormControl>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("filter")}>Close</Button>
+          <Button onClick={() => SearchFilter(searchKey)}>Filter</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* dialog Delete */}
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        open={dialogDelete}
+        onClose={() => _closeDialog("delete")}
+      >
+        <DialogTitle>Delete ?</DialogTitle>
+        <DialogContent>
+          Data from{" "}
+          <Typography component="span" sx={{ fontWeight: "bold" }}>
+            {selectedData.name}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("delete")}>Cancel</Button>
+          <Button onClick={() => deleteData(selectedData.id)}>Delete</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* dialog detail */}
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        open={dialogDetail}
+        onClose={() => _closeDialog("detail")}
+      >
+        <DialogTitle>Detail Data</DialogTitle>
+        <DialogContent>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            ID
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.id}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            CardID
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.cardID}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Name
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.name}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Phone
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.phone}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            City
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.city}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Address
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.address}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Contact Person Name
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.cp_name}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Contact Person Phone
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.cp_phone}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Payment Flow
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.pembayaran}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Tagihan Macet
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.tagihan_macet}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Tindakan Preventif
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.preventif}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Note
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {selectedData.note}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("detail")}>Close</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* dialog submit new/ edit */}
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        open={dialogSubmit}
+        onClose={() => _closeDialog("submit")}
+      >
+        <DialogTitle>{submit == 0 ? "New Client" : "Edit Client"}</DialogTitle>
+        <DialogContent>
+          {/* form new/ edit */}
+          <TextField
+            name="cardID"
+            value={clientForm.cardID}
+            onChange={_changeClientForm}
+            autoFocus
+            margin="dense"
+            label="CardID"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="name"
+            value={clientForm.name}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Name"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="phone"
+            value={clientForm.phone}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Phone"
+            type="number"
+            fullWidth
+            variant="standard"
+          />
+          {/* auto complete */}
+          <TextField
+            name="city"
+            value={clientForm.city}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="City"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="address"
+            value={clientForm.address}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Address"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="cp_name"
+            value={clientForm.cp_name}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Contact Person Name"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="cp_phone"
+            value={clientForm.cp_phone}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Contact Person Phone"
+            type="number"
+            fullWidth
+            variant="standard"
+          />
+          <FormControl margin="dense">
+            <FormLabel>Payment Flow</FormLabel>
+            <RadioGroup
+              name="pembayaran"
+              value={clientForm.pembayaran}
+              onChange={_changeClientForm}
+            >
+              <FormControlLabel
+                value="Lancar"
+                control={<Radio />}
+                label="Lancar"
+              />
+              <FormControlLabel
+                value="Jatuh Tempo"
+                control={<Radio />}
+                label="Jatuh Tempo"
+              />
+              <FormControlLabel
+                value="Penagihan"
+                control={<Radio />}
+                label="Penagihan"
+              />
+              <FormControlLabel
+                value="Macet"
+                control={<Radio />}
+                label="Macet"
+              />
+              <FormControlLabel
+                value="Blacklist"
+                control={<Radio />}
+                label="Blacklist"
+              />
+            </RadioGroup>
+          </FormControl>
+          <TextField
+            name="tagihan_macet"
+            value={clientForm.tagihan_macet}
+            onChange={_changeClientForm}
+            label="Tagihan Macet"
+            margin="dense"
+            type="number"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="preventif"
+            value={clientForm.preventif}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Tindakan Prefentif"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="note"
+            value={clientForm.note}
+            onChange={_changeClientForm}
+            margin="dense"
+            label="Note"
+            type="text"
+            fullWidth
+            variant="standard"
+            multiline
+            rows={2}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("submit")}>Cancel</Button>
+          <Button onClick={_submit}>{submit == 0 ? "Submit" : "Update"}</Button>
+        </DialogActions>
+      </Dialog>
     </Layout>
   );
 };

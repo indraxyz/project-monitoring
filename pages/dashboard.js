@@ -23,63 +23,88 @@ import {
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
 
-//kolom: Job Number, Client, (ongoing 0 - finished 1 - invoicing 2 - paid 3), status
+//kolom: Job Number, Client, (ongoing 0 - finished 1 - invoicing 2 - paid 3)
 const columns = [
-  { field: "jobNumber", headerName: "Job Number", width: 170 },
-  { field: "client", headerName: "Client", width: 300 },
-  { field: "po", headerName: "Project Order", width: 300 },
+  {
+    field: "jobNumber",
+    headerName: "Job Number",
+    width: 170,
+    headerClassName: "underline underline-offset-4 decoration-2",
+  },
+  {
+    field: "client",
+    headerName: "Client",
+    width: 300,
+    headerClassName: "underline underline-offset-4 decoration-2",
+  },
+  {
+    field: "po",
+    headerName: "Project Order",
+    width: 300,
+    headerClassName: "underline underline-offset-4 decoration-2",
+  },
   {
     field: "registered",
     headerName: "Registered",
+    headerClassName:
+      "underline underline-offset-4 decoration-2 decoration-red-600",
     width: 100,
     renderCell: ({ row }) =>
       row.progress == -1 && (
-        <Tooltip title="dd/mm/yyy" placement="top">
-          <CheckCircleRounded className="text-orange-500" />
-        </Tooltip>
-      ),
-  },
-  {
-    field: "ongoing",
-    headerName: "Ongoing",
-    width: 70,
-    renderCell: ({ row }) =>
-      row.progress == 0 && (
-        <Tooltip title="dd/mm/yyy" placement="top">
-          <CheckCircleRounded />
-        </Tooltip>
-      ),
-  },
-  {
-    field: "finished",
-    headerName: "Finished",
-    width: 70,
-    renderCell: ({ row }) =>
-      row.progress == 1 && (
-        <Tooltip title="dd/mm/yyy" placement="top">
-          <CheckCircleRounded className="text-blue-500" />
-        </Tooltip>
-      ),
-  },
-  {
-    field: "invoicing",
-    headerName: "Invoicing",
-    width: 70,
-    renderCell: ({ row }) =>
-      row.progress == 2 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-red-600" />
         </Tooltip>
       ),
   },
   {
+    field: "ongoing",
+    headerName: "Ongoing",
+    headerClassName:
+      "underline underline-offset-4 decoration-2 decoration-orange-600",
+    width: 70,
+    renderCell: ({ row }) =>
+      row.progress == 0 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-orange-600" />
+        </Tooltip>
+      ),
+  },
+  {
+    field: "finished",
+    headerName: "Finished",
+    headerClassName:
+      "underline underline-offset-4 decoration-2 decoration-green-700",
+    width: 70,
+    renderCell: ({ row }) =>
+      row.progress == 1 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-green-700" />
+        </Tooltip>
+      ),
+  },
+  {
+    field: "invoicing",
+    headerName: "Invoicing",
+    headerClassName:
+      "underline underline-offset-4 decoration-2 decoration-blue-700",
+    width: 70,
+    renderCell: ({ row }) =>
+      row.progress == 2 && (
+        <Tooltip title="dd/mm/yyy" placement="top">
+          <CheckCircleRounded className="text-blue-700" />
+        </Tooltip>
+      ),
+  },
+  {
     field: "paid",
     headerName: "Paid",
+    headerClassName:
+      "underline underline-offset-4 decoration-2 decoration-purple-700",
     width: 70,
     renderCell: ({ row }) =>
       row.progress == 3 && (
         <Tooltip title="dd/mm/yyy" placement="top">
-          <CheckCircleRounded className="text-green-500" />
+          <CheckCircleRounded className="text-purple-700" />
         </Tooltip>
       ),
   },
@@ -92,7 +117,7 @@ const columns = [
 
 const rows = [
   {
-    jobNumber: "x1",
+    jobNumber: "x155/5555/5555",
     client: "PT kita bisa",
     po: "xxx xxx xxxx",
     progress: 0,
@@ -126,6 +151,24 @@ const rows = [
     client: "PT kita bisa",
     po: "yyrr opopop",
     progress: 2,
+  },
+  {
+    jobNumber: "x7",
+    client: "PT kita bisa",
+    po: "qwr xxx xxxx",
+    progress: 3,
+  },
+  {
+    jobNumber: "x7",
+    client: "PT kita bisa",
+    po: "qwr xxx xxxx",
+    progress: 3,
+  },
+  {
+    jobNumber: "x7",
+    client: "PT kita bisa",
+    po: "qwr xxx xxxx",
+    progress: 3,
   },
   {
     jobNumber: "x7",
@@ -288,12 +331,12 @@ const Dashboard = () => {
 
       {/* projects, /10 data */}
       <DataGrid
-        className="rounded-xl bg-white my-6 h-[633px]"
+        className="rounded-xl bg-white my-6 h-[631px]"
         getRowId={(row) => row.jobNumber}
         rows={rows}
         columns={columns}
         autoPageSize
-        pageSizeOptions={[5, 10]}
+        // pageSizeOptions={[5, 10]}
         disableRowSelectionOnClick
         onRowDoubleClick={(p, e, d) => _openDialog("detailProject")}
       />

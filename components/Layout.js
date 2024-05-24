@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <div className="bg-gray-100 flex flex-col">
       <NavBar />
-      <main className="max-w-7xl px-6 pt-24 mb-16 md:mb-6 pb-32 min-h-screen">
+      <main className="w-full px-10 pt-24 mb-16 md:mb-6 pb-32 min-h-screen">
         {children}
       </main>
       <div className="-mt-32">
