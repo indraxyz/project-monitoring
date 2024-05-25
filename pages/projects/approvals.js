@@ -1,6 +1,21 @@
 import Layout from "../../components/Layout";
-// import { Data } from '@mui/material'
+import { IconButton } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import {
+  VerifiedRounded,
+  BusinessCenterRounded,
+  TimelineRounded,
+} from "@mui/icons-material";
+
+const rows = [
+  {
+    jobNumber: "x1",
+    client: "PT kita bisa",
+    reporter: "xxx xxx xxxx",
+    time: "dd/mm/yyy",
+    progress: "registered",
+  },
+];
 
 const Approvals = () => {
   // state
@@ -10,46 +25,66 @@ const Approvals = () => {
       field: "jobNumber",
       headerName: "Job Number",
       width: 170,
-      headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "client",
       headerName: "Client",
       width: 300,
-      headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "reporter",
       headerName: "Reporter",
       width: 250,
-      headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "time",
       headerName: "Time",
       width: 170,
-      headerClassName: "underline underline-offset-4 decoration-2",
     },
     {
       field: "progress",
       headerName: "Progress",
-      width: 75,
-      headerClassName: "underline underline-offset-4 decoration-2",
+      width: 100,
     },
     {
       field: "actions",
-      headerName: "#",
+      headerName: "Action ⚙️",
       headerClassName:
         "underline underline-offset-4 decoration-2 decoration-purple-700",
-      width: 100,
+      width: 150,
       sortable: false,
       filterable: false,
-      // renderCell: ({ row }) =>
-      //   row.progress == 3 && (
-      //     <Tooltip title="dd/mm/yyy" placement="top">
-      //       <CheckCircleRounded className="text-purple-700" />
-      //     </Tooltip>
-      //   ),
+      renderCell: ({ row }) => (
+        <>
+          <IconButton
+            color="primary"
+            title="Approval"
+            onClick={() => {
+              console.log("approval");
+            }}
+          >
+            <VerifiedRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Detail Project"
+            onClick={() => {
+              console.log("detail project");
+            }}
+          >
+            <BusinessCenterRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Detail Progress"
+            onClick={() => {
+              console.log("detail progress");
+            }}
+          >
+            <TimelineRounded />
+          </IconButton>
+        </>
+      ),
     },
   ];
 
@@ -67,9 +102,9 @@ const Approvals = () => {
         action: approval, detail-project, detail-progress 
       */}
       <DataGrid
-        className="bg-white my-6 h-[631px]"
-        // getRowId={(row) => row.jobNumber}
-        rows={[]}
+        className="bg-white my-6 h-[650px]"
+        getRowId={(row) => row.jobNumber}
+        rows={rows}
         columns={columns}
         autoPageSize
         // pageSizeOptions={[5, 10]}

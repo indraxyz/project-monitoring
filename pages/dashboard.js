@@ -47,12 +47,12 @@ const columns = [
     field: "registered",
     headerName: "Registered",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-red-600",
+      "underline underline-offset-4 decoration-2 decoration-yellow-400",
     width: 100,
     renderCell: ({ row }) =>
       row.progress == -1 && (
         <Tooltip title="dd/mm/yyy" placement="top">
-          <CheckCircleRounded className="text-red-600" />
+          <CheckCircleRounded className="text-yellow-400" />
         </Tooltip>
       ),
   },
@@ -159,19 +159,19 @@ const rows = [
     progress: 3,
   },
   {
-    jobNumber: "x7",
+    jobNumber: "x8",
     client: "PT kita bisa",
     po: "qwr xxx xxxx",
     progress: 3,
   },
   {
-    jobNumber: "x7",
+    jobNumber: "x9",
     client: "PT kita bisa",
     po: "qwr xxx xxxx",
     progress: 3,
   },
   {
-    jobNumber: "x7",
+    jobNumber: "x10",
     client: "PT kita bisa",
     po: "qwr xxx xxxx",
     progress: 3,
@@ -331,7 +331,7 @@ const Dashboard = () => {
 
       {/* projects, /10 data */}
       <DataGrid
-        className="rounded-xl bg-white my-6 h-[631px]"
+        className="rounded-xl bg-white my-6 h-[650px]"
         getRowId={(row) => row.jobNumber}
         rows={rows}
         columns={columns}
