@@ -98,7 +98,7 @@ const Welcome = () => {
   return (
     <div className="bg-gray-100 flex flex-col pb-2">
       {/* container card */}
-      <div className="md:min-h-screen md:pt-20">
+      <div className="md:min-h-screen md:pt-30">
         {/* card */}
         <div className="max-w-5xl mx-auto pt-6 pb-8 md:p-6 md:shadow-lg bg-white">
           <Image
