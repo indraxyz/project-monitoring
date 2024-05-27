@@ -81,17 +81,47 @@ const Personnels = () => {
   const columns = [
     { field: "fullname", headerName: "Name", width: 200 },
     { field: "nik", headerName: "NIK", width: 180 },
-    { field: "contract", headerName: "Contract", width: 100 },
-    { field: "position", headerName: "Position", width: 130 },
-    { field: "standby", headerName: "Standby", width: 100 },
-    { field: "status", headerName: "Status", width: 100 },
+    {
+      field: "contract",
+      headerName: "Contract",
+      width: 100,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+    },
+    {
+      field: "position",
+      headerName: "Position",
+      width: 130,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+    },
+    {
+      field: "standby",
+      headerName: "Standby",
+      width: 100,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 100,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+    },
     {
       field: "actions",
       headerName: "#",
       sortable: false,
       filterable: false,
       disableExport: true,
-      width: 150,
+      disableColumnMenu: true,
+
+      width: 100,
       renderCell: (params) => (
         <>
           <IconButton
@@ -297,7 +327,7 @@ const Personnels = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="search name"
+                placeholder="name"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -770,14 +800,14 @@ const Personnels = () => {
                   {selectedData.education}
                 </span>
               </div>
-              <div>
+              {/* <div>
                 <span className="text-base font-medium text-gray-500 mb-2 block">
                   Position
                 </span>
                 <span className="text-base text-gray-500">
                   {selectedData.position}
                 </span>
-              </div>
+              </div> */}
               <div>
                 <span className="text-base font-medium text-gray-500 mb-2 block">
                   Qualification
@@ -824,6 +854,14 @@ const Personnels = () => {
                 </span>
                 <span className="text-base text-gray-500">
                   {selectedData.service}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-2 block">
+                  Note
+                </span>
+                <span className="text-base text-gray-500">
+                  {selectedData.note}
                 </span>
               </div>
             </div>

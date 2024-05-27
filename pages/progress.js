@@ -32,6 +32,7 @@ import {
   MoreRounded,
   Description,
   Inventory2Rounded,
+  AssignmentRounded,
 } from "@mui/icons-material";
 import { useState } from "react";
 // import { MuiFileInput } from "mui-file-input";
@@ -156,7 +157,7 @@ const Progress = () => {
           <TextField
             {...params}
             variant="standard"
-            placeholder="job.number"
+            placeholder="JobNumber"
             InputProps={{
               ...params.InputProps,
               startAdornment: (
@@ -202,8 +203,8 @@ const Progress = () => {
           </CardContent>
           <CardActions className="mx-2">
             <div className="flex items-center">
-              <WatchLaterRounded></WatchLaterRounded>
-              <span className="ml-2">Type</span>
+              <AssignmentRounded></AssignmentRounded>
+              <span className="ml-2">Call/ Contract</span>
             </div>
             <IconButton
               className="ml-auto"

@@ -176,13 +176,6 @@ const Profile = () => {
         <div className="md:px-8">
           <div className="mt-4">
             <span className="text-lg font-medium text-gray-900 block mb-2">
-              Email
-            </span>
-            <span className=" text-md text-gray-500">{profile.email}</span>
-          </div>
-
-          <div className="mt-4">
-            <span className="text-lg font-medium text-gray-900 block mb-2">
               Full name
             </span>
             <span className="text-md text-gray-500">{profile.fullname}</span>
@@ -193,6 +186,13 @@ const Profile = () => {
             </span>
             <span className="text-md text-gray-500">{profile.nik}</span>
           </div>
+          <div className="mt-4">
+            <span className="text-lg font-medium text-gray-900 block mb-2">
+              Email
+            </span>
+            <span className=" text-md text-gray-500">{profile.email}</span>
+          </div>
+
           {/* actions */}
           <div className="mt-6">
             <Stack direction="row" spacing={1}>
@@ -360,7 +360,7 @@ const Profile = () => {
                   Experience
                 </span>
                 <span className="text-base font-normal text-gray-400">
-                  {profile.experience}
+                  {profile.experience} years
                 </span>
               </div>
               <div>
@@ -424,7 +424,7 @@ const Profile = () => {
                   Service
                 </span>
                 <span className="text-base font-normal text-gray-400">
-                  {profile.service}
+                  {profile.service} years
                 </span>
               </div>
             </div>

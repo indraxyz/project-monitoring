@@ -185,12 +185,22 @@ const Clients = () => {
     // { field: "id", headerName: "ID", width: 100 },
     { field: "cardID", headerName: "CardID", width: 100 },
     { field: "name", headerName: "Name", width: 250 },
-    { field: "phone", headerName: "Phone", width: 200 },
-    { field: "address", headerName: "Address", width: 200 },
+    {
+      field: "phone",
+      headerName: "Phone",
+      width: 200,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+    },
+    { field: "address", headerName: "Address", width: 320 },
     {
       field: "pembayaran",
       headerName: "Payment",
-      width: 70,
+      width: 135,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
       renderCell: (params) => <IconKelancaran value={params.row.pembayaran} />,
     },
     {
@@ -199,7 +209,8 @@ const Clients = () => {
       sortable: false,
       filterable: false,
       disableExport: true,
-      width: 150,
+      disableColumnMenu: true,
+      width: 100,
       renderCell: (params) => (
         <>
           <IconButton
@@ -425,7 +436,7 @@ const Clients = () => {
         <div className="w-full md:w-1/3 md:flex md:justify-end md:m-0">
           <IconButton
             color="primary"
-            title="Add New"
+            title="Add New Client"
             onClick={() => {
               setSubmit(0);
               setDialogSubmit(true);
@@ -448,7 +459,7 @@ const Clients = () => {
           <IconButton color="primary" title="Information" onClick={openInfo}>
             <InfoRounded />
           </IconButton>
-          <IconButton color="primary" title="Refresh" onClick={resetDatas}>
+          <IconButton color="primary" title="Reload Data" onClick={resetDatas}>
             <RefreshRounded />
           </IconButton>
         </div>
@@ -468,7 +479,7 @@ const Clients = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="search name"
+                  placeholder="name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (

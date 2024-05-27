@@ -10,6 +10,8 @@ import {
   Button,
   TextField,
   InputAdornment,
+  Box,
+  Slider,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -31,11 +33,65 @@ const rows = [
   },
 ];
 
+// MONTHS RANGE
+const marksSliderMonths = [
+  {
+    value: 1,
+    label: "1",
+  },
+  {
+    value: 2,
+    label: "2",
+  },
+  {
+    value: 3,
+    label: "3",
+  },
+  {
+    value: 4,
+    label: "4",
+  },
+  {
+    value: 5,
+    label: "5",
+  },
+  {
+    value: 6,
+    label: "6",
+  },
+  {
+    value: 7,
+    label: "7",
+  },
+  {
+    value: 8,
+    label: "8",
+  },
+  {
+    value: 9,
+    label: "9",
+  },
+  {
+    value: 10,
+    label: "10",
+  },
+  {
+    value: 11,
+    label: "11",
+  },
+  {
+    value: 12,
+    label: "12",
+  },
+];
+
 const Approvals = () => {
   // state
   const [dialogApproval, setDialogApproval] = useState(false);
   const [dialogDetailProject, setDialogDetailProject] = useState(false);
   const [dialogDetailProgress, setDialogDetailProgress] = useState(false);
+  const [dialogFilterRange, setDialogFilterRange] = useState(false);
+  const [rangeMonths, setRangeMonths] = useState([2, 5]);
 
   const columns = [
     {
@@ -114,6 +170,9 @@ const Approvals = () => {
       case "detailProject":
         setDialogDetailProject(false);
         break;
+      case "filterRange":
+        setDialogFilterRange(false);
+        break;
       default:
         setDialogDetailProgress(false);
         break;
@@ -133,6 +192,10 @@ const Approvals = () => {
     }
   };
 
+  const monthsSliderChange = (event, newValue) => {
+    setRangeMonths(newValue);
+  };
+
   // approval
 
   return (
@@ -145,7 +208,7 @@ const Approvals = () => {
           <IconButton
             color="primary"
             title="Filter"
-            onClick={() => console.log("dialog filter")}
+            onClick={() => setDialogFilterRange(true)}
           >
             <FilterAltRounded />
           </IconButton>
@@ -176,7 +239,7 @@ const Approvals = () => {
           />
         </div>
 
-        {/* chip */}
+        {/* chips filtered */}
         {/* {filterForm.pembayaran != "" && (
           <Stack direction="row" spacing={1} className="mt-4">
             {Object.keys(filterForm).map((key, i) => (
@@ -204,9 +267,9 @@ const Approvals = () => {
         autoPageSize
         // pageSizeOptions={[5, 10]}
         disableRowSelectionOnClick
-        onRowDoubleClick={(p, e, d) =>
-          console.log("detail project + detail progress")
-        }
+        // onRowDoubleClick={(p, e, d) =>
+        //   console.log("detail project + detail progress")
+        // }
       />
 
       {/* modal: detail project, detail progress */}
@@ -266,6 +329,32 @@ const Approvals = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("detailProgress")}>Close</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={dialogFilterRange}
+        onClose={() => _closeDialog("filterRange")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Months Range</DialogTitle>
+        <DialogContent>
+          {/* <span>monts range</span> */}
+          <Box className=" pt-2 w-full">
+            <Slider
+              value={rangeMonths}
+              onChange={monthsSliderChange}
+              valueLabelDisplay="off"
+              min={1}
+              max={12}
+              marks={marksSliderMonths}
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("filterRange")}>Close</Button>
+          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
         </DialogActions>
       </Dialog>
     </Layout>

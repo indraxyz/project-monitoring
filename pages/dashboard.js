@@ -41,6 +41,8 @@ const columns = [
     headerName: "Project Order",
     width: 300,
     headerClassName: "underline underline-offset-4 decoration-2",
+    sortable: false,
+    disableColumnMenu: true,
   },
   {
     field: "registered",

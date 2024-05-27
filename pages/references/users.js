@@ -68,17 +68,24 @@ class Users extends Component {
       field: "type",
       headerName: "Type",
       width: 100,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
     },
     {
       field: "department",
       headerName: "Department",
-      width: 100,
+      width: 150,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
     },
     {
       field: "actions",
       headerName: "#",
       sortable: false,
       filterable: false,
+      disableColumnMenu: true,
       width: 100,
       renderCell: (params) => (
         <>
@@ -352,7 +359,7 @@ class Users extends Component {
                   {...params}
                   variant="standard"
                   size="small"
-                  placeholder="search name"
+                  placeholder="name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
