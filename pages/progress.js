@@ -141,31 +141,33 @@ const Progress = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold">Update Project Progress</span>
+      <span className="block text-2xl font-bold mb-8">
+        Update Project Progress
+      </span>
 
       {/*auto complete, search (table progress where job_number,no_worksheet group by job_number,no_worksheet) */}
+      <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+        Search
+      </span>
       <Autocomplete
-        className="w-full md:w-1/3 sm:w-1/2 mt-8"
+        className="w-full md:w-1/3 sm:w-1/2 mt-4"
         freeSolo
         renderInput={(params) => (
-          <>
-            <span className="text-lg font-medium">Search</span>
-            <TextField
-              {...params}
-              variant="standard"
-              placeholder="job.number"
-              InputProps={{
-                ...params.InputProps,
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <IconButton onClick={_jobNumberSearch}>
-                      <SearchRounded />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </>
+          <TextField
+            {...params}
+            variant="standard"
+            placeholder="job.number"
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IconButton onClick={_jobNumberSearch}>
+                    <SearchRounded />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
         )}
         options={dummyJobNumber.map((option) => `${option.number}`)}
         value={searchKey}
@@ -178,7 +180,9 @@ const Progress = () => {
 
       {/* Project Data */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium">Project</span>
+        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+          Project
+        </span>
 
         {/* job Number, Client, Order, Description, status */}
         <Card className="max-w-xl mt-4">
@@ -199,7 +203,7 @@ const Progress = () => {
           <CardActions className="mx-2">
             <div className="flex items-center">
               <WatchLaterRounded></WatchLaterRounded>
-              <span className="ml-2">Open</span>
+              <span className="ml-2">Type</span>
             </div>
             <IconButton
               className="ml-auto"
@@ -216,7 +220,9 @@ const Progress = () => {
       {/* vertical step, progress data */}
       <div className="mt-5 pt-5">
         <div className="mb-2">
-          <span className="text-lg font-medium">Progress</span>
+          <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+            Progress
+          </span>
         </div>
 
         <Stepper activeStep={2} orientation="vertical">
@@ -253,7 +259,9 @@ const Progress = () => {
 
       {/* submit progress: new/ edit last rejected */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium">New Progress</span>
+        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+          New Progress
+        </span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}
         <div className="w-full md:w-1/2">
           <TextField

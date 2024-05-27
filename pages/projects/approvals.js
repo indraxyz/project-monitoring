@@ -137,10 +137,10 @@ const Approvals = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold mb-8">Approval Page</span>
+      <span className="block text-2xl font-bold">Approval Page</span>
 
       {/* filter (months range, search by job number) */}
-      <div className="w-full md:w-2/3">
+      <div className="w-full md:w-2/3 my-8">
         <div className="flex flex-row w-full sm:w-1/2">
           <IconButton
             color="primary"
@@ -156,7 +156,7 @@ const Approvals = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="search JobNumber"
+                placeholder="JobNumber"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -197,7 +197,7 @@ const Approvals = () => {
         action: approval, detail-project, detail-progress 
       */}
       <DataGrid
-        className="bg-white my-6 h-[650px]"
+        className="bg-white h-[650px]"
         getRowId={(row) => row.jobNumber}
         rows={rows}
         columns={columns}

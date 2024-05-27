@@ -262,7 +262,7 @@ const Personnels = () => {
     <Layout>
       <span className="text-2xl font-bold">Personnels</span>
       {/* top table management */}
-      <div className="w-full flex flex-col md:flex-row-reverse md:items-center mt-8">
+      <div className="w-full flex flex-col md:flex-row-reverse md:items-center my-8">
         <div className="w-full mb-4 md:w-1/3 md:flex  md:justify-end md:m-0">
           <IconButton
             color="primary"
@@ -319,7 +319,7 @@ const Personnels = () => {
       </div>
 
       {/* table */}
-      <div style={{ height: 650, width: "100%" }} className="mt-8">
+      <div className="bg-white h-[650px]">
         <DataGrid
           rows={liveDatas}
           columns={columns}

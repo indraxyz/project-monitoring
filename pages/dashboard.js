@@ -48,6 +48,10 @@ const columns = [
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-yellow-400",
     width: 100,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
     renderCell: ({ row }) =>
       row.progress == -1 && (
         <Tooltip title="dd/mm/yyy" placement="top">
@@ -60,7 +64,11 @@ const columns = [
     headerName: "Ongoing",
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-orange-600",
-    width: 70,
+    width: 80,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
     renderCell: ({ row }) =>
       row.progress == 0 && (
         <Tooltip title="dd/mm/yyy" placement="top">
@@ -73,7 +81,11 @@ const columns = [
     headerName: "Finished",
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-green-700",
-    width: 70,
+    width: 80,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
     renderCell: ({ row }) =>
       row.progress == 1 && (
         <Tooltip title="dd/mm/yyy" placement="top">
@@ -86,7 +98,11 @@ const columns = [
     headerName: "Invoicing",
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-blue-700",
-    width: 70,
+    width: 80,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
     renderCell: ({ row }) =>
       row.progress == 2 && (
         <Tooltip title="dd/mm/yyy" placement="top">
@@ -100,6 +116,10 @@ const columns = [
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-purple-700",
     width: 70,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
     renderCell: ({ row }) =>
       row.progress == 3 && (
         <Tooltip title="dd/mm/yyy" placement="top">
