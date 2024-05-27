@@ -141,13 +141,11 @@ const Progress = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold mb-8">
-        Update Project Progress
-      </span>
+      <span className="block text-2xl font-bold">Update Project Progress</span>
 
       {/*auto complete, search (table progress where job_number,no_worksheet group by job_number,no_worksheet) */}
       <Autocomplete
-        className="w-full md:w-1/3 sm:w-1/2"
+        className="w-full md:w-1/3 sm:w-1/2 mt-8"
         freeSolo
         renderInput={(params) => (
           <>

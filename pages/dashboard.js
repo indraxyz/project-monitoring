@@ -10,7 +10,6 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  TextField,
   Slider,
   Box,
 } from "@mui/material";
@@ -108,11 +107,6 @@ const columns = [
         </Tooltip>
       ),
   },
-  // {
-  //   field: "projectStatus",
-  //   headerName: "Status",
-  //   width: 100,
-  // },
 ];
 
 const rows = [

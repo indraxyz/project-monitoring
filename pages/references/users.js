@@ -306,9 +306,9 @@ class Users extends Component {
 
     return (
       <Layout>
-        <span className="text-2xl font-bold mb-8">Users</span>
+        <span className="text-2xl font-bold">Users</span>
         {/* top table properties */}
-        <div className="w-full flex flex-col md:flex-row-reverse md:items-center">
+        <div className="w-full flex flex-col md:flex-row-reverse md:items-center mt-8">
           <div className="w-full md:w-1/3 md:flex  md:justify-end md:m-0">
             <IconButton
               color="primary"
