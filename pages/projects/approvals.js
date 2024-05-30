@@ -12,6 +12,12 @@ import {
   InputAdornment,
   Box,
   Slider,
+  Stepper,
+  Step,
+  StepLabel,
+  Tooltip,
+  StepContent,
+  Typography,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -21,6 +27,10 @@ import {
   FilterAltRounded,
   SearchRounded,
   CloseRounded,
+  TodayRounded,
+  SyncRounded,
+  DescriptionRounded,
+  ReceiptLongRounded,
 } from "@mui/icons-material";
 
 const rows = [
@@ -28,8 +38,69 @@ const rows = [
     jobNumber: "x1x/333/9999",
     client: "PT kita bisa",
     reporter: "xxx xxx xxxx",
-    time: "dd/mm/yyy hh:mm",
+    time: "10/10/2023 10:10",
     progress: "registered",
+  },
+  {
+    jobNumber: "x2x/333/9999",
+    client: "PT kita bisa",
+    reporter: "insan budi",
+    time: "11/11/2020 15:15",
+    progress: "ongoing",
+  },
+  {
+    jobNumber: "x3x/333/9999",
+    client: "PT kita bisa",
+    reporter: "insan budi",
+    time: "11/11/2020 15:15",
+    progress: "finished",
+  },
+  {
+    jobNumber: "x4x/333/9999",
+    client: "PT kita bisa",
+    reporter: "insan budi",
+    time: "11/11/2020 15:15",
+    progress: "invoicing",
+  },
+  {
+    jobNumber: "x5x/333/9999",
+    client: "PT kita bisa",
+    reporter: "insan budi",
+    time: "11/11/2020 15:15",
+    progress: "paid",
+  },
+];
+
+const steps = [
+  {
+    label: "Registered",
+    description: `For each ad campaign that you create, you can control how much
+              you're willing.`,
+    icon: <TodayRounded />,
+  },
+  {
+    label: "On Going",
+    description:
+      "An ad group contains one or more ads which target a shared set of keywords.",
+    icon: <SyncRounded />,
+  },
+  {
+    label: "Finished",
+    description: `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads .`,
+    icon: <VerifiedRounded />,
+  },
+  {
+    label: "Invoicing",
+    description: `For each ad campaign that you create, you can control how much
+              you're willing to spend on.`,
+    icon: <DescriptionRounded />,
+  },
+  {
+    label: "Paid",
+    description:
+      "An ad group contains one or more ads which target a shared set of keywords.",
+    icon: <ReceiptLongRounded />,
   },
 ];
 
@@ -294,7 +365,11 @@ const Approvals = () => {
         </IconButton>
 
         <DialogContent>
-          <span>Approval</span>
+          <span>
+            Latest Progress to Approval: requested by, level, description,
+            attachment, createdAt, Project (Job Number, Client, Project Order,
+            Description).
+          </span>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("approval")}>Reject</Button>
@@ -310,7 +385,86 @@ const Approvals = () => {
       >
         <DialogTitle>Detail Project</DialogTitle>
         <DialogContent>
-          <span>Detail Projwct</span>
+          <div className="flex flex-col gap-2 mt-2">
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Job Number
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Client
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Order
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Description
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Status
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No. Contract/ PO/ SO/ Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Start Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Finish Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Type
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                PO Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No.PES
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No. REG Contract
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Remark
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+          </div>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
@@ -325,7 +479,36 @@ const Approvals = () => {
       >
         <DialogTitle>Detail Progress</DialogTitle>
         <DialogContent>
-          <span>Detail Progress</span>
+          <Stepper activeStep={2} orientation="vertical">
+            {steps.map((step, index) => (
+              <Step key={index} expanded={index <= 2 ? true : false}>
+                <StepLabel
+                  className={` ${
+                    index <= 2 ? "text-indigo-600" : "text-gray-300"
+                  }`}
+                  icon={
+                    <Tooltip title={step.description} placement="right">
+                      {step.icon}
+                    </Tooltip>
+                  }
+                  // error from approved
+                >
+                  <span className="text-base">{step.label}</span>
+                </StepLabel>
+                <StepContent>
+                  <Typography>
+                    {/*description*/}
+                    {`is simply dummy text of the printing and typesetting
+                  industry. Lorem Ipsum has been the standard dummy text`}
+                    {/*detail: user by, attachment?, no_worksheet?(khusus On Going/ Job Finish), approved?, approval by, createdAt*/}
+                  </Typography>
+                  <Typography className="text-sm text-gray-400">
+                    user by, attachment?, approved?, approval by, createdAt
+                  </Typography>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("detailProgress")}>Close</Button>

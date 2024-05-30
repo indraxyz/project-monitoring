@@ -332,6 +332,12 @@ const Progress = () => {
             </div>
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Status
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
                 No. Contract/ PO/ SO/ Date
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
@@ -375,12 +381,6 @@ const Progress = () => {
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
                 Remark
-              </span>
-              <span className="text-base font-normal text-gray-400">...</span>
-            </div>
-            <div>
-              <span className="text-base font-medium text-gray-500 mb-1 block">
-                Project Status
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
             </div>

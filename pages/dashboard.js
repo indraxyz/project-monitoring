@@ -55,7 +55,7 @@ const columns = [
     hideable: false,
     disableColumnMenu: true,
     renderCell: ({ row }) =>
-      row.progress == -1 && (
+      row.progress == 0 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-yellow-400" />
         </Tooltip>
@@ -72,7 +72,7 @@ const columns = [
     hideable: false,
     disableColumnMenu: true,
     renderCell: ({ row }) =>
-      row.progress == 0 && (
+      row.progress == 1 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-orange-600" />
         </Tooltip>
@@ -89,7 +89,7 @@ const columns = [
     hideable: false,
     disableColumnMenu: true,
     renderCell: ({ row }) =>
-      row.progress == 1 && (
+      row.progress == 2 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-green-700" />
         </Tooltip>
@@ -106,7 +106,7 @@ const columns = [
     hideable: false,
     disableColumnMenu: true,
     renderCell: ({ row }) =>
-      row.progress == 2 && (
+      row.progress == 3 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-blue-700" />
         </Tooltip>
@@ -123,7 +123,7 @@ const columns = [
     hideable: false,
     disableColumnMenu: true,
     renderCell: ({ row }) =>
-      row.progress == 3 && (
+      row.progress == 4 && (
         <Tooltip title="dd/mm/yyy" placement="top">
           <CheckCircleRounded className="text-purple-700" />
         </Tooltip>
@@ -160,7 +160,7 @@ const rows = [
     jobNumber: "x5",
     client: "PT kita bisa",
     po: "ttt xxx xxxx",
-    progress: -1,
+    progress: 1,
   },
   {
     jobNumber: "x6",
@@ -184,7 +184,7 @@ const rows = [
     jobNumber: "x9",
     client: "PT kita bisa",
     po: "qwr xxx xxxx",
-    progress: 3,
+    progress: 4,
   },
   {
     jobNumber: "x10",

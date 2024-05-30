@@ -78,7 +78,7 @@ Dashboard /ui ✅
 projects
     Register 📌3 ♻️
     //list(table), detail, crud, cari + filter
-    Approval 📌2 ♻️ detail, approve 👈
+    Approval 📌2 ♻️ approval 👈
     //persetujuan setiap progres oleh lead
     //list data progres (table), detail data project + detail data progres, approval, filter (months, search by ...)
     schedules📌
