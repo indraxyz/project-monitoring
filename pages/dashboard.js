@@ -63,7 +63,7 @@ const columns = [
   },
   {
     field: "ongoing",
-    headerName: "Ongoing",
+    headerName: "OnGoing",
     headerClassName:
       "underline underline-offset-4 decoration-2 decoration-orange-600",
     width: 80,
@@ -317,7 +317,7 @@ const Dashboard = () => {
               <span className="text-xl sm:text-2xl md:text-3xl font-bold block">
                 99
               </span>
-              <span className="text-sm md:text-base">Ongoing</span>
+              <span className="text-sm md:text-base">OnGoing</span>
             </div>
           </CardContent>
         </Card>

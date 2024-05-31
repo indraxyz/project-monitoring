@@ -31,7 +31,10 @@ import {
   SyncRounded,
   DescriptionRounded,
   ReceiptLongRounded,
+  AttachFileRounded,
 } from "@mui/icons-material";
+
+const dummyProgress = [{}];
 
 const rows = [
   {
@@ -39,68 +42,63 @@ const rows = [
     client: "PT kita bisa",
     reporter: "xxx xxx xxxx",
     time: "10/10/2023 10:10",
-    progress: "registered",
+    progress: "0",
   },
   {
     jobNumber: "x2x/333/9999",
     client: "PT kita bisa",
     reporter: "insan budi",
     time: "11/11/2020 15:15",
-    progress: "ongoing",
+    progress: 1,
   },
   {
     jobNumber: "x3x/333/9999",
     client: "PT kita bisa",
     reporter: "insan budi",
     time: "11/11/2020 15:15",
-    progress: "finished",
+    progress: 2,
   },
   {
     jobNumber: "x4x/333/9999",
     client: "PT kita bisa",
     reporter: "insan budi",
     time: "11/11/2020 15:15",
-    progress: "invoicing",
+    progress: 3,
   },
   {
     jobNumber: "x5x/333/9999",
     client: "PT kita bisa",
     reporter: "insan budi",
     time: "11/11/2020 15:15",
-    progress: "paid",
+    progress: 4,
   },
 ];
 
 const steps = [
   {
     label: "Registered",
-    description: `For each ad campaign that you create, you can control how much
-              you're willing.`,
     icon: <TodayRounded />,
+    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "On Going",
-    description:
-      "An ad group contains one or more ads which target a shared set of keywords.",
     icon: <SyncRounded />,
+    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Finished",
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads .`,
     icon: <VerifiedRounded />,
+    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Invoicing",
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on.`,
     icon: <DescriptionRounded />,
+    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Paid",
-    description:
-      "An ad group contains one or more ads which target a shared set of keywords.",
     icon: <ReceiptLongRounded />,
+    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
 ];
 
@@ -156,6 +154,43 @@ const marksSliderMonths = [
   },
 ];
 
+const ProgressRow = (props) => {
+  const { progress } = props;
+
+  switch (progress) {
+    case 1:
+      return (
+        <span className="text-sm underline underline-offset-4 decoration-2 decoration-orange-600">
+          OnGoing
+        </span>
+      );
+    case 2:
+      return (
+        <span className="text-sm underline underline-offset-4 decoration-2 decoration-green-700">
+          Finished
+        </span>
+      );
+    case 3:
+      return (
+        <span className="text-sm underline underline-offset-4 decoration-2 decoration-blue-700">
+          Invoicing
+        </span>
+      );
+    case 4:
+      return (
+        <span className="text-sm underline underline-offset-4 decoration-2 decoration-purple-700">
+          Paid
+        </span>
+      );
+    default:
+      return (
+        <span className="text-sm underline underline-offset-4 decoration-2 decoration-yellow-400">
+          Registered
+        </span>
+      );
+  }
+};
+
 const Approvals = () => {
   // state
   const [dialogApproval, setDialogApproval] = useState(false);
@@ -179,25 +214,33 @@ const Approvals = () => {
       field: "reporter",
       headerName: "Reporter",
       width: 200,
+      filterable: false,
+      disableColumnMenu: true,
     },
     {
       field: "time",
       headerName: "Time",
-      width: 150,
+      width: 175,
+      filterable: false,
+      disableColumnMenu: true,
     },
     {
       field: "progress",
       headerName: "Progress",
-      width: 100,
+      width: 125,
+      sortable: false,
+      filterable: false,
+      hideable: false,
+      disableColumnMenu: true,
+      renderCell: ({ row }) => <ProgressRow progress={row.progress} />,
     },
     {
       field: "actions",
       headerName: "Action ⚙️",
-      headerClassName:
-        "underline underline-offset-4 decoration-2 decoration-purple-700",
       width: 150,
       sortable: false,
       filterable: false,
+      disableColumnMenu: true,
       renderCell: ({ row }) => (
         <>
           <IconButton
@@ -275,7 +318,7 @@ const Approvals = () => {
 
       {/* filter (months range, search by job number) */}
       <div className="w-full md:w-2/3 my-8">
-        <div className="flex flex-row w-full sm:w-1/2">
+        <div className="flex items-center flex-row w-full sm:w-1/2">
           <IconButton
             color="primary"
             title="Filter"
@@ -365,11 +408,39 @@ const Approvals = () => {
         </IconButton>
 
         <DialogContent>
-          <span>
-            Latest Progress to Approval: requested by, level, description,
-            attachment, createdAt, Project (Job Number, Client, Project Order,
-            Description).
-          </span>
+          <div>
+            <div className="flex items- mb-2">
+              <TodayRounded /> <span className="text- ml-2">Registered</span>
+            </div>
+            <Typography className="text-sm text-gray-400 block">
+              reported by{" "}
+              <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                Budi
+              </span>{" "}
+              at 12/12/2022 12:12
+              <IconButton aria-label="attachment" size="small" className="ml-2">
+                <AttachFileRounded fontSize="inherit" />
+              </IconButton>
+            </Typography>
+
+            <Typography>
+              is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the standard dummy text
+            </Typography>
+          </div>
+
+          <TextField
+            name="noted"
+            // value={""}
+            margin="dense"
+            label="Noted"
+            type="text"
+            fullWidth
+            variant="standard"
+            multiline
+            rows={2}
+            helperText="*must fill for reason if reject the progress"
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("approval")}>Reject</Button>
@@ -484,27 +555,49 @@ const Approvals = () => {
               <Step key={index} expanded={index <= 2 ? true : false}>
                 <StepLabel
                   className={` ${
-                    index <= 2 ? "text-indigo-600" : "text-gray-300"
+                    index <= 2 ? "text-indigo-600" : "text-gray-400"
                   }`}
                   icon={
-                    <Tooltip title={step.description} placement="right">
+                    <Tooltip title={step.desc} placement="right">
                       {step.icon}
                     </Tooltip>
                   }
-                  // error from approved
+                  // error if rejected
                 >
                   <span className="text-base">{step.label}</span>
                 </StepLabel>
                 <StepContent>
+                  <Typography className="text-sm text-gray-400 block">
+                    reported by{" "}
+                    <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                      Budi
+                    </span>{" "}
+                    at 12/12/2022 12:12
+                    <IconButton
+                      aria-label="attachment"
+                      size="small"
+                      className="ml-2"
+                    >
+                      <AttachFileRounded fontSize="inherit" />
+                    </IconButton>
+                  </Typography>
+
                   <Typography>
-                    {/*description*/}
                     {`is simply dummy text of the printing and typesetting
                   industry. Lorem Ipsum has been the standard dummy text`}
-                    {/*detail: user by, attachment?, no_worksheet?(khusus On Going/ Job Finish), approved?, approval by, createdAt*/}
                   </Typography>
-                  <Typography className="text-sm text-gray-400">
-                    user by, attachment?, approved?, approval by, createdAt
-                  </Typography>
+
+                  <div className="mt-2">
+                    <Typography className="text-sm text-gray-400 block">
+                      approved/ rejected by{" "}
+                      <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                        Bayu
+                      </span>{" "}
+                    </Typography>
+                    <Typography className="text-sm text-gray-400 block">
+                      noted ...
+                    </Typography>
+                  </div>
                 </StepContent>
               </Step>
             ))}

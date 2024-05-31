@@ -19,6 +19,9 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import {
   SearchRounded,
@@ -33,6 +36,7 @@ import {
   Description,
   Inventory2Rounded,
   AssignmentRounded,
+  AttachFileRounded,
 } from "@mui/icons-material";
 import { useState } from "react";
 // import { MuiFileInput } from "mui-file-input";
@@ -231,27 +235,49 @@ const Progress = () => {
             <Step key={index} expanded={index <= 2 ? true : false}>
               <StepLabel
                 className={` ${
-                  index <= 2 ? "text-indigo-600" : "text-gray-300"
+                  index <= 2 ? "text-indigo-600" : "text-gray-400"
                 }`}
                 icon={
-                  <Tooltip title={step.description} placement="right">
+                  <Tooltip title={step.desc} placement="right">
                     {step.icon}
                   </Tooltip>
                 }
-                // error from approved
+                // error if rejected
               >
                 <span className="text-base">{step.label}</span>
               </StepLabel>
               <StepContent>
+                <Typography className="text-sm text-gray-400 block">
+                  reported by{" "}
+                  <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                    Budi
+                  </span>{" "}
+                  at 12/12/2022 12:12
+                  <IconButton
+                    aria-label="attachment"
+                    size="small"
+                    className="ml-2"
+                  >
+                    <AttachFileRounded fontSize="inherit" />
+                  </IconButton>
+                </Typography>
+
                 <Typography>
-                  {/*description*/}
                   {`is simply dummy text of the printing and typesetting
                   industry. Lorem Ipsum has been the standard dummy text`}
-                  {/*detail: user by, attachment?, no_worksheet?(khusus On Going/ Job Finish), approved?, approval by, createdAt*/}
                 </Typography>
-                <Typography className="text-sm text-gray-400">
-                  user by, attachment?, approved?, approval by, createdAt
-                </Typography>
+
+                <div className="mt-2">
+                  <Typography className="text-sm text-gray-400 block">
+                    approved/ rejected by{" "}
+                    <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                      Bayu
+                    </span>{" "}
+                  </Typography>
+                  <Typography className="text-sm text-gray-400 block">
+                    noted ...
+                  </Typography>
+                </div>
               </StepContent>
             </Step>
           ))}
@@ -261,7 +287,7 @@ const Progress = () => {
       {/* submit progress: new/ edit last rejected */}
       <div className="mt-5 pt-5">
         <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
-          New Progress
+          Update Progress
         </span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}
         <div className="w-full md:w-1/2">
@@ -287,6 +313,21 @@ const Progress = () => {
             multiline
             rows={2}
           />
+          <FormControl margin="dense" variant="standard" fullWidth>
+            <InputLabel>Level</InputLabel>
+            <Select
+              name="level"
+              // value={profileValue.department}
+              // onChange={_changeProfileValue}
+            >
+              <MenuItem value={""}></MenuItem>
+              <MenuItem value={"0"}>Registered</MenuItem>
+              <MenuItem value={"1"}>OnGoing</MenuItem>
+              <MenuItem value={"2"}>Finished</MenuItem>
+              <MenuItem value={"3"}>Invoicing</MenuItem>
+              <MenuItem value={"4"}>Paid</MenuItem>
+            </Select>
+          </FormControl>
 
           <FormControl margin="dense">
             <Button variant="contained" startIcon={<SendRounded />}>
