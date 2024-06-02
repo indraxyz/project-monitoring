@@ -311,11 +311,12 @@ const Welcome = () => {
         autoHideDuration={2000}
         onClose={_snackbarClose}
         message={snackbar.message}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         // action={action}
       />
 
       {/* footer */}
-      <div className="-mt-16 sm:-mt-28">
+      <div className="-mt-16 pb-2">
         <Footer />
       </div>
     </div>
