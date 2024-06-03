@@ -464,7 +464,7 @@ const Clients = () => {
           </IconButton>
         </div>
         <div className="w-full md:w-2/3">
-          <div className="flex flex-row w-full sm:w-1/2">
+          <div className="flex flex-row items-center w-full sm:w-1/2">
             <IconButton
               color="primary"
               title="Filter"

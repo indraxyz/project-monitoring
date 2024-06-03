@@ -305,7 +305,7 @@ const Dashboard = () => {
               <span className="text-sm sm:text-base md:text-xl font-bold block">
                 06-12 2024
               </span>
-              <span className="text-sm md:text-base">Range</span>
+              <span className="text-sm md:text-base font-bold">Range</span>
             </div>
           </CardContent>
         </Card>
