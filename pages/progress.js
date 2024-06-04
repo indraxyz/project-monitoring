@@ -55,32 +55,27 @@ const dummyJobNumber = [
 const steps = [
   {
     label: "Registered",
-    description: `For each ad campaign that you create, you can control how much
-              you're willing.`,
+    description: `Registered Project.`,
     icon: <TodayRounded />,
   },
   {
     label: "On Going",
-    description:
-      "An ad group contains one or more ads which target a shared set of keywords.",
+    description: "Project still continues.",
     icon: <SyncRounded />,
   },
   {
     label: "Finished",
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads .`,
+    description: `Project completed approved or rejected.`,
     icon: <VerifiedRounded />,
   },
   {
     label: "Invoicing",
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on.`,
+    description: `Expense bill.`,
     icon: <DescriptionRounded />,
   },
   {
     label: "Paid",
-    description:
-      "An ad group contains one or more ads which target a shared set of keywords.",
+    description: "Project bill paid.",
     icon: <ReceiptLongRounded />,
   },
 ];
@@ -196,18 +191,18 @@ const Progress = () => {
               <span className="block font-bold">Job Number. 389/19/031</span>
               <span className="block text-xl">PT. SMELTING</span>
               <div className="flex items-center">
-                <Inventory2Rounded></Inventory2Rounded>
+                <Inventory2Rounded titleAccess="Project Order"></Inventory2Rounded>
                 <span className="ml-2">JAWA SATU, TAMBAK LOROK, MLI PS 10</span>
               </div>
               <div className="flex items-center">
-                <Description></Description>
+                <Description titleAccess="Description"></Description>
                 <span className="ml-2">NDT, WI</span>
               </div>
             </div>
           </CardContent>
           <CardActions className="mx-2">
             <div className="flex items-center">
-              <AssignmentRounded></AssignmentRounded>
+              <AssignmentRounded titleAccess="Tipe Project"></AssignmentRounded>
               <span className="ml-2">Call/ Contract</span>
             </div>
             <IconButton
@@ -238,7 +233,7 @@ const Progress = () => {
                   index <= 2 ? "text-indigo-600" : "text-gray-400"
                 }`}
                 icon={
-                  <Tooltip title={step.desc} placement="right">
+                  <Tooltip title={step.description} placement="bottom-start">
                     {step.icon}
                   </Tooltip>
                 }
@@ -248,16 +243,11 @@ const Progress = () => {
               </StepLabel>
               <StepContent>
                 <Typography className="text-sm text-gray-400 block">
-                  reported by{" "}
                   <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
                     Budi
                   </span>{" "}
-                  at 12/12/2022 12:12
-                  <IconButton
-                    aria-label="attachment"
-                    size="small"
-                    className="ml-2"
-                  >
+                  reported at 12/12/2022 12:12
+                  <IconButton title="attachment" size="small" className="ml-2">
                     <AttachFileRounded fontSize="inherit" />
                   </IconButton>
                 </Typography>
@@ -267,12 +257,12 @@ const Progress = () => {
                   industry. Lorem Ipsum has been the standard dummy text`}
                 </Typography>
 
-                <div className="mt-2">
+                <div className="mt-3">
                   <Typography className="text-sm text-gray-400 block">
-                    approved/ rejected by{" "}
                     <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
                       Bayu
                     </span>{" "}
+                    approved/ rejected at 12/12/2022 12:12
                   </Typography>
                   <Typography className="text-sm text-gray-400 block">
                     noted ...

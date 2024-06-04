@@ -47,28 +47,28 @@ const rows = [
   {
     jobNumber: "x2x/333/9999",
     client: "PT kita bisa",
-    reporter: "insan budi",
+    reporter: "xxxx xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 1,
   },
   {
     jobNumber: "x3x/333/9999",
     client: "PT kita bisa",
-    reporter: "insan budi",
+    reporter: "xxxx xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 2,
   },
   {
     jobNumber: "x4x/333/9999",
     client: "PT kita bisa",
-    reporter: "insan budi",
+    reporter: "xxxx xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 3,
   },
   {
     jobNumber: "x5x/333/9999",
     client: "PT kita bisa",
-    reporter: "insan budi",
+    reporter: "xxxx xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 4,
   },
@@ -77,28 +77,28 @@ const rows = [
 const steps = [
   {
     label: "Registered",
+    description: `Registered Project.`,
     icon: <TodayRounded />,
-    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "On Going",
+    description: "Project still continues.",
     icon: <SyncRounded />,
-    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Finished",
+    description: `Project completed approved or rejected.`,
     icon: <VerifiedRounded />,
-    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Invoicing",
+    description: `Expense bill.`,
     icon: <DescriptionRounded />,
-    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
   {
     label: "Paid",
+    description: "Project bill paid.",
     icon: <ReceiptLongRounded />,
-    desc: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text",
   },
 ];
 
@@ -226,7 +226,7 @@ const Approvals = () => {
     },
     {
       field: "progress",
-      headerName: "Progress",
+      headerName: "Latest Progress",
       width: 125,
       sortable: false,
       filterable: false,
@@ -413,12 +413,11 @@ const Approvals = () => {
               <TodayRounded /> <span className="text- ml-2">Registered</span>
             </div>
             <Typography className="text-sm text-gray-400 block">
-              reported by{" "}
               <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
                 Budi
               </span>{" "}
-              at 12/12/2022 12:12
-              <IconButton aria-label="attachment" size="small" className="ml-2">
+              reported at 12/12/2022 12:12
+              <IconButton title="attachment" size="small" className="ml-2">
                 <AttachFileRounded fontSize="inherit" />
               </IconButton>
             </Typography>
@@ -433,13 +432,13 @@ const Approvals = () => {
             name="noted"
             // value={""}
             margin="dense"
-            label="Noted"
+            label="Why rejected ?"
             type="text"
             fullWidth
             variant="standard"
             multiline
             rows={2}
-            helperText="*must fill for reason if reject the progress"
+            helperText="*required if reject the progress"
           />
         </DialogContent>
         <DialogActions>
@@ -558,7 +557,7 @@ const Approvals = () => {
                     index <= 2 ? "text-indigo-600" : "text-gray-400"
                   }`}
                   icon={
-                    <Tooltip title={step.desc} placement="right">
+                    <Tooltip title={step.description} placement="bottom-start">
                       {step.icon}
                     </Tooltip>
                   }
@@ -568,13 +567,12 @@ const Approvals = () => {
                 </StepLabel>
                 <StepContent>
                   <Typography className="text-sm text-gray-400 block">
-                    reported by{" "}
                     <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
                       Budi
                     </span>{" "}
-                    at 12/12/2022 12:12
+                    reported at 12/12/2022 12:12
                     <IconButton
-                      aria-label="attachment"
+                      title="attachment"
                       size="small"
                       className="ml-2"
                     >
@@ -587,12 +585,12 @@ const Approvals = () => {
                   industry. Lorem Ipsum has been the standard dummy text`}
                   </Typography>
 
-                  <div className="mt-2">
+                  <div className="mt-3">
                     <Typography className="text-sm text-gray-400 block">
-                      approved/ rejected by{" "}
                       <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
                         Bayu
                       </span>{" "}
+                      approved/ rejected at 12/12/2022 12:12
                     </Typography>
                     <Typography className="text-sm text-gray-400 block">
                       noted ...

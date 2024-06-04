@@ -21,7 +21,7 @@ const rows = [
   {
     jobNumber: "x1x/333/9999",
     client: "PT kita bisa",
-    desc: "xx xxxxxxx",
+    desc: "xx xxxxxxx xxxxxxxx",
     start_date: "10/10/2023",
     type: "call",
     status: "open",
@@ -29,7 +29,7 @@ const rows = [
   {
     jobNumber: "x2x/333/9999",
     client: "PT kita bisa",
-    desc: "xx xxxxxxx",
+    desc: "xx xxxxxxx xxxxxxxx",
     start_date: "10/10/2023",
     type: "contract",
     status: "finish",
@@ -37,7 +37,7 @@ const rows = [
   {
     jobNumber: "x3x/333/9999",
     client: "PT kita bisa",
-    desc: "xx xxxxxxx",
+    desc: "xx xxxxxxx xxxxxxxx",
     start_date: "10/10/2023",
     type: "call",
     status: "close",
@@ -45,7 +45,7 @@ const rows = [
   {
     jobNumber: "x4x/333/9999",
     client: "PT kita bisa",
-    desc: "xx xxxxxxx",
+    desc: "xx xxxxxxx xxxxxxxx",
     start_date: "10/10/2023",
     type: "contract",
     status: "finish",
@@ -53,7 +53,7 @@ const rows = [
   {
     jobNumber: "x5x/333/9999",
     client: "PT kita bisa",
-    desc: "xx xxxxxxx",
+    desc: "xx xxxxxxx xxxxxxxx",
     start_date: "10/10/2023",
     type: "call",
     status: "open",
@@ -117,7 +117,7 @@ const Projects = () => {
           {/* detail edit delete */}
           <IconButton
             color="primary"
-            title="Approval"
+            title="Detail Project"
             onClick={() => {
               // console.log(row);
               // setDialogApproval(true);
@@ -127,7 +127,7 @@ const Projects = () => {
           </IconButton>
           <IconButton
             color="primary"
-            title="Edit"
+            title="Edit Project"
             onClick={() => {
               // setClientForm(params.row);
               // setSubmit(1);
@@ -162,7 +162,7 @@ const Projects = () => {
           <div className="flex items-center flex-row w-full sm:w-1/2">
             <IconButton
               color="primary"
-              title="Filter"
+              title="Filter Projects"
               onClick={() => setDialogFilterRange(true)}
             >
               <FilterAltRounded />
@@ -212,7 +212,7 @@ const Projects = () => {
         <div className="w-full md:w-1/3 md:flex md:justify-end md:m-0">
           <IconButton
             color="primary"
-            title="Add New Client"
+            title="Add New Project"
             onClick={() => {
               console.log("add");
               // setSubmit(0);
