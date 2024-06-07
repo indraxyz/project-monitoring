@@ -5,6 +5,11 @@ import {
   Autocomplete,
   TextField,
   InputAdornment,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
 } from "@mui/material";
 import {
   FilterAltRounded,
@@ -62,7 +67,13 @@ const rows = [
 
 const Projects = () => {
   const [selectedDatas, setSelectedDatas] = useState([]);
-  const [openInfo, setOpenInfo] = useState(false);
+  const [dialogInfo, setDialogInfo] = useState(false);
+  const [dialogFilter, setDialogFilter] = useState(false);
+  const [dialogAdd, setDialogAdd] = useState(false);
+  const [dialogDeletes, setDialogDeletes] = useState(false);
+  const [dialogDetailProject, setDialogDetailProject] = useState(false);
+  const [dialogEdit, setDialogEdit] = useState(false);
+  const [dialogDelete, setDialogDelete] = useState(false);
 
   const columns = [
     {
@@ -120,7 +131,7 @@ const Projects = () => {
             title="Detail Project"
             onClick={() => {
               // console.log(row);
-              // setDialogApproval(true);
+              setDialogDetailProject(true);
             }}
           >
             <MoreRounded />
@@ -131,7 +142,7 @@ const Projects = () => {
             onClick={() => {
               // setClientForm(params.row);
               // setSubmit(1);
-              // setDialogSubmit(true);
+              setDialogEdit(true);
             }}
           >
             <EditRounded />
@@ -142,7 +153,7 @@ const Projects = () => {
             onClick={() => {
               // console.log(params.row);
               // setSelectedData(params.row);
-              // setDialogDelete(true);
+              setDialogDelete(true);
             }}
           >
             <DeleteRounded />
@@ -151,6 +162,32 @@ const Projects = () => {
       ),
     },
   ];
+
+  const _closeDialog = (key) => {
+    switch (key) {
+      case "filter":
+        setDialogFilter(false);
+        break;
+      case "add":
+        setDialogAdd(false);
+        break;
+      case "deletes":
+        setDialogDeletes(false);
+        break;
+      case "info":
+        setDialogInfo(false);
+        break;
+      case "detailProject":
+        setDialogDetailProject(false);
+        break;
+      case "edit":
+        setDialogEdit(false);
+        break;
+      default:
+        setDialogDelete(false);
+        break;
+    }
+  };
 
   return (
     <Layout>
@@ -163,7 +200,7 @@ const Projects = () => {
             <IconButton
               color="primary"
               title="Filter Projects"
-              onClick={() => setDialogFilterRange(true)}
+              onClick={() => setDialogFilter(true)}
             >
               <FilterAltRounded />
             </IconButton>
@@ -216,7 +253,7 @@ const Projects = () => {
             onClick={() => {
               console.log("add");
               // setSubmit(0);
-              // setDialogSubmit(true);
+              setDialogAdd(true);
               // resetSubmitForm();
             }}
           >
@@ -237,7 +274,7 @@ const Projects = () => {
           <IconButton
             color="primary"
             title="Information"
-            // onClick={}
+            onClick={() => setDialogInfo(true)}
           >
             <InfoRounded />
           </IconButton>
@@ -256,9 +293,197 @@ const Projects = () => {
         // onRowDoubleClick={(p, e, d) =>
         //   console.log("detail project + detail progress")
         // }
+        checkboxSelection
       />
 
+      {/* dialog Filter */}
+      <Dialog
+        open={dialogFilter}
+        onClose={() => _closeDialog("filter")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Filter Data</DialogTitle>
+        <DialogContent>Form Filter projects ...</DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("filter")}>Close</Button>
+          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* DIALOG ADD */}
+      <Dialog
+        open={dialogAdd}
+        onClose={() => _closeDialog("add")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Add New Project</DialogTitle>
+        <DialogContent>Form Add New project ...</DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("add")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* DIALOG DELETES */}
+      <Dialog
+        open={dialogDeletes}
+        onClose={() => _closeDialog("deletes")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Delete Projects</DialogTitle>
+        <DialogContent>Delete multiple projects </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("deletes")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* DIALOG INFO */}
+      <Dialog
+        open={dialogInfo}
+        onClose={() => _closeDialog("info")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Project Information</DialogTitle>
+        <DialogContent>List of additionals Information ...</DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("info")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
       {/* dialog DETAIL project */}
+      <Dialog
+        open={dialogDetailProject}
+        onClose={() => _closeDialog("detailProject")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Detail Project</DialogTitle>
+        <DialogContent>
+          <div className="flex flex-col gap-2 mt-2">
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Job Number
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Client
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Order
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Description
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Status
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No. Contract/ PO/ SO/ Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Start Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Finish Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Project Type
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                PO Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No.PES
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                No. REG Contract
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Remark
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* dialog EDIT project */}
+      <Dialog
+        open={dialogEdit}
+        onClose={() => _closeDialog("edit")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Edit Project</DialogTitle>
+        <DialogContent>Form Edit project ...</DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("edit")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* dialog DELETE project */}
+      <Dialog
+        open={dialogDelete}
+        onClose={() => _closeDialog("delete")}
+        fullWidth={true}
+        maxWidth="sm"
+      >
+        <DialogTitle>Delete Project</DialogTitle>
+        <DialogContent>
+          Delete this project ? With
+          <span className="font-bold"> Job Number x1x/333/9999 </span>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => _closeDialog("delete")}>Close</Button>
+          <Button onClick={() => console.log("submit")}>Submit</Button>
+        </DialogActions>
+      </Dialog>
     </Layout>
   );
 };

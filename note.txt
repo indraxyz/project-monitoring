@@ -76,7 +76,7 @@ Dashboard /ui ✅
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
 projects
-    Register 📌♻️👈 dialog (filter, add, deletes, info, detail, edit, delete)
+    Register 📌♻️👈 dialog (filter, add, info, edit)
     //list(table), detail, crud, cari + filter
     Approval✅
     //persetujuan setiap progres oleh lead
