@@ -90,6 +90,7 @@ const Projects = () => {
       field: "desc",
       headerName: "Project Description",
       width: 200,
+      sortable: false,
       filterable: false,
       disableColumnMenu: true,
     },
@@ -261,7 +262,7 @@ const Projects = () => {
           </IconButton>
           <IconButton
             color="primary"
-            title="Delete"
+            title="Deletes Project"
             onClick={() => {
               console.log("deletes");
               // setKontenModal("deletes");
@@ -303,10 +304,11 @@ const Projects = () => {
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Filter Data</DialogTitle>
+        <DialogTitle>Projects Filter</DialogTitle>
+        {/* jobNumber, Clients, type, status */}
         <DialogContent>Form Filter projects ...</DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("filter")}>Close</Button>
+          <Button onClick={() => _closeDialog("filter")}>Cancel</Button>
           <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
         </DialogActions>
       </Dialog>
@@ -321,7 +323,7 @@ const Projects = () => {
         <DialogTitle>Add New Project</DialogTitle>
         <DialogContent>Form Add New project ...</DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("add")}>Close</Button>
+          <Button onClick={() => _closeDialog("add")}>Cancel</Button>
           <Button onClick={() => console.log("submit")}>Submit</Button>
         </DialogActions>
       </Dialog>
@@ -348,11 +350,11 @@ const Projects = () => {
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Project Information</DialogTitle>
-        <DialogContent>List of additionals Information ...</DialogContent>
+        <DialogTitle>Information</DialogTitle>
+        {/* type, status */}
+        <DialogContent>Project types and status</DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("info")}>Close</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
         </DialogActions>
       </Dialog>
 
@@ -448,7 +450,7 @@ const Projects = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
+          {/* <Button onClick={() => console.log("submit")}>Submit</Button> */}
         </DialogActions>
       </Dialog>
 
@@ -462,8 +464,8 @@ const Projects = () => {
         <DialogTitle>Edit Project</DialogTitle>
         <DialogContent>Form Edit project ...</DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("edit")}>Close</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
+          <Button onClick={() => _closeDialog("edit")}>Cancel</Button>
+          <Button onClick={() => console.log("submit")}>Update</Button>
         </DialogActions>
       </Dialog>
 
@@ -476,12 +478,12 @@ const Projects = () => {
       >
         <DialogTitle>Delete Project</DialogTitle>
         <DialogContent>
-          Delete this project ? With
-          <span className="font-bold"> Job Number x1x/333/9999 </span>
+          Delete this project ?
+          <span className="font-bold underline"> Job Number x1x/333/9999 </span>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("delete")}>Close</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
+          <Button onClick={() => _closeDialog("delete")}>Cancel</Button>
+          <Button onClick={() => console.log("submit")}>Delete</Button>
         </DialogActions>
       </Dialog>
     </Layout>
