@@ -473,7 +473,7 @@ const Dashboard = () => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("filterRange")}>Close</Button>
+          <Button onClick={() => _closeDialog("filterRange")}>Cancel</Button>
           <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
         </DialogActions>
       </Dialog>

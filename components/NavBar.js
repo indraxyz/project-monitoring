@@ -142,7 +142,7 @@ const Navbar = () => {
             >
               Approvals
             </MenuItem>
-            <MenuItem
+            {/* <MenuItem
               onClick={() => handleNavigationLink("/projects/schedules")}
             >
               Schedules
@@ -151,7 +151,7 @@ const Navbar = () => {
               onClick={() => handleNavigationLink("/projects/timesheets")}
             >
               TimeSheets
-            </MenuItem>
+            </MenuItem> */}
           </Menu>
 
           <IconButton

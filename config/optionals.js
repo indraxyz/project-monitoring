@@ -22,4 +22,32 @@ const certifications = [
 
 // education, ...
 
-export { qualifications, certifications };
+// project type
+const projectTypes = [
+  {
+    label: "Call",
+    value: "call",
+  },
+  {
+    label: "Contract",
+    value: "contract",
+  },
+];
+
+// project status
+const projectStatus = [
+  {
+    label: "Open",
+    value: "open",
+  },
+  {
+    label: "Finish",
+    value: "finish",
+  },
+  {
+    label: "Close",
+    value: "close",
+  },
+];
+
+export { qualifications, certifications, projectTypes, projectStatus };

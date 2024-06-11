@@ -76,21 +76,21 @@ Dashboard /ui ✅
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
 projects
-    Register 📌♻️👈 dialog (filter, add, info, edit)
+    Register 📌♻️👈 dialog (add-edit)
     //list(table), detail, crud, cari + filter
     Approval✅
     //persetujuan setiap progres oleh lead
     //list data progres (table), detail data project + detail data progres, approval, filter (months, search by ...)
-    schedules📌
+    schedules📌❌
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
-    timesheets 📌
+    timesheets 📌❌
     //crud, cari + filter, list(ui table) + detail
 progress ui✅
     // form cari > data project > history status project (ui vertical step) > form progress 
 References  / super-lead 
-    personnels / ui✅
+    personnels / ui✅ 📌 bug pencarian (toLowerCase)
     //crud, cari + filter, list + detail /ui
-    clients /ui✅
+    clients /ui✅ 📌 bug pencarian (toLowerCase)
     //crud, cari + filter, list + detail /ui
     users /ui✅
     //crud, cari + filter, list + detail   

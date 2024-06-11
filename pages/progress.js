@@ -37,6 +37,7 @@ import {
   Inventory2Rounded,
   AssignmentRounded,
   AttachFileRounded,
+  CloseRounded,
 } from "@mui/icons-material";
 import { useState } from "react";
 // import { MuiFileInput } from "mui-file-input";
@@ -141,9 +142,7 @@ const Progress = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold mb-8">
-        Update Project Progress
-      </span>
+      <span className="block text-2xl font-bold mb-8">Project Progress</span>
 
       {/*auto complete, search (table progress where job_number,no_worksheet group by job_number,no_worksheet) */}
       <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
@@ -335,6 +334,19 @@ const Progress = () => {
         maxWidth="sm"
       >
         <DialogTitle>Detail Project</DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={() => _closeDialog("detailProject")}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseRounded />
+        </IconButton>
+
         <DialogContent>
           <div className="flex flex-col gap-2 mt-2">
             <div>
@@ -417,9 +429,6 @@ const Progress = () => {
             </div>
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
-        </DialogActions>
       </Dialog>
     </Layout>
   );

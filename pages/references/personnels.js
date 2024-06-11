@@ -327,7 +327,7 @@ const Personnels = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="name"
+                placeholder="name/ NIK"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (

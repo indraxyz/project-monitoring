@@ -333,7 +333,7 @@ const Approvals = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="JobNumber"
+                placeholder="JobNumber/ Client"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -389,7 +389,7 @@ const Approvals = () => {
       {/* modal: detail project, detail progress */}
       <Dialog
         open={dialogApproval}
-        onClose={() => _closeDialog("approval")}
+        // onClose={() => _closeDialog("approval")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -454,6 +454,19 @@ const Approvals = () => {
         maxWidth="sm"
       >
         <DialogTitle>Detail Project</DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={() => _closeDialog("detailProject")}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseRounded />
+        </IconButton>
+
         <DialogContent>
           <div className="flex flex-col gap-2 mt-2">
             <div>
@@ -536,9 +549,6 @@ const Approvals = () => {
             </div>
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
-        </DialogActions>
       </Dialog>
 
       <Dialog
@@ -548,6 +558,19 @@ const Approvals = () => {
         maxWidth="sm"
       >
         <DialogTitle>Detail Progress</DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={() => _closeDialog("detailProject")}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseRounded />
+        </IconButton>
+
         <DialogContent>
           <Stepper activeStep={2} orientation="vertical">
             {steps.map((step, index) => (
@@ -601,9 +624,6 @@ const Approvals = () => {
             ))}
           </Stepper>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("detailProgress")}>Close</Button>
-        </DialogActions>
       </Dialog>
 
       <Dialog
@@ -627,7 +647,7 @@ const Approvals = () => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("filterRange")}>Close</Button>
+          <Button onClick={() => _closeDialog("filterRange")}>Cancel</Button>
           <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
         </DialogActions>
       </Dialog>

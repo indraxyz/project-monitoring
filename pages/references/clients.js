@@ -39,6 +39,7 @@ import {
   Circle,
   InfoRounded,
   PaymentRounded,
+  CloseRounded,
 } from "@mui/icons-material";
 import { red, green, yellow, orange, grey } from "@mui/material/colors";
 let searchTimer;
@@ -74,9 +75,22 @@ const KontenModalDeletes = (props) => {
   );
 };
 
-const KontenInfo = () => (
+const KontenInfo = (props) => (
   <>
     <DialogTitle>Payment Flow</DialogTitle>
+    <IconButton
+      aria-label="close"
+      onClick={props.onClose}
+      sx={{
+        position: "absolute",
+        right: 8,
+        top: 8,
+        color: (theme) => theme.palette.grey[500],
+      }}
+    >
+      <CloseRounded />
+    </IconButton>
+
     <DialogContent>
       <List>
         <ListItem disablePadding>
@@ -386,7 +400,7 @@ const Clients = () => {
           />
         );
       case "info":
-        return <KontenInfo onYa={() => setOpenModal(false)} />;
+        return <KontenInfo onClose={() => setOpenModal(false)} />;
       default:
     }
   };
@@ -479,7 +493,7 @@ const Clients = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="name"
+                  placeholder="cardID/ name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (

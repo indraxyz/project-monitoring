@@ -10,6 +10,14 @@ import {
   DialogContent,
   DialogActions,
   Button,
+  List,
+  ListItem,
+  ListItemText,
+  FormControl,
+  FormLabel,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import {
   FilterAltRounded,
@@ -19,8 +27,11 @@ import {
   InfoRounded,
   EditRounded,
   MoreRounded,
+  CloseRounded,
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
+
+import { projectTypes, projectStatus } from "../../config/optionals";
 
 const rows = [
   {
@@ -127,16 +138,7 @@ const Projects = () => {
       renderCell: ({ row }) => (
         <>
           {/* detail edit delete */}
-          <IconButton
-            color="primary"
-            title="Detail Project"
-            onClick={() => {
-              // console.log(row);
-              setDialogDetailProject(true);
-            }}
-          >
-            <MoreRounded />
-          </IconButton>
+
           <IconButton
             color="primary"
             title="Edit Project"
@@ -158,6 +160,16 @@ const Projects = () => {
             }}
           >
             <DeleteRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Detail Project"
+            onClick={() => {
+              // console.log(row);
+              setDialogDetailProject(true);
+            }}
+          >
+            <MoreRounded />
           </IconButton>
         </>
       ),
@@ -212,7 +224,7 @@ const Projects = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="JobNumber"
+                  placeholder="JobNumber/ Client"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -305,8 +317,61 @@ const Projects = () => {
         maxWidth="sm"
       >
         <DialogTitle>Projects Filter</DialogTitle>
-        {/* jobNumber, Clients, type, status */}
-        <DialogContent>Form Filter projects ...</DialogContent>
+        {/* jobNumber-text, Clients-text, type-cb, status-cb */}
+        <DialogContent>
+          {/* <TextField
+            name="jobNumber"
+            // value={}
+            onChange={() => {}}
+            margin="dense"
+            label="Job Number"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="client"
+            // value={}
+            onChange={() => {}}
+            margin="dense"
+            label="Client"
+            type="text"
+            fullWidth
+            variant="standard"
+          /> */}
+          <FormControl margin="dense" variant="standard" fullWidth>
+            <FormLabel>Type</FormLabel>
+            <FormGroup>
+              {projectTypes.map((item, i) => (
+                <FormControlLabel
+                  key={i}
+                  control={<Checkbox />}
+                  name="type"
+                  onChange={() => {}}
+                  checked={false}
+                  value={item.value}
+                  label={item.label}
+                />
+              ))}
+            </FormGroup>
+          </FormControl>
+          <FormControl margin="dense" variant="standard" fullWidth>
+            <FormLabel>Status</FormLabel>
+            <FormGroup>
+              {projectStatus.map((item, i) => (
+                <FormControlLabel
+                  key={i}
+                  control={<Checkbox />}
+                  name="status"
+                  onChange={() => {}}
+                  checked={false}
+                  value={item.value}
+                  label={item.label}
+                />
+              ))}
+            </FormGroup>
+          </FormControl>
+        </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("filter")}>Cancel</Button>
           <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
@@ -351,11 +416,30 @@ const Projects = () => {
         maxWidth="sm"
       >
         <DialogTitle>Information</DialogTitle>
-        {/* type, status */}
-        <DialogContent>Project types and status</DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("info")}>Close</Button>
-        </DialogActions>
+        <IconButton
+          aria-label="close"
+          onClick={() => _closeDialog("info")}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseRounded />
+        </IconButton>
+
+        <DialogContent>
+          <ListItem disablePadding>
+            <ListItemText primary="Project Type" secondary="Call, Contract" />
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemText
+              primary="Project Status"
+              secondary="Open, Finish, Close (Paid)"
+            />
+          </ListItem>
+        </DialogContent>
       </Dialog>
 
       {/* dialog DETAIL project */}
@@ -366,6 +450,19 @@ const Projects = () => {
         maxWidth="sm"
       >
         <DialogTitle>Detail Project</DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={() => _closeDialog("detailProject")}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseRounded />
+        </IconButton>
+
         <DialogContent>
           <div className="flex flex-col gap-2 mt-2">
             <div>
@@ -448,10 +545,6 @@ const Projects = () => {
             </div>
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("detailProject")}>Close</Button>
-          {/* <Button onClick={() => console.log("submit")}>Submit</Button> */}
-        </DialogActions>
       </Dialog>
 
       {/* dialog EDIT project */}
@@ -491,4 +584,3 @@ const Projects = () => {
 };
 
 export default Projects;
-//list(table), detail, crud, cari + filter
