@@ -327,7 +327,7 @@ const Approvals = () => {
             <FilterAltRounded />
           </IconButton>
           <Autocomplete
-            className="w-full"
+            className="w-full ml-3"
             freeSolo
             renderInput={(params) => (
               <TextField

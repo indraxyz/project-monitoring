@@ -269,11 +269,11 @@ const Personnels = () => {
   const _enterSearch = (e) => {
     if (e.key == "Enter") {
       clearTimeout(searchTimer); //clear suggest
-      _SearchFilter(e.target.value);
+      e.target.value != "" && _SearchFilter(e.target.value);
     }
   };
   const _selectedSearch = (e, v, r) => {
-    if (v != "") {
+    if (v != null) {
       _SearchFilter(v);
     }
   };

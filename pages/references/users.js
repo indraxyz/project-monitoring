@@ -407,7 +407,7 @@ class Users extends Component {
           open={dialogDeletes}
           onClose={() => this._closeDialog("deletes")}
         >
-          <DialogTitle>Delete Datas ?</DialogTitle>
+          <DialogTitle>Delete Users ?</DialogTitle>
           <DialogContent>
             Data from{" "}
             <Typography component="span" sx={{ fontWeight: "bold" }}>
@@ -471,7 +471,7 @@ class Users extends Component {
           open={dialogDelete}
           onClose={() => this._closeDialog("delete")}
         >
-          <DialogTitle>Delete Data ?</DialogTitle>
+          <DialogTitle>Delete User ?</DialogTitle>
           <DialogContent>
             Data from{" "}
             <Typography component="span" sx={{ fontWeight: "bold" }}>

@@ -242,7 +242,7 @@ const Clients = () => {
             color="primary"
             title="Delete"
             onClick={() => {
-              console.log(params.row);
+              // console.log(params.row);
               setSelectedData(params.row);
               setDialogDelete(true);
             }}
@@ -344,12 +344,15 @@ const Clients = () => {
   };
   const enterSearch = (e) => {
     if (e.key == "Enter") {
-      clearTimeout(searchTimer); //clear suggest
-      SearchFilter(e.target.value);
+      clearTimeout(searchTimer); //clear
+      // console.log(e.target.value);
+      e.target.value != "" && SearchFilter(e.target.value);
     }
   };
+  // onChange search
   const selectedSearch = (e, v, r) => {
-    if (v != "") {
+    // console.log(v);
+    if (v != null) {
       SearchFilter(v);
     }
   };
@@ -470,11 +473,11 @@ const Clients = () => {
           >
             <DeleteRounded />
           </IconButton>
-          <IconButton color="primary" title="Information" onClick={openInfo}>
-            <InfoRounded />
-          </IconButton>
           <IconButton color="primary" title="Reload Data" onClick={resetDatas}>
             <RefreshRounded />
+          </IconButton>
+          <IconButton color="primary" title="Information" onClick={openInfo}>
+            <InfoRounded />
           </IconButton>
         </div>
         <div className="w-full md:w-2/3">
@@ -487,7 +490,7 @@ const Clients = () => {
               <FilterAltRounded />
             </IconButton>
             <Autocomplete
-              className="w-full"
+              className="w-full ml-3"
               freeSolo
               renderInput={(params) => (
                 <TextField
