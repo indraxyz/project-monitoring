@@ -473,11 +473,11 @@ const Clients = () => {
           >
             <DeleteRounded />
           </IconButton>
-          <IconButton color="primary" title="Reload Data" onClick={resetDatas}>
-            <RefreshRounded />
-          </IconButton>
           <IconButton color="primary" title="Information" onClick={openInfo}>
             <InfoRounded />
+          </IconButton>
+          <IconButton color="primary" title="Reload Data" onClick={resetDatas}>
+            <RefreshRounded />
           </IconButton>
         </div>
         <div className="w-full md:w-2/3">
@@ -496,7 +496,7 @@ const Clients = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="cardID/ name"
+                  placeholder="Name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (

@@ -242,7 +242,7 @@ const Progress = () => {
               </StepLabel>
               <StepContent>
                 <Typography className="text-sm text-gray-400 block">
-                  <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                  <span className="underline underline-offset-4 decoration-2 decoration-gray-500">
                     Budi
                   </span>{" "}
                   reported at 12/12/2022 12:12
@@ -258,7 +258,7 @@ const Progress = () => {
 
                 <div className="mt-3">
                   <Typography className="text-sm text-gray-400 block">
-                    <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                    <span className="underline underline-offset-4 decoration-2 decoration-gray-500">
                       Bayu
                     </span>{" "}
                     approved/ rejected at 12/12/2022 12:12
@@ -275,7 +275,7 @@ const Progress = () => {
 
       {/* submit progress: new/ edit last rejected */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-gray-500">
           Update Progress
         </span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}

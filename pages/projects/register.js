@@ -224,7 +224,7 @@ const Projects = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="JobNumber/ Client"
+                  placeholder="JobNumber"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -319,26 +319,6 @@ const Projects = () => {
         <DialogTitle>Projects Filter</DialogTitle>
         {/* jobNumber-text, Clients-text, type-cb, status-cb */}
         <DialogContent>
-          {/* <TextField
-            name="jobNumber"
-            // value={}
-            onChange={() => {}}
-            margin="dense"
-            label="Job Number"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            name="client"
-            // value={}
-            onChange={() => {}}
-            margin="dense"
-            label="Client"
-            type="text"
-            fullWidth
-            variant="standard"
-          /> */}
           <FormControl margin="dense" variant="standard" fullWidth>
             <FormLabel>Type</FormLabel>
             <FormGroup>
@@ -378,15 +358,102 @@ const Projects = () => {
         </DialogActions>
       </Dialog>
 
-      {/* DIALOG ADD */}
+      {/* DIALOG ADD/EDIT 👈 */}
+      {/* job_number, client, po, description, type, start, remark,
+          contract_po_so, no_pes, no_reg_contract, po_date
+      */}
       <Dialog
         open={dialogAdd}
-        onClose={() => _closeDialog("add")}
+        // onClose={() => _closeDialog("add")}
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Add New Project</DialogTitle>
-        <DialogContent>Form Add New project ...</DialogContent>
+        <DialogTitle>Add New/ Edit Project</DialogTitle>
+        <DialogContent>
+          {/* form new/ edit */}
+          <TextField
+            name="job_number"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Job Number"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="client"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Client"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="po"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="PO"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          {/* PO Date */}👈
+          <TextField
+            name="description"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Description"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          {/* type, start 👈*/}
+          <TextField
+            name="remark"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Remark"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="contract_po_so"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Contract PO SO"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="no_pes"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="No. PES"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            name="no_reg_contract"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="No. Reg. Contract"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("add")}>Cancel</Button>
           <Button onClick={() => console.log("submit")}>Submit</Button>
@@ -429,16 +496,18 @@ const Projects = () => {
           <CloseRounded />
         </IconButton>
 
-        <DialogContent>
-          <ListItem disablePadding>
-            <ListItemText primary="Project Type" secondary="Call, Contract" />
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemText
-              primary="Project Status"
-              secondary="Open, Finish, Close (Paid)"
-            />
-          </ListItem>
+        <DialogContent className="pt-0">
+          <List>
+            <ListItem disablePadding>
+              <ListItemText primary="Project Type" secondary="Call, Contract" />
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemText
+                primary="Project Status"
+                secondary="Open, Finish, Close (Paid)"
+              />
+            </ListItem>
+          </List>
         </DialogContent>
       </Dialog>
 
@@ -463,7 +532,7 @@ const Projects = () => {
           <CloseRounded />
         </IconButton>
 
-        <DialogContent>
+        <DialogContent className="pt-0">
           <div className="flex flex-col gap-2 mt-2">
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">

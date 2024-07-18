@@ -46,7 +46,6 @@ const Profile = () => {
   });
   // form
   const [profileValue, setProfileValue] = useState({
-    username: "",
     email: "",
     fullname: "",
     department: "",
@@ -54,7 +53,6 @@ const Profile = () => {
     nik: "",
   });
   const [profile, setProfile] = useState({
-    username: "johndoe",
     email: "john@gm.co",
     fullname: "John Doe",
     department: "",
@@ -246,26 +244,7 @@ const Profile = () => {
       >
         <DialogTitle>Detail Profile</DialogTitle>
         <DialogContent>
-          {/* <div className="mb-4">
-            <span className="text-lg font-medium text-gray block mb-2">
-              User Information
-            </span>
-            <div className="flex flex-col gap-2">
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
-                  Username
-                </span>
-                <span className="text-base text-gray-500">
-                  {profile.username}
-                </span>
-              </div>
-             
-            </div>
-          </div> */}
           <div>
-            <span className="text-lg font-medium text-gray-900 block mb-2">
-              Personnel Information
-            </span>
             <div className="flex flex-col gap-2">
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
@@ -277,42 +256,10 @@ const Profile = () => {
               </div>
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
-                  NIK
-                </span>
-                <span className="text-base font-normal text-gray-400">
-                  {profile.nik}
-                </span>
-              </div>
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
                   Full Name
                 </span>
                 <span className="text-base font-normal text-gray-400">
                   {profile.fullname}
-                </span>
-              </div>
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
-                  Department
-                </span>
-                <span className="text-base font-normal text-gray-400">
-                  {profile.department}
-                </span>
-              </div>
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
-                  KTP
-                </span>
-                <span className="text-base font-normal text-gray-400">
-                  {profile.ktp}
-                </span>
-              </div>
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
-                  NPWP
-                </span>
-                <span className="text-base font-normal text-gray-400">
-                  {profile.npwp}
                 </span>
               </div>
               <div>
@@ -341,6 +288,22 @@ const Profile = () => {
               </div>
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
+                  KTP
+                </span>
+                <span className="text-base font-normal text-gray-400">
+                  {profile.ktp}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-1 block">
+                  NPWP
+                </span>
+                <span className="text-base font-normal text-gray-400">
+                  {profile.npwp}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-1 block">
                   BPJS Kesehatan
                 </span>
                 <span className="text-base font-normal text-gray-400">
@@ -353,6 +316,22 @@ const Profile = () => {
                 </span>
                 <span className="text-base font-normal text-gray-400">
                   {profile.bpjstk}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-1 block">
+                  NIK
+                </span>
+                <span className="text-base font-normal text-gray-400">
+                  {profile.nik}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-1 block">
+                  Department
+                </span>
+                <span className="text-base font-normal text-gray-400">
+                  {profile.department}
                 </span>
               </div>
               <div>
@@ -445,7 +424,7 @@ const Profile = () => {
         <DialogTitle>Photo Profile</DialogTitle>
         <DialogContent>
           <FormControl margin="dense" fullWidth>
-            <FormLabel>Photo</FormLabel>
+            <FormLabel>Choose New Photo</FormLabel>
             <MuiFileInput
               margin="dense"
               fullWidth
@@ -475,27 +454,9 @@ const Profile = () => {
       >
         <DialogTitle>Edit Profile</DialogTitle>
         <DialogContent>
-          <div className="space-y-4">
-            {/* user information */}
-            {/* <div>
-              <span className="text-lg font-medium">User Information</span>
-              <TextField
-                name="username"
-                value={profileValue.username}
-                onChange={_changeProfileValue}
-                autoFocus
-                margin="dense"
-                label="Username"
-                type="text"
-                fullWidth
-                variant="standard"
-                autoComplete="on"
-              />
-              
-            </div> */}
-            {/* personnel information */}
-            <div className="py-4">
-              <span className="text-lg font-medium">Personnel Information</span>
+          <div>
+            <div className="py-2">
+              {/* <span className="text-lg font-medium">Personnel Information</span> */}
               <TextField
                 name="email"
                 value={profileValue.email}
@@ -508,16 +469,6 @@ const Profile = () => {
                 autoComplete="on"
               />
               <TextField
-                name="nik"
-                value={profileValue.nik}
-                onChange={_changeProfileValue}
-                margin="dense"
-                label="NIK"
-                type="text"
-                fullWidth
-                variant="standard"
-              />
-              <TextField
                 name="fullname"
                 value={profileValue.fullname}
                 onChange={_changeProfileValue}
@@ -527,20 +478,6 @@ const Profile = () => {
                 fullWidth
                 variant="standard"
               />
-              <FormControl margin="dense" variant="standard" fullWidth>
-                <InputLabel>Department</InputLabel>
-                <Select
-                  name="department"
-                  value={profileValue.department}
-                  onChange={_changeProfileValue}
-                >
-                  <MenuItem value={""}></MenuItem>
-                  <MenuItem value={"Hr"}>HR</MenuItem>
-                  <MenuItem value={"marketing"}>Marketing</MenuItem>
-                  <MenuItem value={"finance"}>Finance</MenuItem>
-                  <MenuItem value={"operation"}>Operation</MenuItem>
-                </Select>
-              </FormControl>
               <TextField
                 name="birthdate"
                 value={profileValue.birthdate}
@@ -552,7 +489,6 @@ const Profile = () => {
                 variant="standard"
                 InputLabelProps={{ shrink: true }}
               />
-
               <TextField
                 name="phone"
                 value={profileValue.phone}
@@ -577,6 +513,16 @@ const Profile = () => {
                 multiline
                 autoComplete="on"
               />
+              <FormControl margin="dense" variant="standard" fullWidth>
+                <InputLabel>Education</InputLabel>
+                <Select value={""} onChange={() => {}} name="education">
+                  <MenuItem value={""}>-</MenuItem>
+                  <MenuItem value={0}>SMP</MenuItem>
+                  <MenuItem value={1}>SMA</MenuItem>
+                  <MenuItem value={2}>S1</MenuItem>
+                  <MenuItem value={3}>S2</MenuItem>
+                </Select>
+              </FormControl>
               <TextField
                 name="ktp"
                 value={profileValue.ktp}
@@ -617,6 +563,31 @@ const Profile = () => {
                 fullWidth
                 variant="standard"
               />
+
+              <TextField
+                name="nik"
+                value={profileValue.nik}
+                onChange={_changeProfileValue}
+                margin="dense"
+                label="NIK"
+                type="text"
+                fullWidth
+                variant="standard"
+              />
+              <FormControl margin="dense" variant="standard" fullWidth>
+                <InputLabel>Department</InputLabel>
+                <Select
+                  name="department"
+                  value={profileValue.department}
+                  onChange={_changeProfileValue}
+                >
+                  <MenuItem value={""}></MenuItem>
+                  <MenuItem value={"Hr"}>HR</MenuItem>
+                  <MenuItem value={"marketing"}>Marketing</MenuItem>
+                  <MenuItem value={"finance"}>Finance</MenuItem>
+                  <MenuItem value={"operation"}>Operation</MenuItem>
+                </Select>
+              </FormControl>
               <TextField
                 name="experience"
                 value={profileValue.experience}
@@ -632,16 +603,6 @@ const Profile = () => {
                   ),
                 }}
               />
-              <FormControl margin="dense" variant="standard" fullWidth>
-                <InputLabel>Education</InputLabel>
-                <Select value={""} onChange={() => {}} name="education">
-                  <MenuItem value={""}>-</MenuItem>
-                  <MenuItem value={0}>SMP</MenuItem>
-                  <MenuItem value={1}>SMA</MenuItem>
-                  <MenuItem value={2}>S1</MenuItem>
-                  <MenuItem value={3}>S2</MenuItem>
-                </Select>
-              </FormControl>
               <FormControl margin="dense" variant="standard" fullWidth>
                 <InputLabel>Position</InputLabel>
                 <Select value={""} onChange={() => {}} name="position">

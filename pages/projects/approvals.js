@@ -333,7 +333,7 @@ const Approvals = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="JobNumber/ Client"
+                placeholder="JobNumber"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (

@@ -127,10 +127,10 @@ const Welcome = () => {
             </div>
 
             <div className="md:w-1/3 md:pl-4 md:m-0 m-4 pb-28">
-              <span className="text-4xl font-bold py-2 mt-6 md:m-0 block">
-                Spektra
+              <span className="text-2xl font-bold mb-4 mt-6 block md:mt-0">
+                Project Monitoring
               </span>
-              <span>Project Monitoring</span>
+              {/* <span>Project Monitoring</span> */}
               {/* login form */}
               <div>
                 <TextField

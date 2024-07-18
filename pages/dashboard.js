@@ -279,9 +279,9 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold mb-8">Project Monitoring</span>
+      <span className="block text-2xl font-bold mb-8">Dashboard</span>
       <span className="text-base text-gray-500 block mb-6 underline">
-        hi Username 😊, have a nice day 🌈
+        hi Username, have a nice day 😊🌈
       </span>
 
       {/* hightlight information */}

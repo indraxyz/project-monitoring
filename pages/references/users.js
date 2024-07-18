@@ -359,7 +359,7 @@ class Users extends Component {
                   {...params}
                   variant="standard"
                   size="small"
-                  placeholder="name"
+                  placeholder="Name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
