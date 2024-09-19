@@ -367,7 +367,7 @@ const Personnels = () => {
         maxWidth="sm"
         fullWidth
         open={dialogDeletes}
-        onClose={() => _closeDialog("deletes")}
+        // onClose={() => _closeDialog("deletes")}
       >
         <DialogTitle>Delete Personnels ?</DialogTitle>
         <DialogContent>
@@ -391,7 +391,7 @@ const Personnels = () => {
         maxWidth="sm"
         fullWidth
         open={dialogDelete}
-        onClose={() => _closeDialog("delete")}
+        // onClose={() => _closeDialog("delete")}
       >
         <DialogTitle>Delete ?</DialogTitle>
         <DialogContent>
@@ -409,11 +409,11 @@ const Personnels = () => {
       {/* dialog submit/ edit */}
       <Dialog
         open={dialogSubmit}
-        onClose={() => _closeDialog("submit")}
+        // onClose={() => _closeDialog("submit")}
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>{submit == 0 ? "Submit " : "Edit "} Personnel</DialogTitle>
+        <DialogTitle>{submit == 0 ? "New " : "Edit "} Personnel</DialogTitle>
         <DialogContent>
           {/* personnel information */}
           <TextField
@@ -689,7 +689,7 @@ const Personnels = () => {
         maxWidth="sm"
         fullWidth
         open={dialogDetail}
-        onClose={() => _closeDialog("detail")}
+        // onClose={() => _closeDialog("detail")}
       >
         <DialogTitle>Detail Personnel</DialogTitle>
         <DialogContent>

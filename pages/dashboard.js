@@ -28,19 +28,17 @@ const columns = [
     field: "jobNumber",
     headerName: "Job Number",
     width: 170,
-    headerClassName: "underline underline-offset-4 decoration-2",
   },
   {
     field: "client",
     headerName: "Client",
     width: 300,
-    headerClassName: "underline underline-offset-4 decoration-2",
   },
   {
     field: "po",
     headerName: "Project Order",
     width: 300,
-    headerClassName: "underline underline-offset-4 decoration-2",
+
     sortable: false,
     disableColumnMenu: true,
   },
@@ -48,7 +46,7 @@ const columns = [
     field: "registered",
     headerName: "Registered",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-yellow-400",
+      "underline underline-offset-4 decoration-4 decoration-yellow-400",
     width: 100,
     sortable: false,
     filterable: false,
@@ -65,7 +63,7 @@ const columns = [
     field: "ongoing",
     headerName: "OnGoing",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-orange-600",
+      "underline underline-offset-4 decoration-4 decoration-orange-600",
     width: 80,
     sortable: false,
     filterable: false,
@@ -82,7 +80,7 @@ const columns = [
     field: "finished",
     headerName: "Finished",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-green-700",
+      "underline underline-offset-4 decoration-4 decoration-green-700",
     width: 80,
     sortable: false,
     filterable: false,
@@ -99,7 +97,7 @@ const columns = [
     field: "invoicing",
     headerName: "Invoicing",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-blue-700",
+      "underline underline-offset-4 decoration-4 decoration-blue-700",
     width: 80,
     sortable: false,
     filterable: false,
@@ -116,7 +114,7 @@ const columns = [
     field: "paid",
     headerName: "Paid",
     headerClassName:
-      "underline underline-offset-4 decoration-2 decoration-purple-700",
+      "underline underline-offset-4 decoration-4 decoration-purple-700",
     width: 70,
     sortable: false,
     filterable: false,
@@ -357,15 +355,18 @@ const Dashboard = () => {
         onRowDoubleClick={(p, e, d) => _openDialog("detailProject")}
       />
 
-      {/* DIALOGS */}
+      {/* DETAIL PROJECT */}
       <Dialog
         open={dialogDetailProject}
         onClose={() => _closeDialog("detailProject")}
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Detail Project</DialogTitle>
+        <DialogTitle>Project Information</DialogTitle>
         <DialogContent>
+          {/* DETAIL PROGRESS 👈 */}
+
+          {/* DETAIL PROJECT */}
           <div className="flex flex-col gap-2 mt-2">
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
@@ -452,6 +453,7 @@ const Dashboard = () => {
         </DialogActions>
       </Dialog>
 
+      {/* FILTER MONTHS RANGE */}
       <Dialog
         open={dialogFilterRange}
         onClose={() => _closeDialog("filterRange")}
@@ -474,7 +476,7 @@ const Dashboard = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("filterRange")}>Cancel</Button>
-          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
+          <Button onClick={() => console.log(rangeMonths)}>Filter</Button>
         </DialogActions>
       </Dialog>
     </Layout>

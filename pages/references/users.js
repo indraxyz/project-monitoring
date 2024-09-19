@@ -405,7 +405,7 @@ class Users extends Component {
           maxWidth="sm"
           fullWidth
           open={dialogDeletes}
-          onClose={() => this._closeDialog("deletes")}
+          // onClose={() => this._closeDialog("deletes")}
         >
           <DialogTitle>Delete Users ?</DialogTitle>
           <DialogContent>
@@ -430,7 +430,7 @@ class Users extends Component {
           maxWidth="sm"
           fullWidth
           open={dialogDetail}
-          onClose={() => this._closeDialog("detail")}
+          // onClose={() => this._closeDialog("detail")}
         >
           <DialogTitle>Detail Data</DialogTitle>
           <DialogContent>
@@ -469,7 +469,7 @@ class Users extends Component {
           maxWidth="sm"
           fullWidth
           open={dialogDelete}
-          onClose={() => this._closeDialog("delete")}
+          // onClose={() => this._closeDialog("delete")}
         >
           <DialogTitle>Delete User ?</DialogTitle>
           <DialogContent>
@@ -491,9 +491,9 @@ class Users extends Component {
           maxWidth="sm"
           fullWidth
           open={dialogSubmit}
-          onClose={() => this._closeDialog("submit")}
+          // onClose={() => this._closeDialog("submit")}
         >
-          <DialogTitle>{submit == 0 ? "Create User" : "Edit User"}</DialogTitle>
+          <DialogTitle>{submit == 0 ? "New" : "Edit"} User</DialogTitle>
           <DialogContent>
             {/* form new/ edit */}
             {/* <TextField
@@ -581,7 +581,7 @@ class Users extends Component {
         {/* dialog info */}
         <Dialog
           open={dialogInfo}
-          onClose={() => this._closeDialog("info")}
+          // onClose={() => this._closeDialog("info")}
           fullWidth
           maxWidth="sm"
         >

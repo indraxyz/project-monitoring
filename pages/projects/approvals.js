@@ -160,31 +160,31 @@ const ProgressRow = (props) => {
   switch (progress) {
     case 1:
       return (
-        <span className="text-sm underline underline-offset-4 decoration-2 decoration-orange-600">
+        <span className="text-sm underline underline-offset-4 decoration-4 decoration-orange-600">
           OnGoing
         </span>
       );
     case 2:
       return (
-        <span className="text-sm underline underline-offset-4 decoration-2 decoration-green-700">
+        <span className="text-sm underline underline-offset-4 decoration-4 decoration-green-700">
           Finished
         </span>
       );
     case 3:
       return (
-        <span className="text-sm underline underline-offset-4 decoration-2 decoration-blue-700">
+        <span className="text-sm underline underline-offset-4 decoration-4 decoration-blue-700">
           Invoicing
         </span>
       );
     case 4:
       return (
-        <span className="text-sm underline underline-offset-4 decoration-2 decoration-purple-700">
+        <span className="text-sm underline underline-offset-4 decoration-4 decoration-purple-700">
           Paid
         </span>
       );
     default:
       return (
-        <span className="text-sm underline underline-offset-4 decoration-2 decoration-yellow-400">
+        <span className="text-sm underline underline-offset-4 decoration-4 decoration-yellow-400">
           Registered
         </span>
       );
@@ -212,7 +212,7 @@ const Approvals = () => {
     },
     {
       field: "reporter",
-      headerName: "Reporter",
+      headerName: "ReportedBy",
       width: 200,
       filterable: false,
       disableColumnMenu: true,
@@ -255,21 +255,21 @@ const Approvals = () => {
           </IconButton>
           <IconButton
             color="primary"
-            title="Detail Project"
-            onClick={() => {
-              setDialogDetailProject(true);
-            }}
-          >
-            <BusinessCenterRounded />
-          </IconButton>
-          <IconButton
-            color="primary"
             title="Detail Progress"
             onClick={() => {
               setDialogDetailProgress(true);
             }}
           >
             <TimelineRounded />
+          </IconButton>
+          <IconButton
+            color="primary"
+            title="Detail Project"
+            onClick={() => {
+              setDialogDetailProject(true);
+            }}
+          >
+            <BusinessCenterRounded />
           </IconButton>
         </>
       ),
@@ -386,14 +386,14 @@ const Approvals = () => {
         // }
       />
 
-      {/* modal: detail project, detail progress */}
+      {/* approval new progress */}
       <Dialog
         open={dialogApproval}
         // onClose={() => _closeDialog("approval")}
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Approval</DialogTitle>
+        <DialogTitle>Approval New Progress</DialogTitle>
         <IconButton
           aria-label="close"
           onClick={() => _closeDialog("approval")}
@@ -442,14 +442,15 @@ const Approvals = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("approval")}>Reject</Button>
-          <Button onClick={() => _closeDialog("approval")}>Approve</Button>
+          <Button onClick={() => {}}>Reject</Button>
+          <Button onClick={() => {}}>Approve</Button>
         </DialogActions>
       </Dialog>
 
+      {/* detail project */}
       <Dialog
         open={dialogDetailProject}
-        onClose={() => _closeDialog("detailProject")}
+        // onClose={() => _closeDialog("detailProject")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -551,16 +552,17 @@ const Approvals = () => {
         </DialogContent>
       </Dialog>
 
+      {/* detail progress */}
       <Dialog
         open={dialogDetailProgress}
-        onClose={() => _closeDialog("detailProgress")}
+        // onClose={() => _closeDialog("detailProgress")}
         fullWidth={true}
         maxWidth="sm"
       >
         <DialogTitle>Detail Progress</DialogTitle>
         <IconButton
           aria-label="close"
-          onClick={() => _closeDialog("detailProject")}
+          onClick={() => _closeDialog("detailProgress")}
           sx={{
             position: "absolute",
             right: 8,
@@ -626,9 +628,10 @@ const Approvals = () => {
         </DialogContent>
       </Dialog>
 
+      {/* months range */}
       <Dialog
         open={dialogFilterRange}
-        onClose={() => _closeDialog("filterRange")}
+        // onClose={() => _closeDialog("filterRange")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -648,7 +651,7 @@ const Approvals = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("filterRange")}>Cancel</Button>
-          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
+          <Button onClick={() => console.log(rangeMonths)}>Filter</Button>
         </DialogActions>
       </Dialog>
     </Layout>

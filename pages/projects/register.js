@@ -18,6 +18,9 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import {
   FilterAltRounded,
@@ -80,11 +83,11 @@ const Projects = () => {
   const [selectedDatas, setSelectedDatas] = useState([]);
   const [dialogInfo, setDialogInfo] = useState(false);
   const [dialogFilter, setDialogFilter] = useState(false);
-  const [dialogAdd, setDialogAdd] = useState(false);
+  const [dialogSubmit, setDialogSubmit] = useState(false);
   const [dialogDeletes, setDialogDeletes] = useState(false);
   const [dialogDetailProject, setDialogDetailProject] = useState(false);
-  const [dialogEdit, setDialogEdit] = useState(false);
   const [dialogDelete, setDialogDelete] = useState(false);
+  const [submit, setSubmit] = useState(0);
 
   const columns = [
     {
@@ -96,6 +99,8 @@ const Projects = () => {
       field: "client",
       headerName: "Client",
       width: 250,
+      sortable: false,
+      hideable: false,
     },
     {
       field: "desc",
@@ -115,18 +120,16 @@ const Projects = () => {
     {
       field: "type",
       headerName: "Type",
-      width: 90,
-      filterable: false,
-      disableColumnMenu: true,
+      width: 100,
+      sortable: false,
+      hideable: false,
     },
     {
       field: "status",
       headerName: "Status",
-      width: 70,
+      width: 100,
       sortable: false,
-      filterable: false,
       hideable: false,
-      disableColumnMenu: true,
     },
     {
       field: "actions",
@@ -144,8 +147,8 @@ const Projects = () => {
             title="Edit Project"
             onClick={() => {
               // setClientForm(params.row);
-              // setSubmit(1);
-              setDialogEdit(true);
+              setSubmit(1);
+              setDialogSubmit(true);
             }}
           >
             <EditRounded />
@@ -181,8 +184,8 @@ const Projects = () => {
       case "filter":
         setDialogFilter(false);
         break;
-      case "add":
-        setDialogAdd(false);
+      case "submit":
+        setDialogSubmit(false);
         break;
       case "deletes":
         setDialogDeletes(false);
@@ -206,9 +209,10 @@ const Projects = () => {
     <Layout>
       <span className="block text-2xl font-bold">Projects Register</span>
 
-      {/* CARI + FILTER */}
+      {/* top menu */}
       <div className="w-full flex flex-col-reverse md:flex-row md:items-center my-8">
         <div className="w-full md:w-2/3 ">
+          {/* CARI + FILTER */}
           <div className="flex items-center flex-row w-full sm:w-1/2">
             <IconButton
               color="primary"
@@ -265,8 +269,8 @@ const Projects = () => {
             title="Add New Project"
             onClick={() => {
               console.log("add");
-              // setSubmit(0);
-              setDialogAdd(true);
+              setSubmit(0);
+              setDialogSubmit(true);
               // resetSubmitForm();
             }}
           >
@@ -312,65 +316,62 @@ const Projects = () => {
       {/* dialog Filter */}
       <Dialog
         open={dialogFilter}
-        onClose={() => _closeDialog("filter")}
+        // onClose={() => _closeDialog("filter")}
         fullWidth={true}
         maxWidth="sm"
       >
         <DialogTitle>Projects Filter</DialogTitle>
-        {/* jobNumber-text, Clients-text, type-cb, status-cb */}
         <DialogContent>
-          <FormControl margin="dense" variant="standard" fullWidth>
-            <FormLabel>Type</FormLabel>
-            <FormGroup>
-              {projectTypes.map((item, i) => (
-                <FormControlLabel
-                  key={i}
-                  control={<Checkbox />}
-                  name="type"
-                  onChange={() => {}}
-                  checked={false}
-                  value={item.value}
-                  label={item.label}
-                />
-              ))}
-            </FormGroup>
-          </FormControl>
-          <FormControl margin="dense" variant="standard" fullWidth>
-            <FormLabel>Status</FormLabel>
-            <FormGroup>
-              {projectStatus.map((item, i) => (
-                <FormControlLabel
-                  key={i}
-                  control={<Checkbox />}
-                  name="status"
-                  onChange={() => {}}
-                  checked={false}
-                  value={item.value}
-                  label={item.label}
-                />
-              ))}
-            </FormGroup>
-          </FormControl>
+          <div>
+            <FormLabel component="legend">Start Date</FormLabel>
+            <TextField
+              name="start_date_in"
+              // value={""}
+              // onChange={""}
+              margin="dense"
+              type="date"
+              variant="standard"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <span className="mx-4">_</span>
+            <TextField
+              name="start_date_end"
+              // value={""}
+              // onChange={""}
+              margin="dense"
+              type="date"
+              variant="standard"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </div>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("filter")}>Cancel</Button>
-          <Button onClick={() => console.log(rangeMonths)}>Submit</Button>
+          <Button onClick={() => {}}>Filter</Button>
         </DialogActions>
       </Dialog>
 
-      {/* DIALOG ADD/EDIT 👈 */}
-      {/* job_number, client, po, description, type, start, remark,
-          contract_po_so, no_pes, no_reg_contract, po_date
-      */}
+      {/* DIALOG ADD 0/EDIT 1 */}
       <Dialog
-        open={dialogAdd}
+        open={dialogSubmit}
         // onClose={() => _closeDialog("add")}
         fullWidth={true}
         maxWidth="sm"
       >
-        <DialogTitle>Add New/ Edit Project</DialogTitle>
+        <DialogTitle>
+          {submit == 0 ? "New Project" : "Edit Project"}
+        </DialogTitle>
         <DialogContent>
           {/* form new/ edit */}
+          {/* 
+            job_number = autofill
+            client = search auto-complete
+
+          */}
           <TextField
             name="job_number"
             // value={""}
@@ -380,6 +381,7 @@ const Projects = () => {
             type="text"
             fullWidth
             variant="standard"
+            disabled
           />
           <TextField
             name="client"
@@ -396,29 +398,17 @@ const Projects = () => {
             // value={""}
             // onChange={""}
             margin="dense"
-            label="PO"
+            label="Project Order"
             type="text"
             fullWidth
             variant="standard"
           />
-          {/* PO Date */}👈
           <TextField
             name="description"
             // value={""}
             // onChange={""}
             margin="dense"
             label="Description"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-          {/* type, start 👈*/}
-          <TextField
-            name="remark"
-            // value={""}
-            // onChange={""}
-            margin="dense"
-            label="Remark"
             type="text"
             fullWidth
             variant="standard"
@@ -432,6 +422,47 @@ const Projects = () => {
             type="text"
             fullWidth
             variant="standard"
+          />
+          <FormControl margin="dense" variant="standard" fullWidth>
+            <InputLabel>Type</InputLabel>
+            <Select
+              name="type"
+              defaultValue={"-"}
+              // value={profileValue.department}
+              // onChange={_changeProfileValue}
+            >
+              <MenuItem value={"-"}>-</MenuItem>
+              <MenuItem value={"1"}>Contract</MenuItem>
+              <MenuItem value={"2"}>Call</MenuItem>
+            </Select>
+          </FormControl>
+          {/* PO Date = untuk tipe Call */}
+          <TextField
+            name="po_date"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="PO Date"
+            type="date"
+            fullWidth
+            variant="standard"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            disabled
+          />
+          <TextField
+            name="start"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Start Date"
+            type="date"
+            fullWidth
+            variant="standard"
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             name="no_pes"
@@ -453,10 +484,22 @@ const Projects = () => {
             fullWidth
             variant="standard"
           />
+          <TextField
+            name="remark"
+            // value={""}
+            // onChange={""}
+            margin="dense"
+            label="Remark"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("add")}>Cancel</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
+          <Button onClick={() => _closeDialog("submit")}>Cancel</Button>
+          <Button onClick={() => console.log("submit")}>
+            {submit == 0 ? "Submit" : "Update"}
+          </Button>
         </DialogActions>
       </Dialog>
 
@@ -502,10 +545,7 @@ const Projects = () => {
               <ListItemText primary="Project Type" secondary="Call, Contract" />
             </ListItem>
             <ListItem disablePadding>
-              <ListItemText
-                primary="Project Status"
-                secondary="Open, Finish, Close (Paid)"
-              />
+              <ListItemText primary="Project Status" secondary="Open, Close" />
             </ListItem>
           </List>
         </DialogContent>
@@ -560,25 +600,13 @@ const Projects = () => {
             </div>
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
-                Project Status
-              </span>
-              <span className="text-base font-normal text-gray-400">...</span>
-            </div>
-            <div>
-              <span className="text-base font-medium text-gray-500 mb-1 block">
                 No. Contract/ PO/ SO/ Date
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
             </div>
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
-                Start Date
-              </span>
-              <span className="text-base font-normal text-gray-400">...</span>
-            </div>
-            <div>
-              <span className="text-base font-medium text-gray-500 mb-1 block">
-                Finish Date
+                Project Status
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
             </div>
@@ -591,6 +619,18 @@ const Projects = () => {
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
                 PO Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Start Date
+              </span>
+              <span className="text-base font-normal text-gray-400">...</span>
+            </div>
+            <div>
+              <span className="text-base font-medium text-gray-500 mb-1 block">
+                Finish Date
               </span>
               <span className="text-base font-normal text-gray-400">...</span>
             </div>
@@ -614,21 +654,6 @@ const Projects = () => {
             </div>
           </div>
         </DialogContent>
-      </Dialog>
-
-      {/* dialog EDIT project */}
-      <Dialog
-        open={dialogEdit}
-        onClose={() => _closeDialog("edit")}
-        fullWidth={true}
-        maxWidth="sm"
-      >
-        <DialogTitle>Edit Project</DialogTitle>
-        <DialogContent>Form Edit project ...</DialogContent>
-        <DialogActions>
-          <Button onClick={() => _closeDialog("edit")}>Cancel</Button>
-          <Button onClick={() => console.log("submit")}>Update</Button>
-        </DialogActions>
       </Dialog>
 
       {/* dialog DELETE project */}

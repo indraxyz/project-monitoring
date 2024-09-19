@@ -158,9 +158,7 @@ const Profile = () => {
 
   return (
     <Layout>
-      {/* <div> */}
       <span className="text-2xl font-bold mb-8">My Profile</span>
-      {/* <h1 className="text-2xl font-bold mb-8">Update Project Progress</h1> */}
 
       {/* preview */}
       <div className="mt-8 w-full flex flex-col md:flex-row md:space-x-2 ">
@@ -233,12 +231,11 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* </div> */}
 
-      {/* Dialog Detail Profile */}
+      {/* Detail Profile */}
       <Dialog
         open={dialogDetail}
-        onClose={() => _closeDialog("detail")}
+        // onClose={() => _closeDialog("detail")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -336,6 +333,14 @@ const Profile = () => {
               </div>
               <div>
                 <span className="text-base font-medium text-gray-500 mb-1 block">
+                  Position
+                </span>
+                <span className="text-base font-normal text-gray-400">
+                  {profile.position}
+                </span>
+              </div>
+              <div>
+                <span className="text-base font-medium text-gray-500 mb-1 block">
                   Experience
                 </span>
                 <span className="text-base font-normal text-gray-400">
@@ -348,14 +353,6 @@ const Profile = () => {
                 </span>
                 <span className="text-base font-normal text-gray-400">
                   {profile.education}
-                </span>
-              </div>
-              <div>
-                <span className="text-base font-medium text-gray-500 mb-1 block">
-                  Position
-                </span>
-                <span className="text-base font-normal text-gray-400">
-                  {profile.position}
                 </span>
               </div>
               <div>
@@ -414,10 +411,10 @@ const Profile = () => {
         </DialogActions>
       </Dialog>
 
-      {/* Dialog Edit Photo */}
+      {/* Edit Photo */}
       <Dialog
         open={dialogPhoto}
-        onClose={() => _closeDialog("editPhoto")}
+        // onClose={() => _closeDialog("editPhoto")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -441,14 +438,15 @@ const Profile = () => {
           </FormControl>
         </DialogContent>
         <DialogActions>
+          <Button onClick={() => _closeDialog("editPhoto")}>Cancel</Button>
           <Button onClick={() => _closeDialog("editPhoto")}>Update</Button>
         </DialogActions>
       </Dialog>
 
-      {/* dialog edit profile*/}
+      {/* edit profile*/}
       <Dialog
         open={dialogEdit}
-        onClose={() => _closeDialog("editProfile")}
+        // onClose={() => _closeDialog("editProfile")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -588,6 +586,14 @@ const Profile = () => {
                   <MenuItem value={"operation"}>Operation</MenuItem>
                 </Select>
               </FormControl>
+              <FormControl margin="dense" variant="standard" fullWidth>
+                <InputLabel>Position</InputLabel>
+                <Select value={""} onChange={() => {}} name="position">
+                  <MenuItem value={""}>-</MenuItem>
+                  <MenuItem value={10}>Pimpinan</MenuItem>
+                  <MenuItem value={20}>Staff</MenuItem>
+                </Select>
+              </FormControl>
               <TextField
                 name="experience"
                 value={profileValue.experience}
@@ -603,14 +609,6 @@ const Profile = () => {
                   ),
                 }}
               />
-              <FormControl margin="dense" variant="standard" fullWidth>
-                <InputLabel>Position</InputLabel>
-                <Select value={""} onChange={() => {}} name="position">
-                  <MenuItem value={""}>-</MenuItem>
-                  <MenuItem value={10}>Pimpinan</MenuItem>
-                  <MenuItem value={20}>Staff</MenuItem>
-                </Select>
-              </FormControl>
               <FormControl margin="dense" variant="standard" fullWidth>
                 <FormLabel>Qualification</FormLabel>
                 <FormGroup>
@@ -700,10 +698,10 @@ const Profile = () => {
         </DialogActions>
       </Dialog>
 
-      {/* dialog password */}
+      {/* edit password */}
       <Dialog
         open={dialogPassword}
-        onClose={() => _closeDialog("changePassword")}
+        // onClose={() => _closeDialog("changePassword")}
         fullWidth
         maxWidth="sm"
       >

@@ -145,7 +145,7 @@ const Progress = () => {
       <span className="block text-2xl font-bold mb-8">Project Progress</span>
 
       {/*auto complete, search (table progress where job_number,no_worksheet group by job_number,no_worksheet) */}
-      <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+      <span className="text-lg font-medium underline underline-offset-4 decoration-4 decoration-purple-700">
         Search
       </span>
       <Autocomplete
@@ -175,11 +175,9 @@ const Progress = () => {
         onChange={_selectedSearch}
       />
 
-      {/* result searched */}
-
       {/* Project Data */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+        <span className="text-lg font-medium underline underline-offset-4 decoration-4 decoration-purple-700">
           Project
         </span>
 
@@ -216,10 +214,10 @@ const Progress = () => {
         </Card>
       </div>
 
-      {/* vertical step, progress data */}
+      {/* progress data */}
       <div className="mt-5 pt-5">
         <div className="mb-2">
-          <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-purple-700">
+          <span className="text-lg font-medium underline underline-offset-4 decoration-4 decoration-purple-700">
             Progress
           </span>
         </div>
@@ -273,9 +271,9 @@ const Progress = () => {
         </Stepper>
       </div>
 
-      {/* submit progress: new/ edit last rejected */}
+      {/* update progress */}
       <div className="mt-5 pt-5">
-        <span className="text-lg font-medium underline underline-offset-4 decoration-2 decoration-gray-500">
+        <span className="text-lg font-medium underline underline-offset-4 decoration-4 decoration-purple-700">
           Update Progress
         </span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}
@@ -306,10 +304,11 @@ const Progress = () => {
             <InputLabel>Level</InputLabel>
             <Select
               name="level"
+              defaultValue={"-"}
               // value={profileValue.department}
               // onChange={_changeProfileValue}
             >
-              <MenuItem value={""}></MenuItem>
+              <MenuItem value={"-"}>-</MenuItem>
               <MenuItem value={"0"}>Registered</MenuItem>
               <MenuItem value={"1"}>OnGoing</MenuItem>
               <MenuItem value={"2"}>Finished</MenuItem>
@@ -326,10 +325,10 @@ const Progress = () => {
         </div>
       </div>
 
-      {/* dialog DETAIL Project */}
+      {/* DETAIL Project */}
       <Dialog
         open={dialogDetailProject}
-        onClose={() => _closeDialog("detailProject")}
+        // onClose={() => _closeDialog("detailProject")}
         fullWidth={true}
         maxWidth="sm"
       >

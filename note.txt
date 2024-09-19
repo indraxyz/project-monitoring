@@ -70,20 +70,20 @@ Onboarding
     signup /ui✅ //approvel oleh superuser
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
-    form edit range, modal detail project ✅
     highlight progress
     //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
     //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
+        detail progress 👈
 projects
-    Register 📌♻️👈 dialog (add-edit)
+    Register ✅
     //list(table), detail, crud, cari + filter
     Approval✅
     //persetujuan setiap progres oleh lead
     //list data progres (table), detail data project + detail data progres, approval, filter (months, search by ...)
-    schedules📌❌
+    schedules❌
     //crud, cari + filter, list(ui card/tabel) + detail, surat tugas
-    timesheets 📌❌
+    timesheets ❌
     //crud, cari + filter, list(ui table) + detail
 progress ui✅
     // form cari > data project > history status project (ui vertical step) > form progress 
@@ -98,6 +98,8 @@ Profile /ui✅
     //view, detail, photo, edit, password    
 Logout /ui✅
 bersihkan library/code yg tidak terpakai✅
+
+EVALUASI ALL PAGE 👈
 
 ###
 register project > job schedule (personnels work sheet (dari kertas manual)) > time sheet

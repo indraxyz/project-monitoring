@@ -247,7 +247,7 @@ const Navbar = () => {
       {/* dialog logout */}
       <Dialog
         open={openLogout}
-        onClose={() => setOpenLogout(false)}
+        // onClose={() => setOpenLogout(false)}
         fullWidth
         maxWidth="xs"
       >

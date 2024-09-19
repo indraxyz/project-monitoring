@@ -562,7 +562,7 @@ const Clients = () => {
       {/* dialog deletes, info */}
       <Dialog
         open={openModal}
-        onClose={() => setOpenModal(false)}
+        // onClose={() => setOpenModal(false)}
         fullWidth
         maxWidth="sm"
       >
@@ -574,7 +574,7 @@ const Clients = () => {
         maxWidth="sm"
         fullWidth
         open={dialogFilter}
-        onClose={() => _closeDialog("filter")}
+        // onClose={() => _closeDialog("filter")}
       >
         <DialogTitle>Filter Data</DialogTitle>
         <DialogContent>
@@ -617,17 +617,17 @@ const Clients = () => {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => _closeDialog("filter")}>Close</Button>
+          <Button onClick={() => _closeDialog("filter")}>Cancer</Button>
           <Button onClick={() => SearchFilter(searchKey)}>Filter</Button>
         </DialogActions>
       </Dialog>
 
-      {/* dialog Delete */}
+      {/* Delete */}
       <Dialog
         maxWidth="sm"
         fullWidth
         open={dialogDelete}
-        onClose={() => _closeDialog("delete")}
+        // onClose={() => _closeDialog("delete")}
       >
         <DialogTitle>Delete ?</DialogTitle>
         <DialogContent>
@@ -642,12 +642,12 @@ const Clients = () => {
         </DialogActions>
       </Dialog>
 
-      {/* dialog detail */}
+      {/* detail */}
       <Dialog
         maxWidth="sm"
         fullWidth
         open={dialogDetail}
-        onClose={() => _closeDialog("detail")}
+        // onClose={() => _closeDialog("detail")}
       >
         <DialogTitle>Detail Data</DialogTitle>
         <DialogContent>
@@ -729,12 +729,12 @@ const Clients = () => {
         </DialogActions>
       </Dialog>
 
-      {/* dialog submit new/ edit */}
+      {/* submit new/ edit */}
       <Dialog
         maxWidth="sm"
         fullWidth
         open={dialogSubmit}
-        onClose={() => _closeDialog("submit")}
+        // onClose={() => _closeDialog("submit")}
       >
         <DialogTitle>{submit == 0 ? "New Client" : "Edit Client"}</DialogTitle>
         <DialogContent>

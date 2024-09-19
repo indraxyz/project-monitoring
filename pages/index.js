@@ -207,13 +207,13 @@ const Welcome = () => {
       {/* dialog signup */}
       <Dialog
         open={dialogSignup}
-        onClose={() => _closeDialog("signup")}
+        // onClose={() => _closeDialog("signup")}
         fullWidth
         maxWidth="sm"
       >
         <DialogTitle>Signup Account</DialogTitle>
         <DialogContent>
-          <span>Please complete form below to make account</span>
+          <span>Complete form below to make an account</span>
           <TextField
             name="fullname"
             value={signup.fullname}
@@ -277,14 +277,14 @@ const Welcome = () => {
       {/* dialog forgot password */}
       <Dialog
         open={dialogForgot}
-        onClose={() => _closeDialog("forgot")}
+        // onClose={() => _closeDialog("forgot")}
         fullWidth
         maxWidth="sm"
       >
         <DialogTitle>Forgot Account</DialogTitle>
         <DialogContent>
           <span>
-            Please type your email below, submit and check your inbox to reset
+            Type your email, then submit and check your email inbox to reset
             password
           </span>
           <TextField
