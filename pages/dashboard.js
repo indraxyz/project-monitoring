@@ -12,6 +12,12 @@ import {
   DialogTitle,
   Slider,
   Box,
+  Stepper,
+  StepLabel,
+  Step,
+  StepContent,
+  Typography,
+  IconButton,
 } from "@mui/material";
 import {
   EventRepeatRounded,
@@ -19,6 +25,10 @@ import {
   ReceiptLongRounded,
   EditCalendarRounded,
   CheckCircleRounded,
+  TodayRounded,
+  SyncRounded,
+  DescriptionRounded,
+  AttachFileRounded,
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
 
@@ -244,6 +254,34 @@ const marksSliderMonths = [
   },
 ];
 
+const steps = [
+  {
+    label: "Registered",
+    description: `Registered Project.`,
+    icon: <TodayRounded />,
+  },
+  {
+    label: "On Going",
+    description: "Project still continues.",
+    icon: <SyncRounded />,
+  },
+  {
+    label: "Finished",
+    description: `Project completed approved or rejected.`,
+    icon: <VerifiedRounded />,
+  },
+  {
+    label: "Invoicing",
+    description: `Expense bill.`,
+    icon: <DescriptionRounded />,
+  },
+  {
+    label: "Paid",
+    description: "Project bill paid.",
+    icon: <ReceiptLongRounded />,
+  },
+];
+
 const Dashboard = () => {
   const [dialogFilterRange, setDialogFilterRange] = useState(false);
   const [dialogDetailProject, setDialogDetailProject] = useState(false);
@@ -301,7 +339,7 @@ const Dashboard = () => {
             <EditCalendarRounded className="hidden sm:block text-2xl sm:text-4xl md:text-6xl" />
             <div className="ml-1 sm:ml-2 md:ml-4">
               <span className="text-sm sm:text-base md:text-xl font-bold block">
-                06-12 2024
+                06-12
               </span>
               <span className="text-sm md:text-base font-bold">Range</span>
             </div>
@@ -358,16 +396,69 @@ const Dashboard = () => {
       {/* DETAIL PROJECT */}
       <Dialog
         open={dialogDetailProject}
-        onClose={() => _closeDialog("detailProject")}
+        // onClose={() => _closeDialog("detailProject")}
         fullWidth={true}
         maxWidth="sm"
       >
         <DialogTitle>Project Information</DialogTitle>
         <DialogContent>
-          {/* DETAIL PROGRESS 👈 */}
+          {/* PROGRESS 👈 */}
+          <span className="block text-lg font-bold">Progress</span>
+          <Stepper activeStep={2} orientation="vertical">
+            {steps.map((step, index) => (
+              <Step key={index} expanded={index <= 2 ? true : false}>
+                <StepLabel
+                  className={` ${
+                    index <= 2 ? "text-indigo-600" : "text-gray-400"
+                  }`}
+                  icon={
+                    <Tooltip title={step.description} placement="bottom-start">
+                      {step.icon}
+                    </Tooltip>
+                  }
+                  // error if rejected
+                >
+                  <span className="text-base">{step.label}</span>
+                </StepLabel>
+                <StepContent>
+                  <Typography className="text-sm text-gray-400 block">
+                    <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                      Budi
+                    </span>{" "}
+                    reported at 12/12/2022 12:12
+                    <IconButton
+                      title="attachment"
+                      size="small"
+                      className="ml-2"
+                    >
+                      <AttachFileRounded fontSize="inherit" />
+                    </IconButton>
+                  </Typography>
+
+                  <Typography>
+                    {`is simply dummy text of the printing and typesetting
+                  industry. Lorem Ipsum has been the standard dummy text`}
+                  </Typography>
+
+                  <div className="mt-3">
+                    <Typography className="text-sm text-gray-400 block">
+                      <span className="underline underline-offset-4 decoration-2 decoration-purple-700">
+                        Bayu
+                      </span>{" "}
+                      approved/ rejected at 12/12/2022 12:12
+                    </Typography>
+                    <Typography className="text-sm text-gray-400 block">
+                      noted ...
+                    </Typography>
+                  </div>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
 
           {/* DETAIL PROJECT */}
-          <div className="flex flex-col gap-2 mt-2">
+          <div className="flex flex-col gap-2 mt-6">
+            <span className="block text-lg font-bold">Detail</span>
             <div>
               <span className="text-base font-medium text-gray-500 mb-1 block">
                 Job Number

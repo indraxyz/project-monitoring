@@ -71,10 +71,9 @@ Onboarding
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
     highlight progress
-    //jumlah progres dalam 1 bulan terakhir : on going, finished, paid (ui card, icon, text)
+    //jumlah progres dalam 1-12 bulan terakhir : on going, finished, paid (ui card, icon, text)
     project monitoring
-    //10 project terbaru (ui table), detail progres (ui step), tgl progress (on hover)
-        detail progress 👈
+    //10 project terbaru (ui table), detail progres + project, tgl progress (on hover)
 projects
     Register ✅
     //list(table), detail, crud, cari + filter
