@@ -40,21 +40,21 @@ const rows = [
   {
     jobNumber: "x1x/333/9999",
     client: "PT kita bisa",
-    reporter: "xxx xxx xxxx",
+    reporter: "siA xxxx",
     time: "10/10/2023 10:10",
     progress: "0",
   },
   {
     jobNumber: "x2x/333/9999",
     client: "PT kita bisa",
-    reporter: "xxxx xxxxx xxxx",
+    reporter: "siB xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 1,
   },
   {
     jobNumber: "x3x/333/9999",
     client: "PT kita bisa",
-    reporter: "xxxx xxxxx xxxx",
+    reporter: "siC xxxxx xxxx",
     time: "11/11/2020 15:15",
     progress: 2,
   },
@@ -212,7 +212,7 @@ const Approvals = () => {
     },
     {
       field: "reporter",
-      headerName: "ReportedBy",
+      headerName: "Reporter",
       width: 200,
       filterable: false,
       disableColumnMenu: true,
@@ -226,21 +226,22 @@ const Approvals = () => {
     },
     {
       field: "progress",
-      headerName: "Latest Progress",
+      headerName: "Progress",
       width: 125,
       sortable: false,
-      filterable: false,
+      filterable: true,
       hideable: false,
-      disableColumnMenu: true,
       renderCell: ({ row }) => <ProgressRow progress={row.progress} />,
     },
     {
       field: "actions",
-      headerName: "Action ⚙️",
+      headerName: "⚙️",
       width: 150,
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
+      headerClassName: "text-xl",
+      headerAlign: "center",
       renderCell: ({ row }) => (
         <>
           <IconButton
@@ -314,7 +315,7 @@ const Approvals = () => {
 
   return (
     <Layout>
-      <span className="block text-2xl font-bold">Approval Page</span>
+      <span className="block text-2xl font-bold">Projects Approval</span>
 
       {/* filter (months range, search by job number) */}
       <div className="w-full md:w-2/3 my-8">
@@ -333,7 +334,7 @@ const Approvals = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="JobNumber"
+                placeholder="JobNumber/ Client"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -345,7 +346,7 @@ const Approvals = () => {
               />
             )}
             value={""}
-            options={[]}
+            options={[]} //
             // onKeyUp={suggestSearch}
             // onKeyDown={enterSearch}
             // onInputChange={(e, v) => console.log("")}

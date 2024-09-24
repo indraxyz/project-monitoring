@@ -32,7 +32,7 @@ import {
 } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
 
-//kolom: Job Number, Client, (ongoing 0 - finished 1 - invoicing 2 - paid 3)
+//kolom: Job Number, Client, (registered 0 - ongoing 1 - finished 2 - invoicing 3 - paid 4)
 const columns = [
   {
     field: "jobNumber",
@@ -139,6 +139,7 @@ const columns = [
   },
 ];
 
+// dummy data rows
 const rows = [
   {
     jobNumber: "x155/5555/5555",
@@ -341,7 +342,9 @@ const Dashboard = () => {
               <span className="text-sm sm:text-base md:text-xl font-bold block">
                 06-12
               </span>
-              <span className="text-sm md:text-base font-bold">Range</span>
+              <span className="text-sm md:text-base font-bold">
+                Months Range
+              </span>
             </div>
           </CardContent>
         </Card>
@@ -547,7 +550,7 @@ const Dashboard = () => {
       {/* FILTER MONTHS RANGE */}
       <Dialog
         open={dialogFilterRange}
-        onClose={() => _closeDialog("filterRange")}
+        // onClose={() => _closeDialog("filterRange")}
         fullWidth={true}
         maxWidth="sm"
       >

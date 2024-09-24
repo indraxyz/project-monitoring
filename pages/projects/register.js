@@ -133,11 +133,13 @@ const Projects = () => {
     },
     {
       field: "actions",
-      headerName: "Action ⚙️",
+      headerName: "⚙️",
       width: 150,
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
+      headerClassName: "text-xl",
+      headerAlign: "center",
       renderCell: ({ row }) => (
         <>
           {/* detail edit delete */}
@@ -228,7 +230,7 @@ const Projects = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="JobNumber"
+                  placeholder="JobNumber/ Client"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -381,7 +383,6 @@ const Projects = () => {
             type="text"
             fullWidth
             variant="standard"
-            disabled
           />
           <TextField
             name="client"
@@ -449,7 +450,7 @@ const Projects = () => {
             InputLabelProps={{
               shrink: true,
             }}
-            disabled
+            // disabled
           />
           <TextField
             name="start"
@@ -506,22 +507,22 @@ const Projects = () => {
       {/* DIALOG DELETES */}
       <Dialog
         open={dialogDeletes}
-        onClose={() => _closeDialog("deletes")}
+        // onClose={() => _closeDialog("deletes")}
         fullWidth={true}
         maxWidth="sm"
       >
         <DialogTitle>Delete Projects</DialogTitle>
-        <DialogContent>Delete multiple projects </DialogContent>
+        <DialogContent> ..., ..., ...,</DialogContent>
         <DialogActions>
           <Button onClick={() => _closeDialog("deletes")}>Close</Button>
-          <Button onClick={() => console.log("submit")}>Submit</Button>
+          <Button onClick={() => console.log("submit")}>Delete</Button>
         </DialogActions>
       </Dialog>
 
       {/* DIALOG INFO */}
       <Dialog
         open={dialogInfo}
-        onClose={() => _closeDialog("info")}
+        // onClose={() => _closeDialog("info")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -554,7 +555,7 @@ const Projects = () => {
       {/* dialog DETAIL project */}
       <Dialog
         open={dialogDetailProject}
-        onClose={() => _closeDialog("detailProject")}
+        // onClose={() => _closeDialog("detailProject")}
         fullWidth={true}
         maxWidth="sm"
       >
@@ -659,7 +660,7 @@ const Projects = () => {
       {/* dialog DELETE project */}
       <Dialog
         open={dialogDelete}
-        onClose={() => _closeDialog("delete")}
+        // onClose={() => _closeDialog("delete")}
         fullWidth={true}
         maxWidth="sm"
       >

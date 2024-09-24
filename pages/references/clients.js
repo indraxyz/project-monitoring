@@ -59,7 +59,6 @@ const KontenModalDeletes = (props) => {
     <>
       <DialogTitle>Delete Clients ? </DialogTitle>
       <DialogContent>
-        Data from{" "}
         <Typography component="span" sx={{ fontWeight: "bold" }}>
           {liveDatas
             .map((row, i) => (selectedDatas.includes(row.id) ? row.name : null))
@@ -333,6 +332,8 @@ const Clients = () => {
   const suggestSearch = (e) => {
     if (e.target.value !== "") {
       if (e.key != "Enter") {
+        // search data from db, then replace the options
+
         clearTimeout(searchTimer);
         searchTimer = setTimeout(() => {
           console.log("suggest " + e.target.value);
@@ -496,7 +497,7 @@ const Clients = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder="Name"
+                  placeholder="ID/ Name"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -533,22 +534,21 @@ const Clients = () => {
       </div>
 
       {/* table */}
-      <div className="bg-white h-[666px]">
-        <DataGrid
-          rows={liveDatas}
-          columns={columns}
-          // pageSize={10}
-          autoPageSize
-          onRowDoubleClick={detailData}
-          rowSelectionModel={selectedDatas}
-          onRowSelectionModelChange={_selectedDatas}
-          checkboxSelection
-          disableRowSelectionOnClick
-          slots={{
-            toolbar: CustomToolbar,
-          }}
-        />
-      </div>
+      <DataGrid
+        className="bg-white h-[650px]"
+        rows={liveDatas}
+        columns={columns}
+        // pageSize={10}
+        autoPageSize
+        onRowDoubleClick={detailData}
+        rowSelectionModel={selectedDatas}
+        onRowSelectionModelChange={_selectedDatas}
+        checkboxSelection
+        disableRowSelectionOnClick
+        slots={{
+          toolbar: CustomToolbar,
+        }}
+      />
 
       {/*notif*/}
       <Snackbar
@@ -631,9 +631,12 @@ const Clients = () => {
       >
         <DialogTitle>Delete ?</DialogTitle>
         <DialogContent>
-          Data from{" "}
           <Typography component="span" sx={{ fontWeight: "bold" }}>
             {selectedData.name}
+          </Typography>
+          <span className="mx-2">with CardID</span>
+          <Typography component="span" sx={{ fontWeight: "bold" }}>
+            {selectedData.cardID}
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -649,7 +652,7 @@ const Clients = () => {
         open={dialogDetail}
         // onClose={() => _closeDialog("detail")}
       >
-        <DialogTitle>Detail Data</DialogTitle>
+        <DialogTitle>Detail Client</DialogTitle>
         <DialogContent>
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             ID

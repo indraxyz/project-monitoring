@@ -278,6 +278,22 @@ const Progress = () => {
         </span>
         {/* form: description, attachment, no_worksheet(khusus On Going) */}
         <div className="w-full md:w-1/2">
+          <FormControl margin="dense" variant="standard" fullWidth>
+            <InputLabel>Level</InputLabel>
+            <Select
+              name="level"
+              defaultValue={"-"}
+              // value={profileValue.department}
+              // onChange={_changeProfileValue}
+            >
+              <MenuItem value={""}>-</MenuItem>
+              <MenuItem value={"0"}>Registered</MenuItem>
+              <MenuItem value={"1"}>OnGoing</MenuItem>
+              <MenuItem value={"2"}>Finished</MenuItem>
+              <MenuItem value={"3"}>Invoicing</MenuItem>
+              <MenuItem value={"4"}>Paid</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
             name="description"
             value={""}
@@ -300,23 +316,6 @@ const Progress = () => {
             multiline
             rows={2}
           />
-          <FormControl margin="dense" variant="standard" fullWidth>
-            <InputLabel>Level</InputLabel>
-            <Select
-              name="level"
-              defaultValue={"-"}
-              // value={profileValue.department}
-              // onChange={_changeProfileValue}
-            >
-              <MenuItem value={"-"}>-</MenuItem>
-              <MenuItem value={"0"}>Registered</MenuItem>
-              <MenuItem value={"1"}>OnGoing</MenuItem>
-              <MenuItem value={"2"}>Finished</MenuItem>
-              <MenuItem value={"3"}>Invoicing</MenuItem>
-              <MenuItem value={"4"}>Paid</MenuItem>
-            </Select>
-          </FormControl>
-
           <FormControl margin="dense">
             <Button variant="contained" startIcon={<SendRounded />}>
               Submit

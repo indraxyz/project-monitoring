@@ -327,7 +327,7 @@ const Personnels = () => {
               <TextField
                 {...params}
                 variant="standard"
-                placeholder="Name"
+                placeholder="Name/ NIK"
                 InputProps={{
                   ...params.InputProps,
                   startAdornment: (
@@ -349,18 +349,17 @@ const Personnels = () => {
       </div>
 
       {/* table */}
-      <div className="bg-white h-[650px]">
-        <DataGrid
-          rows={liveDatas}
-          columns={columns}
-          autoPageSize
-          onRowDoubleClick={_detailData}
-          onRowSelectionModelChange={(ids) => setSelectedDatas(ids)}
-          rowSelectionModel={selectedDatas}
-          checkboxSelection
-          disableRowSelectionOnClick
-        />
-      </div>
+      <DataGrid
+        className="bg-white h-[650px]"
+        rows={liveDatas}
+        columns={columns}
+        autoPageSize
+        onRowDoubleClick={_detailData}
+        onRowSelectionModelChange={(ids) => setSelectedDatas(ids)}
+        rowSelectionModel={selectedDatas}
+        checkboxSelection
+        disableRowSelectionOnClick
+      />
 
       {/* Dialog deletes*/}
       <Dialog
@@ -371,7 +370,6 @@ const Personnels = () => {
       >
         <DialogTitle>Delete Personnels ?</DialogTitle>
         <DialogContent>
-          Data from{" "}
           <Typography component="span" sx={{ fontWeight: "bold" }}>
             {liveDatas
               .map((row, i) =>
@@ -395,7 +393,6 @@ const Personnels = () => {
       >
         <DialogTitle>Delete ?</DialogTitle>
         <DialogContent>
-          Data from{" "}
           <Typography component="span" sx={{ fontWeight: "bold" }}>
             {selectedData.fullname}
           </Typography>
@@ -694,9 +691,6 @@ const Personnels = () => {
         <DialogTitle>Detail Personnel</DialogTitle>
         <DialogContent>
           <div>
-            <span className="text-lg font-medium text-gray-900 block mb-2">
-              Personnel Information
-            </span>
             <div className="flex flex-col gap-2">
               <div>
                 <span className="text-base font-medium text-gray-500 mb-2 block">
