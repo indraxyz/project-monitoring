@@ -6,7 +6,7 @@ const Footer = () => {
         target="_blank"
         className="no-underline text-inherit"
       >
-        ©️🚀kodehack
+        🚀 kodehack
       </a>
     </div>
   );

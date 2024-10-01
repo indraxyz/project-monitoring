@@ -284,8 +284,7 @@ const Welcome = () => {
         <DialogTitle>Forgot Account</DialogTitle>
         <DialogContent>
           <span>
-            Type your email, then submit and check your email inbox to reset
-            password
+            Type your email, then submit and check your inbox to reset password
           </span>
           <TextField
             name="forgotAccount"
