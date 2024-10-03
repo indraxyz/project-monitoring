@@ -7,7 +7,7 @@
     "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "server": "NODE_ENV=production node server.js"
+    "server": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@emotion/cache": "latest",
@@ -17,11 +17,13 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/x-data-grid": "latest",
+    "cross-env": "latest",
     "mui-file-input": "latest",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "sharp": "latest",
     "swiper": "latest"
   },
   "devDependencies": {

@@ -105,3 +105,8 @@ register project > job schedule (personnels work sheet (dari kertas manual)) > t
 1 job number bisa beberapa worksheet, perusahaan bisa berbeda, lokasi bisa berbeda
 // local storage TIPE ADMIN > bedakan top nav, bedakan menu "Users"
 // middleware nextJs > batasi akses menu
+
+
+DEPLOY TO SHARED WEBHOSTING NODEJS
+https://www.jagoanhosting.com/tutorial/tutorial-cpanel-2/cara-upload-nextjs-di-hosting-cpanel 
+zip file (.next, package.json, server.js)
