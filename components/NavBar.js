@@ -92,7 +92,7 @@ const Navbar = () => {
           <IconButton
             aria-label="Dashboard"
             onClick={() => handleNavigationLink("/dashboard")}
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             sx={{
               color:
                 router.asPath === "/dashboard"
@@ -107,7 +107,7 @@ const Navbar = () => {
           </IconButton>
           <IconButton
             aria-label="Projects"
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             sx={{
               color:
                 router.asPath.split("/")[1] === "projects" ||
@@ -156,7 +156,7 @@ const Navbar = () => {
 
           <IconButton
             aria-label="Progress"
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             onClick={() => handleNavigationLink("/progress")}
             sx={{
               color:
@@ -173,7 +173,7 @@ const Navbar = () => {
 
           <IconButton
             aria-label="References"
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             sx={{
               color:
                 router.asPath.split("/")[1] === "references" ||
@@ -215,7 +215,7 @@ const Navbar = () => {
           <IconButton
             aria-label="Profile"
             onClick={() => handleNavigationLink("/profile")}
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             sx={{
               color:
                 router.asPath === "/profile"
@@ -230,7 +230,7 @@ const Navbar = () => {
           </IconButton>
           <IconButton
             aria-label="Logout"
-            className="text-2xl p-1 sm:text-3xl sm:p-2"
+            className="text-3xl p-1 sm:text-4xl sm:p-2"
             sx={{
               color: "primary.dark",
               "&:hover": {
