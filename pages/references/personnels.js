@@ -102,16 +102,12 @@ const Personnels = () => {
       headerName: "Standby",
       width: 100,
       sortable: false,
-      filterable: false,
-      disableColumnMenu: true,
     },
     {
       field: "status",
       headerName: "Status",
       width: 100,
       sortable: false,
-      filterable: false,
-      disableColumnMenu: true,
     },
     {
       field: "actions",

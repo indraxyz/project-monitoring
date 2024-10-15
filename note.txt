@@ -67,7 +67,7 @@ MENU, PAGES, MODUL :
     //AppBar, Popover
 Onboarding
     login  /ui✅ header footer
-    signup /ui✅ //approvel oleh superuser
+    signup /ui✅ //data user dibuatkan oleh superuser > new user tersebut bisa mendaftar
     lupa sandi /ui✅ // kirim ke email
 Dashboard /ui ✅
     highlight progress
@@ -88,9 +88,9 @@ progress ui✅
     // form cari > data project > history status project (ui vertical step) > form progress 
 References  / super-lead 
     personnels / ui✅
-    //crud, cari + filter, list + detail /ui
+    //crud, cari + filter, list + detail
     clients /ui✅
-    //crud, cari + filter, list + detail /ui
+    //crud, cari + filter, list + detail
     users /ui✅
     //crud, cari + filter, list + detail   
 Profile /ui✅

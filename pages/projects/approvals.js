@@ -22,7 +22,6 @@ import {
 import { DataGrid } from "@mui/x-data-grid";
 import {
   VerifiedRounded,
-  BusinessCenterRounded,
   TimelineRounded,
   FilterAltRounded,
   SearchRounded,
@@ -32,6 +31,7 @@ import {
   DescriptionRounded,
   ReceiptLongRounded,
   AttachFileRounded,
+  MoreRounded,
 } from "@mui/icons-material";
 
 const dummyProgress = [{}];
@@ -270,7 +270,7 @@ const Approvals = () => {
               setDialogDetailProject(true);
             }}
           >
-            <BusinessCenterRounded />
+            <MoreRounded />
           </IconButton>
         </>
       ),

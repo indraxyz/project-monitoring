@@ -567,6 +567,11 @@ class Users extends Component {
                   control={<Radio />}
                   label="Operation"
                 />
+                <FormControlLabel
+                  value="finance"
+                  control={<Radio />}
+                  label="Finance"
+                />
               </RadioGroup>
             </FormControl>
           </DialogContent>
@@ -604,7 +609,7 @@ class Users extends Component {
             </List>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => _closeDialog("info")}>Close</Button>
+            <Button onClick={() => this._closeDialog("info")}>Close</Button>
           </DialogActions>
         </Dialog>
       </Layout>
