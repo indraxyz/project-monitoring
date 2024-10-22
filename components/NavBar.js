@@ -85,7 +85,7 @@ const Navbar = () => {
             sx={{ flexGrow: 1 }}
             className="tracking-widest"
           >
-            Spektra
+            CompanyX
           </Typography>
 
           {/* icon menu */}
