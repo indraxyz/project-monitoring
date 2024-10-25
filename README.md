@@ -4,22 +4,21 @@ monitoring project progress
 
 ## Tech Stack
 
-main language = Javascript
-frontend = nextjs, emotion, materialui, tailwindcss, reactjs
-nextjs = ui framework base on reactjs
-emotionJs = writing css styles with JavaScript
-materialui = Reactjs components library
-tailwindcss = css framework
-
-backend = -
+    (frontend)
+    main language = Javascript
+    frontend = nextjs, emotion, materialui, tailwindcss, reactjs
+    nextjs = ui framework base on reactjs
+    emotionJs = writing css styles with JavaScript
+    materialui = Reactjs components library
+    tailwindcss = css framework
 
 ## Project Directory
 
-components = reusable components
-config = additional settings
-pages = pages for nextjs
-public = static files
-styles = style files
+    components = reusable components
+    config = additional settings
+    pages = pages for nextjs
+    public = static files
+    styles = style files
 
 ## Run Locally
 
