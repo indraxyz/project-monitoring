@@ -23,9 +23,9 @@ styles = style files
 
 ## Run Locally
 
-download or Clone this project
-install package
-prepare and start your local server
+    download or Clone this project
+    install package
+    prepare and start your local server
 
 ## Authors
 
