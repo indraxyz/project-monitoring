@@ -1,12 +1,11 @@
 # About
 
-monitoring project progress
+monitoring project progress, main focus on register, approvals, progress
 
 ## Tech Stack
 
     (frontend)
     main language = Javascript
-    frontend = nextjs, emotion, materialui, tailwindcss, reactjs
     nextjs = ui framework base on reactjs
     emotionJs = writing css styles with JavaScript
     materialui = Reactjs components library
@@ -24,7 +23,7 @@ monitoring project progress
 
     download or Clone this project
     install package
-    prepare and start your local server
+    prepare your server and start the project
 
 ## Authors
 
