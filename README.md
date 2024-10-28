@@ -1,6 +1,11 @@
 # About
+monitoring project progress, main focus on register, approvals, progress. (ui only)
 
-monitoring project progress, main focus on register, approvals, progress
+## Features
+    login, logout
+    forgot password, signup
+    dashboard (monitoring progress/ status project)
+    register, approvals, progress, references (master data), my profile
 
 ## Tech Stack
 
