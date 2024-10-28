@@ -28,3 +28,12 @@ monitoring project progress, main focus on register, approvals, progress
 ## Authors
 
 [@indraxyz](https://www.github.com/indraxyz)
+
+## views
+
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/login.png">
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/dashboard.png">
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-register.png">
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-approval.png">
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-progress.png">
+<img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/master-data.png">
