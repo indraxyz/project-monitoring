@@ -35,10 +35,15 @@ monitoring project progress, main focus on register, approvals, progress. (ui on
 [@indraxyz](https://www.github.com/indraxyz)
 
 ## views
-
+Login
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/login.png">
+Dashboard
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/dashboard.png">
+Project Register
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-register.png">
+Project approval
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-approval.png">
+Project progress
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/project-progress.png">
+manage master data
 <img src="https://github.com/indraxyz/project-monitoring/blob/main/screenshots/master-data.png">
