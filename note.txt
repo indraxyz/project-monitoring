@@ -110,7 +110,6 @@ register project > job schedule (personnels work sheet (dari kertas manual)) > t
 DEPLOY TO SHARED WEBHOSTING NODEJS
 https://www.jagoanhosting.com/tutorial/tutorial-cpanel-2/cara-upload-nextjs-di-hosting-cpanel 
 npm run build (build production file)
-zip file (all file kecuali node_modules)
+zip file (all file kecuali folder node_modules, styles, pages, config, components )
 upload dan extract ke direktori tujuan pada hosting
-edit package.json (script start) >> cross-env NODE_ENV=production node server.js
 buat node.js app > stop dulu > install package > start app

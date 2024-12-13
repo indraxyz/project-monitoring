@@ -101,13 +101,16 @@ const Welcome = () => {
       <div className="md:min-h-screen">
         {/* card */}
         <div className="max-w-5xl mx-auto pt-6 pb-8 md:p-6 md:shadow-lg bg-white">
-          <Image
+          {/* <Image
             className="h-18 m-4 md:h-20 "
             src={LogoPt}
             alt="avatar"
             priority
             style={{ width: "auto", height: "auto" }}
-          ></Image>
+          ></Image> */}
+          <span className="text-2xl font-bold mb-8 mt-6 block md:mt-0">
+            CompanyX
+          </span>
           <div className="w-full flex flex-col md:flex-row md:space-x-1 ">
             <div className="h-96 md:w-2/3 bg-gray-100">
               {/* image slider */}
@@ -127,7 +130,7 @@ const Welcome = () => {
             </div>
 
             <div className="md:w-1/3 md:pl-4 md:m-0 m-4 pb-28">
-              <span className="text-2xl font-bold mb-4 mt-6 block md:mt-0">
+              <span className="text-xl font-bold mb-4 mt-6 block md:mt-0">
                 Project Monitoring
               </span>
               {/* <span>Project Monitoring</span> */}
