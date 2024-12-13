@@ -30,7 +30,7 @@ import {
   InfoRounded,
 } from "@mui/icons-material";
 
-let searchTimer;
+let delayTimer;
 
 class Users extends Component {
   state = {
@@ -242,20 +242,21 @@ class Users extends Component {
     });
   };
   suggestSearch = (e) => {
-    if (e.target.value !== "") {
-      if (e.key != "Enter") {
-        clearTimeout(searchTimer);
-        searchTimer = setTimeout(() => {
-          console.log("suggest " + e.target.value);
-        }, 1500);
-      }
+    if (e.target.value.length > 2 && e.code != "Enter") {
+      // if (e.code != "Enter") {
+      clearTimeout(delayTimer);
+      delayTimer = setTimeout(() => {
+        console.log("suggest " + e.target.value);
+      }, 1000);
+
+      // }
     } else {
-      clearTimeout(searchTimer);
+      clearTimeout(delayTimer);
     }
   };
   enterSearch = (e) => {
     if (e.key == "Enter") {
-      clearTimeout(searchTimer); //clear suggest
+      clearTimeout(delayTimer); //clear suggest
       this.localSearch(e.target.value);
     }
   };
@@ -371,13 +372,16 @@ class Users extends Component {
                   }}
                 />
               )}
-              onKeyUp={this.suggestSearch}
               options={copyDatas.map((option) => option.fullname)}
-              onKeyDown={this.enterSearch}
               onInputChange={(e, v) => {
+                this.suggestSearch(e);
                 this.setState({ searchKey: v });
               }}
               onChange={this.selectedSearch}
+              onKeyDown={(e) =>
+                e.code == "Enter" &&
+                console.log("direct search " + this.state.searchKey)
+              }
             />
             {/* <div className="pt-4">
               <span>filter properties</span>

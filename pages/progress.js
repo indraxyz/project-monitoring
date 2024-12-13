@@ -282,7 +282,7 @@ const Progress = () => {
             <InputLabel>Level</InputLabel>
             <Select
               name="level"
-              defaultValue={"-"}
+              defaultValue={""}
               // value={profileValue.department}
               // onChange={_changeProfileValue}
             >
